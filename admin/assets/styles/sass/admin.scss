@@ -1,0 +1,329 @@
+@import "_utility";
+
+#cue-section {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	margin-bottom: 20px;
+	padding: 10px;
+
+	.cue-section-title {
+		font-size: 16px;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.cue-tracklist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.cue-track {
+	background: #fff;
+	margin: 10px 0 0 0;
+	padding: 0;
+
+	&.ui-sortable-helper {
+		background: #f9f9f9;
+		border-top: 1px solid #dfdfdf;
+		border-bottom: 1px solid #dfdfdf;
+	}
+}
+
+.cue-track-title {
+	background: #fafafa;
+	border: 1px solid #dfdfdf;
+	cursor: move;
+	margin: 0;
+	padding: 10px 20px;
+	position: relative;
+
+	.cue-track-toggle {
+		@extend .cue-dashicon;
+
+		font-size: 20px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		text-align: right;
+		vertical-align: middle;
+		width: 40px;
+
+		&:before {
+			box-sizing: border-box;
+			color: #aaa;
+			content: "\f140"; // Down arrow.
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			bottom: 10px;
+			left: 0;
+			vertical-align: middle;
+		}
+
+		&:hover {
+			&:before {
+				color: #777;
+			}
+		}
+
+		.is-open &:before {
+			content: "\f142"; // Up arrow.
+		}
+	}
+
+	&:hover {
+		border-color: #999;
+	}
+}
+
+.cue-track-inside {
+	border-color: #e5e5e5;
+	border-style: solid;
+	border-width: 0 1px 1px 1px;
+	display: none;
+	margin: 0;
+	padding: 10px;
+
+	input.regular-text {
+		max-width: 100%;
+	}
+
+	.is-open & {
+		display: block;
+	}
+}
+
+.cue-track-audio-group {
+	@include clearfix();
+
+	border-bottom: 1px solid #e5e5e5;
+	margin: 0 -10px 20px;
+	padding: 0 10px 10px 150px;
+
+	.cue-track-audio-selector {
+		float: left;
+		margin: 0 0 0 -140px;
+		padding-right: 7px;
+		padding-left: 5px;
+		width: 120px;
+
+		&:before {
+			@extend .cue-dashicon;
+
+			color: #888;
+			content: "\f127";
+			font-size: 16px;
+			height: 18px;
+			margin: 0 5px 0 2px;
+			vertical-align: text-top;
+			width: 18px;
+		}
+	}
+}
+
+.cue-track-audio {
+	.mejs-container {
+		background: #fff;
+		width: 100%;
+	}
+
+	.mejs-controls {
+		background: none;
+		background: #fff;
+
+		.mejs-playpause-button {
+			height: 30px;
+			width: 30px;
+
+			button {
+				@extend .cue-genericon;
+
+				background: none;
+				color: #555;
+				font-size: 20px;
+				height: 30px;
+				margin: 0;
+				width: 30px;
+
+				&:focus {
+					outline: 0;
+				}
+			}
+		}
+
+		.mejs-pause button:before {
+			content: "\f448";
+		}
+
+		.mejs-play button:before {
+			content: "\f452";
+		}
+
+		.mejs-time,
+		.mejs-time span {
+			color: #555;
+		}
+
+		.mejs-time-rail {
+			background-clip: padding-box;
+			border-radius: 2px;
+
+			.cuemejs-time-current {
+				width: 0;
+			}
+
+			.mejs-time-loaded {
+				background: #999;
+			}
+
+			.mejs-time-total {
+				background: #e0e0e0;
+			}
+		}
+	}
+}
+
+.cue-track-column-group {
+	@extend .clearfix;
+
+	padding-left: 140px;
+
+	.cue-track-column {
+		float: left;
+		width: 48%;
+
+		p {
+			margin-top: 0;
+		}
+	}
+
+	.cue-track-column-artwork {
+		margin-left: -140px;
+		width: 120px;
+	}
+
+	.cue-track-column-right {
+		float: right;
+	}
+}
+
+.cue-track-artwork {
+	$artwork-size: 120px;
+
+	background-clip: padding-box;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.13);
+	box-sizing: border-box;
+	cursor: pointer;
+	float: left;
+	height: $artwork-size;
+	position: relative;
+	width: $artwork-size;
+
+	&:before {
+		@extend .cue-dashicon;
+
+		color: #e5e5e5;
+		content: "\f128";
+		font-size: 30px;
+		height: 100%;
+		line-height: $artwork-size;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	img {
+		border-radius: 3px;
+		display: block;
+		height: $artwork-size;
+		width: $artwork-size;
+	}
+
+	&:hover{
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+
+		&:before {
+			color: #333;
+		}
+	}
+
+	.has-artwork &:before {
+		display: none;
+	}
+}
+
+.cue-track-actions {
+	clear: both;
+	line-height: 1;
+	text-align: right;
+
+	a {
+		cursor: pointer;
+	}
+
+	.cue-track-remove:hover {
+		color: #ff0000;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.cue-track-title {
+		padding-top: 15px;
+		padding-bottom: 15px;
+
+		.cue-track-toggle {
+			font-size: 24px;
+		}
+	}
+
+	.cue-track-audio {
+		.mejs-container {
+			.mejs-controls {
+				.mejs-currenttime,
+				.mejs-duration {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.cue-track-audio {
+		.mejs-container {
+			margin-top: 5px;
+
+			.mejs-controls {
+				// Give the play button some breathing room
+				// and make it a little bigger.
+				.mejs-playpause-button {
+					width: 40px;
+
+					button {
+						font-size: 24px;
+						width: 40px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 974px) {
+	.cue-track-column-group {
+		.track-column-left,
+		.track-column-right {
+			float: none;
+			width: auto;
+		}
+	}
+}
