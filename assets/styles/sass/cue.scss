@@ -321,6 +321,7 @@
 	}
 
 	.mejs-player-background {
+		filter: blur(5px);
 		height: auto;
 		max-width: 120%;
 		opacity: 0.9;
