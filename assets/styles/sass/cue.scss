@@ -326,12 +326,13 @@
 		max-width: 120%;
 		opacity: 0.9;
 		position: absolute;
-		top: 50%;
+		top: -50%;
 		right: -10%;
 		left: -10%;
-		transform: translate(0, -50%);
+		//transform: translate(0, -50%);
 		width: 120%;
 		z-index: 0;
+		//-webkit-backface-visibility: hidden;
 	}
 
 	.mejs-audiotheme-mark {
