@@ -47,6 +47,14 @@ module.exports = function( grunt ) {
 			]
 		},
 
+		makepot: {
+			plugin: {
+				options: {
+					type: 'wp-plugin'
+				}
+			}
+		},
+
 		sass: {
 			plugin: {
 				options: {

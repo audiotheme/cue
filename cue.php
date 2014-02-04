@@ -49,7 +49,7 @@ class Cue {
 	 */
 	protected function load_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'cue' );
-		load_textdomain( 'cue', WP_LANG_DIR . '/cue/' . $locale . '.mo' );
+		load_textdomain( 'cue', WP_LANG_DIR . '/cue/cue-' . $locale . '.mo' );
 		load_plugin_textdomain( 'cue', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
