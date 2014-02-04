@@ -1,7 +1,7 @@
 {
   "name": "cue",
   "description": "Create beautiful, fully responsive audio playlists in WordPress.",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "homepage": "http://audiotheme.com/",
   "author": {
     "name": "Brady Vercher",
