@@ -1,5 +1,5 @@
 === Cue ===
-Contributors: audiotheme, bradyvercher, brodyvercher
+Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 3.8
 Tested up to: 3.8.1
