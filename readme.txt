@@ -61,5 +61,8 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix a bug where multiple playlists on a page would all include the same tracks.
+
 = 1.0 =
 * Initial release.
