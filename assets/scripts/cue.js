@@ -100,7 +100,7 @@ window.cue = window.cue || {};
 				data = $.parseJSON( $playlist.find( '.cue-playlist-data' ).html() );
 
 			// Add the tracks.
-			if ( ! settings.cuePlaylistTracks.length ) {
+			if ( 'undefined' === typeof options || 'undefined' === typeof options.cuePlaylistTracks ) {
 				settings.cuePlaylistTracks = data.tracks;
 			}
 
