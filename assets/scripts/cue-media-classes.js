@@ -50,7 +50,7 @@
 			if ( doCallback && $elems.length ) {
 				doCallback = false;
 
-				setTimeout( function() {
+				setTimeout(function() {
 					mediaClasses.update( $elems );
 					doCallback = true;
 				}, $.fn.cueMediaClasses.defaults.resizeDelay );
