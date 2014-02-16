@@ -152,7 +152,7 @@ class Cue {
 			'show_in_admin_bar'  => false,
 			'show_in_menu'       => true,
 			'show_in_nav_menus'  => false,
-			'supports'           => array( 'title', 'thumbnail' ),
+			'supports'           => array( 'title' ),
 		);
 
 		$args = apply_filters( 'cue_playlist_args', $args );
