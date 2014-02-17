@@ -37,6 +37,10 @@ class Cue {
 		self::define_constants();
 		self::includes();
 
+		if ( is_admin() ) {
+			self::load_admin();
+		}
+
 		add_action( 'init', array( $this, 'init' ), 15 );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_action( 'cue_before_playlist', array( $this, 'enqueue_assets' ) );
@@ -85,9 +89,19 @@ class Cue {
 
 		// Load the admin.
 		if ( is_admin() ) {
-			require( CUE_DIR . 'admin/admin.php' );
+			require( CUE_DIR . 'admin/includes/class-cue-admin.php' );
 			require( CUE_DIR . 'admin/includes/ajax.php' );
 		}
+	}
+
+	/**
+	 * Load admin functionality.
+	 *
+	 * @since 1.1.0
+	 */
+	protected function load_admin() {
+		$admin = new Cue_Admin();
+		$admin->load();
 	}
 
 	/**

@@ -16,7 +16,6 @@
 function cue_ajax_get_playlist() {
 	wp_send_json_success( get_cue_playlist_tracks( $_POST['post_id'], 'edit' ) );
 }
-add_action( 'wp_ajax_cue_get_playlist', 'cue_ajax_get_playlist' );
 
 /**
  * AJAX callback to save a playlist's tracks.
@@ -56,4 +55,3 @@ function cue_ajax_save_playlist_tracks() {
 	// Send the response.
 	wp_send_json_success( $data );
 }
-add_action( 'wp_ajax_cue_save_playlist_tracks', 'cue_ajax_save_playlist_tracks' );

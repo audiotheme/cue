@@ -147,3 +147,102 @@ function sanitize_cue_track( $track, $context = 'display' ) {
 
 	return apply_filters( 'cue_sanitize_track', $track, $context );
 }
+
+/**
+ * Display a theme-registered player.
+ *
+ * @since 1.1.0
+ *
+ * @param string $player_id Player ID.
+ * @param array $args
+ */
+function cue_player( $player_id, $args = array() ) {
+	$playlist_id = get_cue_player_playlist_id( $player_id );
+	$tracks = get_cue_playlist_tracks( $playlist_id );
+
+	$template_names = array(
+		"player-{$player_id}.php",
+		"player.php",
+	);
+
+	// Prepend custom templates.
+	if ( ! empty( $args['template'] ) ) {
+		$add_templates = array_filter( (array) $args['template'] );
+		$template_names = array_merge( $add_templates, $template_names );
+	}
+
+	$template_loader = new Cue_Template_Loader();
+	$template = $template_loader->locate_template( $template_names );
+
+	do_action( 'cue_before_player' );
+
+	include( $template );
+
+	do_action( 'cue_after_player' );
+}
+
+/**
+ * Retrieve a list of players registered by the current them.
+ *
+ * Includes the player id, name and associated playlist if one has been saved.
+ *
+ * @since 1.1.0
+ *
+ * @return array
+ */
+function get_cue_players() {
+	$players = array();
+	$assigned = get_theme_mod( 'cue_players', array() );
+
+	/**
+	 * List of registered players.
+	 *
+	 * Format: array( 'player_id' => 'Player Name' )
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param array $players List of players.
+	 */
+	$registered = apply_filters( 'cue_players', array() );
+
+	if ( ! empty( $registered ) ) {
+		asort( $registered );
+		foreach ( $registered as $id => $name ) {
+			$playlist_id = isset( $assigned[ $id ] ) ? $assigned[ $id ] : 0;
+
+			$players[ $id ] = array(
+				'id'          => $id,
+				'name'        => $name,
+				'playlist_id' => $playlist_id,
+			);
+		}
+	}
+
+	return $players;
+}
+
+/**
+ * Retreive the ID of a playlist connected to a player.
+ *
+ * @since 1.1.0
+ *
+ * @param string $player_id Player ID.
+ * @return int
+ */
+function get_cue_player_playlist_id( $player_id ) {
+	$players = get_theme_mod( 'cue_players', array() );
+	return isset( $players[ $player_id ] ) ? $players[ $player_id ] : 0;
+}
+
+/**
+ * Retrieve playlist tracks for a registered player.
+ *
+ * @since 1.1.0
+ *
+ * @param string $player_id Player ID.
+ * @return array
+ */
+function get_cue_player_tracks( $player_id ) {
+	$playlist_id = get_cue_player_playlist_id( $player_id );
+	return get_cue_playlist_tracks( $playlist_id );
+}
