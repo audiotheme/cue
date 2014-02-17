@@ -22,8 +22,8 @@ class Cue_Admin {
 	 */
 	public function load() {
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
-		add_filter( 'wp_prepare_attachment_for_js', 'prepare_audio_attachment_for_js', 20, 3 );
-		add_filter( 'wp_prepare_attachment_for_js', 'prepare_image_attachment_for_js', 20, 3 );
+		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_audio_attachment_for_js' ), 20, 3 );
+		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_image_attachment_for_js' ), 20, 3 );
 
 		add_action( 'add_meta_boxes_cue_playlist', array( $this, 'load_playlist_edit_screen' ) );
 		add_action( 'save_post_cue_playlist', array( $this, 'save_playlist_players' ) );
