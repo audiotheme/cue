@@ -158,27 +158,15 @@ function sanitize_cue_track( $track, $context = 'display' ) {
  */
 function cue_player( $player_id, $args = array() ) {
 	$playlist_id = get_cue_player_playlist_id( $player_id );
-	$tracks = get_cue_playlist_tracks( $playlist_id );
 
-	$template_names = array(
-		"player-{$player_id}.php",
-		"player.php",
+	$args = array(
+		'template' => array(
+			"player-{$player_id}.php",
+			"player.php",
+		),
 	);
 
-	// Prepend custom templates.
-	if ( ! empty( $args['template'] ) ) {
-		$add_templates = array_filter( (array) $args['template'] );
-		$template_names = array_merge( $add_templates, $template_names );
-	}
-
-	$template_loader = new Cue_Template_Loader();
-	$template = $template_loader->locate_template( $template_names );
-
-	do_action( 'cue_before_player' );
-
-	include( $template );
-
-	do_action( 'cue_after_player' );
+	cue_playlist( $playlist_id, $args );
 }
 
 /**
