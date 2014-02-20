@@ -12,6 +12,7 @@
  * Display a playlist.
  *
  * @since 1.0.0
+ * @todo Add an arg to specify a template path that doesn't exist in the /cue directory.
  *
  * @param mixed $post A post ID, WP_Post object or post slug.
  * @param array $args
@@ -29,6 +30,10 @@ function cue_playlist( $post, $args = array() ) {
 	}
 
 	$tracks = get_cue_playlist_tracks( $post );
+
+	if ( ! isset( $args['enqueue'] ) || $args['enqueue'] ) {
+		Cue::enqueue_assets();
+	}
 
 	$template_names = array(
 		"playlist-{$post->ID}.php",
@@ -50,31 +55,6 @@ function cue_playlist( $post, $args = array() ) {
 	include( $template );
 
 	do_action( 'cue_after_playlist' );
-}
-
-/**
- * Playlist shortcode handler.
- *
- * @since 1.0.0
- *
- * @param array $atts Optional. List of shortcode attributes.
- * @return string HTML output.
- */
-function cue_shortcode_handler( $atts = array() ) {
-	$atts = shortcode_atts(
-		array(
-			'id'       => 0,
-			'template' => '',
-		),
-		$atts
-	);
-
-	$id = $atts['id'];
-	unset( $atts['id'] );
-
-	ob_start();
-	cue_playlist( $id, $atts );
-	return ob_get_clean();
 }
 
 /**
@@ -160,6 +140,7 @@ function cue_player( $player_id, $args = array() ) {
 	$playlist_id = get_cue_player_playlist_id( $player_id );
 
 	$args = array(
+		'enqueue'  => false,
 		'template' => array(
 			"player-{$player_id}.php",
 			"player.php",
