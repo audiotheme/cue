@@ -25,7 +25,7 @@ function cue_playlist( $post, $args = array() ) {
 		$post = get_post( $post );
 	}
 
-	if ( ! $post ) {
+	if ( ! $post || 'cue_playlist' !== get_post_type( $post ) ) {
 		return;
 	}
 
