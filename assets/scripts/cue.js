@@ -62,6 +62,7 @@ window.cue = window.cue || {};
 	$.fn.cuePlaylist = function( options ) {
 		var settings = $.extend({
 			autosizeProgress: false,
+			cueBackgroundUrl: '',
 			cuePlaylistTracks: [],
 			cueResponsiveProgress: true,
 			cueSkin: 'cue-skin-default',
@@ -97,11 +98,21 @@ window.cue = window.cue || {};
 		return this.each(function() {
 			var $playlist = $( this ),
 				$media = $playlist.find( '.cue-audio' ),
-				data = $.parseJSON( $playlist.find( '.cue-playlist-data' ).html() );
+				$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' ),
+				data;
 
-			// Add the tracks.
-			if ( 'undefined' === typeof options || 'undefined' === typeof options.cuePlaylistTracks ) {
-				settings.cuePlaylistTracks = data.tracks;
+			if ( $data.length ) {
+				data = $.parseJSON( $data.first().html() );
+
+				// Set the background image source.
+				if ( ( 'undefined' === typeof options || 'undefined' === typeof options.cueBackgroundUrl ) && 'thumbnail' in data ) {
+					settings.cueBackgroundUrl = data.thumbnail;
+				}
+
+				// Add the tracks.
+				if ( ( 'undefined' === typeof options || 'undefined' === typeof options.cuePlaylistTracks ) && 'tracks' in data ) {
+					settings.cuePlaylistTracks = data.tracks;
+				}
 			}
 
 			// Blur the background image when it's created.
@@ -109,8 +120,10 @@ window.cue = window.cue || {};
 				player.container.find( '.mejs-player-background' ).Vague({ intensity: 10 }).blur();
 			});
 
-			// Initialize MediaElement.js.
-			$media.mediaelementplayer( settings );
+			if ( settings.cuePlaylistTracks.length ) {
+				// Initialize MediaElement.js.
+				$media.mediaelementplayer( settings );
+			}
 		});
 	};
 

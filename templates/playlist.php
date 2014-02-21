@@ -14,6 +14,4 @@
 			</li>
 		<?php endforeach; ?>
 	</ol>
-
-	<script type="application/json" class="cue-playlist-data"><?php echo json_encode( array( 'tracks' => $tracks ) ); ?></script>
 </div>

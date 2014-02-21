@@ -50,11 +50,15 @@ function cue_playlist( $post, $args = array() ) {
 	$template_loader = new Cue_Template_Loader();
 	$template = $template_loader->locate_template( $template_names );
 
-	do_action( 'cue_before_playlist' );
+	echo '<div class="cue-playlist-container">';
 
-	include( $template );
+		do_action( 'cue_before_playlist', $post, $tracks );
 
-	do_action( 'cue_after_playlist' );
+		include( $template );
+
+		do_action( 'cue_after_playlist', $post, $tracks );
+
+	echo '</div>';
 }
 
 /**

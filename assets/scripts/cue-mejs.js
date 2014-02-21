@@ -18,6 +18,7 @@ window.cue = window.cue || {};
 	 * Add additional options to MediaElement.js.
 	 */
 	$.extend( mejs.MepDefaults, {
+		cueBackgroundUrl: '',
 		cuePlaylistTracks: [],
 		cueResponsiveProgress: false, // Set the progress bar to 100% on window resize.
 		cueSelectors: {
@@ -67,7 +68,10 @@ window.cue = window.cue || {};
 		},
 
 		buildcuebackground: function( player, controls, layers, media ) {
-			player.container.append( '<img src="" class="mejs-player-background">' );
+			player.container.append( $( '<img />', {
+				'class': 'mejs-player-background',
+				src: player.options.cueBackgroundUrl
+			}));
 			player.$node.trigger( 'backgroundCreate.cue', player );
 		},
 
@@ -129,7 +133,8 @@ window.cue = window.cue || {};
 
 		cueSetCurrentTrack: function( track, play ) {
 			var player = this,
-				selectors = player.options.cueSelectors;
+				selectors = player.options.cueSelectors,
+				$artwork = player.layers.find( '.mejs-track-artwork' );
 
 			if ( 'number' === typeof track ) {
 				player.cueCurrentTrack = track;
@@ -141,9 +146,15 @@ window.cue = window.cue || {};
 				.eq( player.cueCurrentTrack ).addClass( 'is-current' );
 
 			player.layers.find( '.mejs-track-artist' ).html( track.artist );
-			player.layers.find( '.mejs-track-artwork img' ).attr( 'src', track.artworkUrl );
 			player.layers.find( '.mejs-track-title' ).html( track.title );
-			player.container.find( '.mejs-player-background' ).attr( 'src', track.artworkUrl );
+
+			// Set the artwork src and toggle depending on if the URL is empty.
+			$artwork.find( 'img' ).attr( 'src', track.artworkUrl ).toggle( '' !== track.artworkUrl );
+
+			// Set the background image to be the same as the artwork if one hasn't been defined.
+			if ( '' === player.options.cueBackgroundUrl ) {
+				player.container.find( '.mejs-player-background' ).attr( 'src', track.artworkUrl );
+			}
 
 			if ( track.length ) {
 				player.controls.find( '.mejs-duration' ).text( track.length );

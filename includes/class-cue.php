@@ -29,6 +29,7 @@ class Cue {
 
 		add_action( 'init', array( $this, 'init' ), 15 );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+		add_action( 'cue_after_playlist', array( $this, 'print_playlist_settings' ), 10, 2 );
 	}
 
 	/**
@@ -110,7 +111,7 @@ class Cue {
 			'show_in_admin_bar'  => false,
 			'show_in_menu'       => true,
 			'show_in_nav_menus'  => false,
-			'supports'           => array( 'title' ),
+			'supports'           => array( 'title', 'thumbnail' ),
 		);
 
 		$args = apply_filters( 'cue_playlist_args', $args );
@@ -156,7 +157,7 @@ class Cue {
 	 * @param array $atts Optional. List of shortcode attributes.
 	 * @return string HTML output.
 	 */
-	function cue_shortcode_handler( $atts = array() ) {
+	public function cue_shortcode_handler( $atts = array() ) {
 		$atts = shortcode_atts(
 			array(
 				'id'       => 0,
@@ -171,5 +172,33 @@ class Cue {
 		ob_start();
 		cue_playlist( $id, $atts );
 		return ob_get_clean();
+	}
+
+	/**
+	 * Print playlist settings as a JSON script tag.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param WP_Post $playlist Playlist post object.
+	 * @param array $tracks List of tracks.
+	 */
+	public function print_playlist_settings( $playlist, $tracks ) {
+		$thumbnail = '';
+		if ( has_post_thumbnail( $playlist->ID ) ) {
+			$thumbnail_id = get_post_thumbnail_id( $playlist->ID );
+			$size = apply_filters( 'cue_artwork_size', array( 300, 300 ) );
+			$image = image_downsize( $thumbnail_id, $size );
+			$thumbnail = $image[0];
+		}
+		?>
+		<script type="application/json" class="cue-playlist-data">
+			<?php
+			echo json_encode( array(
+				'thumbnail' => $thumbnail,
+				'tracks'    => $tracks,
+			) );
+			?>
+		</script>
+		<?php
 	}
 }
