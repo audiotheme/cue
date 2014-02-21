@@ -84,5 +84,6 @@ function cue_autoloader( $class ) {
 spl_autoload_register( 'cue_autoloader' );
 
 // Instantiate and load the plugin.
-$GLOBALS['cue'] = new Cue();
+global $cue;
+$cue = new Cue();
 add_action( 'plugins_loaded', array( $cue, 'load_plugin' ) );
