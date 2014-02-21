@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Cue package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cue 1.0.0-beta\n"
+"Project-Id-Version: Cue 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/cue\n"
-"POT-Creation-Date: 2014-02-04 18:50:54+00:00\n"
+"POT-Creation-Date: 2014-02-21 06:35:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,109 +12,120 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/admin.php:46 admin/admin.php:62
-msgid "Add Tracks"
+#: admin/includes/class-cue-admin.php:49
+msgid "Players"
 msgstr ""
 
-#: admin/admin.php:47
-msgid "Add from URL"
-msgstr ""
-
-#: admin/admin.php:50
-msgid "Image Files"
-msgstr ""
-
-#: admin/admin.php:51
-msgid "Choose an Image"
-msgstr ""
-
-#: admin/admin.php:52
-msgid "Update Image"
-msgstr ""
-
-#: admin/admin.php:55 admin/admin.php:60
-msgid "Audio Files"
-msgstr ""
-
-#: admin/admin.php:56
-msgid "Choose an Audio File"
-msgstr ""
-
-#: admin/admin.php:57
-msgid "Update Audio"
-msgstr ""
-
-#: admin/admin.php:61
-msgid "Choose Tracks"
-msgstr ""
-
-#: admin/admin.php:70
+#: admin/includes/class-cue-admin.php:59
 msgid "Shortcode"
 msgstr ""
 
-#: admin/admin.php:92
+#: admin/includes/class-cue-admin.php:106
+#: admin/includes/class-cue-admin.php:122
+msgid "Add Tracks"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:107
+msgid "Add from URL"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:110
+msgid "Image Files"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:111
+msgid "Choose an Image"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:112
+msgid "Update Image"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:115
+#: admin/includes/class-cue-admin.php:120
+msgid "Audio Files"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:116
+msgid "Choose an Audio File"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:117
+msgid "Update Audio"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:121
+msgid "Choose Tracks"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:175
 msgid "Tracks"
 msgstr ""
 
-#: admin/admin.php:94
+#: admin/includes/class-cue-admin.php:177
 msgid ""
 "Add tracks to the playlist, then drag and drop to reorder them. Click the "
 "arrow on the right of each item to reveal more configuration options."
 msgstr ""
 
-#: admin/admin.php:110
+#: admin/includes/class-cue-admin.php:194
+msgid "Choose which players should use this playlist:"
+msgstr ""
+
+#: admin/includes/class-cue-admin.php:218
 msgid ""
 "Copy and paste the following shortcode into a post or page to embed this "
 "playlist."
 msgstr ""
 
-#: admin/admin.php:209 admin/admin.php:212
+#: admin/includes/class-cue-admin.php:243
+#: admin/includes/class-cue-admin.php:246
 msgid "Playlist updated."
 msgstr ""
 
-#: admin/admin.php:210
+#: admin/includes/class-cue-admin.php:244
 msgid "Custom field updated."
 msgstr ""
 
-#: admin/admin.php:211
+#: admin/includes/class-cue-admin.php:245
 msgid "Custom field deleted."
 msgstr ""
 
-#: admin/admin.php:214
+#: admin/includes/class-cue-admin.php:248
 #. translators: %s: date and time of the revision
 msgid "Playlist restored to revision from %s"
 msgstr ""
 
-#: admin/admin.php:216
+#: admin/includes/class-cue-admin.php:250
 msgid "Playlist published."
 msgstr ""
 
-#: admin/admin.php:217
+#: admin/includes/class-cue-admin.php:251
 msgid "Playlist saved."
 msgstr ""
 
-#: admin/admin.php:218
+#: admin/includes/class-cue-admin.php:252
 msgid "Playlist submitted."
 msgstr ""
 
-#: admin/admin.php:219
+#: admin/includes/class-cue-admin.php:253
 msgid "Playlist scheduled for: <strong>%1$s</strong>."
 msgstr ""
 
-#: admin/admin.php:221
+#: admin/includes/class-cue-admin.php:255
 #. translators: Publish box date format, see http:php.net/date
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: admin/admin.php:222
+#: admin/includes/class-cue-admin.php:256
 msgid "Playlist draft updated."
 msgstr ""
 
-#: admin/admin.php:229
+#: admin/includes/class-cue-admin.php:263
 msgid "View playlist"
 msgstr ""
 
-#: admin/admin.php:238
+#: admin/includes/class-cue-admin.php:272
 msgid "Preview Playlist"
 msgstr ""
 
@@ -154,50 +165,6 @@ msgstr ""
 msgid "Select Audio"
 msgstr ""
 
-#: cue.php:129
-msgid "Add New Playlist"
-msgstr ""
-
-#: cue.php:130
-msgid "Edit Playlist"
-msgstr ""
-
-#: cue.php:131
-msgid "New Playlist"
-msgstr ""
-
-#: cue.php:132
-msgid "View Playlist"
-msgstr ""
-
-#: cue.php:133
-msgid "Search Playlists"
-msgstr ""
-
-#: cue.php:134
-msgid "No playlists found."
-msgstr ""
-
-#: cue.php:135
-msgid "No playlists found in Trash."
-msgstr ""
-
-#: cue.php:136
-msgid "All Playlists"
-msgstr ""
-
-#: cue.php:137
-msgid "Playlists"
-msgstr ""
-
-#: cue.php:177
-msgid "Next Track"
-msgstr ""
-
-#: cue.php:178
-msgid "Previous Track"
-msgstr ""
-
 #: includes/class-cue-widget-playlist.php:20
 msgid "Playlist"
 msgstr ""
@@ -208,6 +175,50 @@ msgstr ""
 
 #: includes/class-cue-widget-playlist.php:88
 msgid "Playlist:"
+msgstr ""
+
+#: includes/class-cue.php:88
+msgid "Add New Playlist"
+msgstr ""
+
+#: includes/class-cue.php:89
+msgid "Edit Playlist"
+msgstr ""
+
+#: includes/class-cue.php:90
+msgid "New Playlist"
+msgstr ""
+
+#: includes/class-cue.php:91
+msgid "View Playlist"
+msgstr ""
+
+#: includes/class-cue.php:92
+msgid "Search Playlists"
+msgstr ""
+
+#: includes/class-cue.php:93
+msgid "No playlists found."
+msgstr ""
+
+#: includes/class-cue.php:94
+msgid "No playlists found in Trash."
+msgstr ""
+
+#: includes/class-cue.php:95
+msgid "All Playlists"
+msgstr ""
+
+#: includes/class-cue.php:96
+msgid "Playlists"
+msgstr ""
+
+#: includes/class-cue.php:136
+msgid "Next Track"
+msgstr ""
+
+#: includes/class-cue.php:137
+msgid "Previous Track"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -226,22 +237,22 @@ msgstr ""
 msgid "AudioTheme"
 msgstr ""
 
-#: cue.php:126
+#: includes/class-cue.php:85
 msgctxt "post format general name"
 msgid "Playlists"
 msgstr ""
 
-#: cue.php:127
+#: includes/class-cue.php:86
 msgctxt "post format singular name"
 msgid "Playlist"
 msgstr ""
 
-#: cue.php:128
+#: includes/class-cue.php:87
 msgctxt "playlist"
 msgid "Add New"
 msgstr ""
 
-#: cue.php:138
+#: includes/class-cue.php:97
 msgctxt "add new on admin bar"
 msgid "Playlist"
 msgstr ""
