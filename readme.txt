@@ -16,6 +16,7 @@ Cue gives you the ability to easily create stylish playlists and display them an
 * Reorder tracks with a simple drag and drop interface.
 * Seamlessly integrates with WordPress' media manager to select audio and images.
 * Completely responsive to work on any device that supports your chosen audio format.
+* Extends the MediaElement.js script bundled with core.
 
 = AudioTheme Integration =
 
@@ -60,6 +61,16 @@ For more fine-grained control over where the playlist appears, a template tag is
 3. Playlist display on small screens and sidebar widgets.
 
 == Changelog ==
+
+= 1.1.0 =
+* Featured images are now used for the player background image if set.
+* Featured images will also be used as the default track artwork if it's missing.
+* Added a feature to allow themes to register players that can be assigned playlists.
+* Added a default container div around playlists.
+* Updated the default template to remove the JSON settings script. It's now inserted using a hook.
+* Refactored the structure of the codebase.
+* Removed extraneous filters for loading translation files.
+* Fixed a bug in the template loader to prevent general templates from overriding more specific ones.
 
 = 1.0.1 =
 * Fix a bug where multiple playlists on a page would all include the same tracks.
