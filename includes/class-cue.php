@@ -190,15 +190,13 @@ class Cue {
 			$image = image_downsize( $thumbnail_id, $size );
 			$thumbnail = $image[0];
 		}
+
+		$settings = apply_filters( 'cue_playlist_settings', array(
+			'thumbnail' => $thumbnail,
+			'tracks'    => $tracks,
+		) );
 		?>
-		<script type="application/json" class="cue-playlist-data">
-			<?php
-			echo json_encode( array(
-				'thumbnail' => $thumbnail,
-				'tracks'    => $tracks,
-			) );
-			?>
-		</script>
+		<script type="application/json" class="cue-playlist-data"><?php echo json_encode( $settings ); ?></script>
 		<?php
 	}
 }
