@@ -134,7 +134,8 @@ window.cue = window.cue || {};
 		cueSetCurrentTrack: function( track, play ) {
 			var player = this,
 				selectors = player.options.cueSelectors,
-				$artwork = player.layers.find( '.mejs-track-artwork' );
+				$artwork = player.layers.find( '.mejs-track-artwork' ),
+				artworkUrl;
 
 			if ( 'number' === typeof track ) {
 				player.cueCurrentTrack = track;
@@ -149,7 +150,8 @@ window.cue = window.cue || {};
 			player.layers.find( '.mejs-track-title' ).html( track.title );
 
 			// Set the artwork src and toggle depending on if the URL is empty.
-			$artwork.find( 'img' ).attr( 'src', track.artworkUrl ).toggle( '' !== track.artworkUrl );
+			artworkUrl = track.artworkUrl || player.options.cueBackgroundUrl;
+			$artwork.find( 'img' ).attr( 'src', artworkUrl ).toggle( '' !== artworkUrl );
 
 			// Set the background image to be the same as the artwork if one hasn't been defined.
 			if ( '' === player.options.cueBackgroundUrl ) {
