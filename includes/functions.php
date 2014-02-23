@@ -73,6 +73,17 @@ function cue_playlist( $post, $args = array() ) {
 function get_cue_playlist_tracks( $post = 0, $context = 'display' ) {
 	$playlist = get_post( $post );
 	$tracks = array_filter( (array) $playlist->tracks );
+
+	// Add the audio file extension as a key pointing to the audio url.
+	// Helpful for use with the jPlayer Playlist plugin.
+	foreach ( $tracks as $key => $track ) {
+		$parts = parse_url( $track['audioUrl'] );
+		if ( ! empty( $parts['path'] ) ) {
+			$ext = pathinfo( $parts['path'], PATHINFO_EXTENSION );
+			$tracks[ $key ][ $ext ] = $track['audioUrl'];
+		}
+	}
+
 	return apply_filters( 'cue_playlist_tracks', $tracks, $playlist, $context );
 }
 
