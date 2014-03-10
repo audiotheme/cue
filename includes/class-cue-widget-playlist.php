@@ -1,4 +1,12 @@
 <?php
+/**
+ * Cue playlist widget.
+ *
+ * @package Cue
+ * @copyright Copyright (c) 2014, AudioTheme, LLC
+ * @license GPL-2.0+
+ * @since 1.0.0
+ */
 
 /**
  * Playlist widget class.
