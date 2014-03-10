@@ -38,7 +38,7 @@ class Cue {
 	 * @since 1.0.0
 	 */
 	protected function load_textdomain() {
-		load_plugin_textdomain( 'cue', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'cue', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages' );
 	}
 
 	/**
