@@ -224,9 +224,18 @@ function get_cue_player_playlist_id( $player_id ) {
  * @since 1.1.0
  *
  * @param string $player_id Player ID.
+ * @param array $args {
+ *     An array of arguments. Optional.
+ *
+ *     @type string $context Context to retrieve the tracks for. Defaults to display.
+ * }
  * @return array
  */
-function get_cue_player_tracks( $player_id ) {
+function get_cue_player_tracks( $player_id, $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'context' => 'display',
+	) );
+
 	$playlist_id = get_cue_player_playlist_id( $player_id );
-	return get_cue_playlist_tracks( $playlist_id );
+	return get_cue_playlist_tracks( $playlist_id, $args['context'] );
 }
