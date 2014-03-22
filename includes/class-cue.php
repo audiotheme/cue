@@ -134,7 +134,7 @@ class Cue {
 			'pluginPath' => includes_url( 'js/mediaelement/', 'relative' ),
 			'l10n' => array(
 				'nextTrack'     => __( 'Next Track', 'cue' ),
-				'previousTrack' => __( 'Previous Track' ),
+				'previousTrack' => __( 'Previous Track', 'cue' ),
 			),
 		) );
 	}
