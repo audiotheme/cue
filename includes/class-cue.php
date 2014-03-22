@@ -30,6 +30,7 @@ class Cue {
 		add_action( 'init', array( $this, 'init' ), 15 );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_action( 'cue_after_playlist', array( $this, 'print_playlist_settings' ), 10, 2 );
+		add_action( 'cue_playlist_tracks', array( $this, 'wp_playlist_tracks_format' ), 10, 3 );
 	}
 
 	/**
@@ -198,5 +199,30 @@ class Cue {
 		?>
 		<script type="application/json" class="cue-playlist-data"><?php echo json_encode( $settings ); ?></script>
 		<?php
+	}
+
+	/**
+	 * Transform the Cue track syntax into the format used by WP Playlists.
+	 *
+	 * @since 1.1.1
+	 *
+	 * @param array $tracks Array of tracks.
+	 * @param WP_Post $playlist Playlist post object.
+	 * @param string $context Context the tracks will be used in.
+	 * @return array
+	 */
+	public function wp_playlist_tracks_format( $tracks, $playlist, $context ) {
+		if ( 'wp-playlist' == $context && ! empty( $tracks ) ) {
+			foreach ( $tracks as $key => $track ) {
+				$tracks[ $key ]['meta'] = array(
+					'artist'           => $track['artist'],
+					'length_formatted' => $track['length'],
+				);
+
+				$tracks[ $key ]['src'] = $track['audioUrl'];
+			}
+		}
+
+		return $tracks;
 	}
 }
