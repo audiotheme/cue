@@ -73,7 +73,8 @@
 
 // Theme overrides.
 .entry-content ol.cue-tracks,
-.entry-content ol.cue-tracks li.cue-track {
+.entry-content ol.cue-tracks li.cue-track,
+.widget ol.cue-tracks li.cue-track {
 	margin: 0;
 	padding: 0;
 }
