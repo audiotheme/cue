@@ -31,6 +31,7 @@ class Cue {
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_action( 'cue_after_playlist', array( $this, 'print_playlist_settings' ), 10, 2 );
 		add_action( 'cue_playlist_tracks', array( $this, 'wp_playlist_tracks_format' ), 10, 3 );
+		add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
 
 	/**
@@ -224,5 +225,53 @@ class Cue {
 		}
 
 		return $tracks;
+	}
+
+	/**
+	 * Add a Customizer section for selecting playlists for registered players.
+	 *
+	 * @since 1.1.1
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer instance.
+	 */
+	public function customize_register( $wp_customize ) {
+		$players = get_cue_players();
+
+		$playlists = get_posts( array(
+			'post_type'      => 'cue_playlist',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'asc',
+		) );
+
+		if ( empty( $players ) || empty( $playlists ) ) {
+			return;
+		}
+
+		$wp_customize->add_section( 'cue', array(
+			'title'       => __( 'Cue Players', 'cue' ),
+			'description' => __( 'Choose a playlist for each registered player.', 'cue' ),
+			'priority'    => 115,
+		) );
+
+		// Create an array: ID => post_title
+		$playlists = array_combine( wp_list_pluck( $playlists, 'ID' ), wp_list_pluck( $playlists, 'post_title' ) );
+
+		foreach ( $players as $id => $player ) {
+			$id = sanitize_key( $id );
+
+			$wp_customize->add_setting( 'cue_players[' . $id . ']', array(
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'absint',
+			) );
+
+			$wp_customize->add_control( 'cue_player_' . $id, array(
+				'choices'  => $playlists,
+				'label'    => $player['name'],
+				'section'  => 'cue',
+				'settings' => 'cue_players[' . $id . ']',
+				'type'     => 'select',
+			) );
+		}
 	}
 }
