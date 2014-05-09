@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Cue package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cue 1.0.1\n"
+"Project-Id-Version: Cue 1.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/cue\n"
-"POT-Creation-Date: 2014-02-21 06:35:56+00:00\n"
+"POT-Creation-Date: 2014-05-09 01:45:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Preview Playlist"
 msgstr ""
 
-#: admin/includes/templates.php:13 includes/class-cue-widget-playlist.php:84
+#: admin/includes/templates.php:13 includes/class-cue-widget-playlist.php:92
 msgid "Title:"
 msgstr ""
 
@@ -165,60 +165,68 @@ msgstr ""
 msgid "Select Audio"
 msgstr ""
 
-#: includes/class-cue-widget-playlist.php:20
+#: includes/class-cue-widget-playlist.php:28
 msgid "Playlist"
 msgstr ""
 
-#: includes/class-cue-widget-playlist.php:24
+#: includes/class-cue-widget-playlist.php:32
 msgid "A list of songs"
 msgstr ""
 
-#: includes/class-cue-widget-playlist.php:88
+#: includes/class-cue-widget-playlist.php:96
 msgid "Playlist:"
 msgstr ""
 
-#: includes/class-cue.php:88
+#: includes/class-cue.php:90
 msgid "Add New Playlist"
 msgstr ""
 
-#: includes/class-cue.php:89
+#: includes/class-cue.php:91
 msgid "Edit Playlist"
 msgstr ""
 
-#: includes/class-cue.php:90
+#: includes/class-cue.php:92
 msgid "New Playlist"
 msgstr ""
 
-#: includes/class-cue.php:91
+#: includes/class-cue.php:93
 msgid "View Playlist"
 msgstr ""
 
-#: includes/class-cue.php:92
+#: includes/class-cue.php:94
 msgid "Search Playlists"
 msgstr ""
 
-#: includes/class-cue.php:93
+#: includes/class-cue.php:95
 msgid "No playlists found."
 msgstr ""
 
-#: includes/class-cue.php:94
+#: includes/class-cue.php:96
 msgid "No playlists found in Trash."
 msgstr ""
 
-#: includes/class-cue.php:95
+#: includes/class-cue.php:97
 msgid "All Playlists"
 msgstr ""
 
-#: includes/class-cue.php:96
+#: includes/class-cue.php:98
 msgid "Playlists"
 msgstr ""
 
-#: includes/class-cue.php:136
+#: includes/class-cue.php:138
 msgid "Next Track"
 msgstr ""
 
-#: includes/class-cue.php:137
+#: includes/class-cue.php:139
 msgid "Previous Track"
+msgstr ""
+
+#: includes/class-cue.php:252
+msgid "Cue Players"
+msgstr ""
+
+#: includes/class-cue.php:253
+msgid "Choose a playlist for each registered player."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -237,22 +245,22 @@ msgstr ""
 msgid "AudioTheme"
 msgstr ""
 
-#: includes/class-cue.php:85
+#: includes/class-cue.php:87
 msgctxt "post format general name"
 msgid "Playlists"
 msgstr ""
 
-#: includes/class-cue.php:86
+#: includes/class-cue.php:88
 msgctxt "post format singular name"
 msgid "Playlist"
 msgstr ""
 
-#: includes/class-cue.php:87
+#: includes/class-cue.php:89
 msgctxt "playlist"
 msgid "Add New"
 msgstr ""
 
-#: includes/class-cue.php:97
+#: includes/class-cue.php:99
 msgctxt "add new on admin bar"
 msgid "Playlist"
 msgstr ""

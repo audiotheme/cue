@@ -2,7 +2,7 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 3.8
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,6 +61,12 @@ For more fine-grained control over where the playlist appears, a template tag is
 3. Playlist display on small screens and sidebar widgets.
 
 == Changelog ==
+
+= 1.1.1 =
+* Added a customizer section to allow playlists to be selected for players registered by themes.
+* Added a new property to tracks returned by get_cue_playlist_tracks() for easier use with jPlayer.
+* Added CSS to try to remove padding and margin on track lists in widgets.
+* Mimic the track JSON format used by core.
 
 = 1.1.0 =
 * Featured images are now used for the player background image if set.
