@@ -48,7 +48,7 @@ window.cue = window.cue || {};
 				$container.removeClass( 'is-playing' );
 			});
 
-			$media.trigger( 'success.cue', media, domObject, player );
+			$media.trigger( 'success.cue', [ media, domObject, player ]);
 		}
 	});
 
@@ -178,7 +178,7 @@ window.cue = window.cue || {};
 			player.setSrc( track.audioUrl );
 			player.load();
 
-			player.$node.trigger( 'setTrack.cue', track, player );
+			player.$node.trigger( 'setTrack.cue', [ track, player ]);
 
 			if ( play || 'undefined' === typeof play ) {
 				// Browsers don't seem to play without the timeout.
