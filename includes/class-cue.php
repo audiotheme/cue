@@ -30,7 +30,7 @@ class Cue {
 		add_action( 'init', array( $this, 'init' ), 15 );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_action( 'cue_after_playlist', array( $this, 'print_playlist_settings' ), 10, 2 );
-		add_action( 'cue_playlist_tracks', array( $this, 'wp_playlist_tracks_format' ), 10, 3 );
+		add_filter( 'cue_playlist_tracks', array( $this, 'wp_playlist_tracks_format' ), 10, 3 );
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
 
