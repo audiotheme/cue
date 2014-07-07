@@ -7,7 +7,7 @@
 
 	mediaClasses = {
 		init: function() {
-			$( window ).on( 'resize', mediaClasses.resize );
+			$( window ).on( 'resize.cue', mediaClasses.resize );
 		},
 
 		/**
