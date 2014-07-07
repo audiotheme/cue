@@ -105,6 +105,18 @@ window.cue = window.cue || {};
 			});
 		},
 
+		buildcueplaylisttoggle: function( player, controls, layers, media ) {
+			var selectors = player.options.cueSelectors;
+
+			$( '<div class="mejs-button mejs-toggle-playlist-button mejs-toggle-playlist">' +
+				'<button type="button" aria-controls="' + player.id + '" title="' + cue.l10n.togglePlaylist + '"></button>' +
+				'</div>' )
+			.appendTo( player.controls )
+			.on( 'click', function() {
+				$( this ).closest( selectors.playlist ).find( '.cue-tracks' ).slideToggle( 200 );
+			});
+		},
+
 		buildcueprevioustrack: function( player, controls, layers, media ) {
 			$( '<div class="mejs-button mejs-previous-button mejs-previous">' +
 					'<button type="button" aria-controls="' + player.id + '" title="' + cue.l10n.previousTrack + '"></button>' +

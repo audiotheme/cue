@@ -135,8 +135,9 @@ class Cue {
 		wp_localize_script( 'cue', '_cueSettings', array(
 			'pluginPath' => includes_url( 'js/mediaelement/', 'relative' ),
 			'l10n' => array(
-				'nextTrack'     => __( 'Next Track', 'cue' ),
-				'previousTrack' => __( 'Previous Track', 'cue' ),
+				'nextTrack'      => __( 'Next Track', 'cue' ),
+				'previousTrack'  => __( 'Previous Track', 'cue' ),
+				'togglePlaylist' => __( 'Toggle Playlist', 'cue' ),
 			),
 		) );
 	}
