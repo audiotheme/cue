@@ -165,7 +165,8 @@ class Cue {
 				'id'       => 0,
 				'template' => '',
 			),
-			$atts
+			$atts,
+			'cue'
 		);
 
 		$id = $atts['id'];
