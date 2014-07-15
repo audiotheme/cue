@@ -103,13 +103,18 @@
 
 	border-bottom: 1px solid #e5e5e5;
 	margin: 0 -10px 20px;
+	min-height: 27px;
 	padding: 0 10px 10px 150px;
+	position: relative;
 
 	.cue-track-audio-selector {
 		float: left;
-		margin: 0 0 0 -140px;
+		margin: 0;
 		padding-right: 7px;
 		padding-left: 5px;
+		position: absolute;
+		top: 0;
+		left: 10px;
 		width: 120px;
 
 		&:before {
@@ -129,6 +134,7 @@
 .cue-track-audio {
 	.mejs-container {
 		background: #fff;
+		max-width: 100%;
 		width: 100%;
 	}
 
@@ -320,8 +326,8 @@
 
 @media only screen and (max-width: 974px) {
 	.cue-track-column-group {
-		.track-column-left,
-		.track-column-right {
+		.cue-track-column-left,
+		.cue-track-column-right {
 			float: none;
 			width: auto;
 		}
