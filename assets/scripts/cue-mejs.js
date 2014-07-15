@@ -38,7 +38,7 @@ window.cue = window.cue || {};
 			if ( player.options.cueResponsiveProgress ) {
 				$window.on( 'resize', function() {
 					player.controls.find( '.mejs-time-rail' ).width( '100%' );
-					//t.setControlsSize();
+					//player.setControlsSize();
 				}).trigger( 'resize' );
 			}
 
