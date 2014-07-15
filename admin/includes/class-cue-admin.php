@@ -77,12 +77,12 @@ class Cue_Admin {
 		$post = get_post();
 
 		wp_enqueue_media();
-		wp_enqueue_style( 'genericons', CUE_URL . 'assets/styles/genericons.css' );
-		wp_enqueue_style( 'cue-admin', CUE_URL . 'admin/assets/styles/admin.min.css', array( 'genericons', 'mediaelement' ) );
+		wp_enqueue_style( 'genericons', CUE_URL . 'assets/css/genericons.css' );
+		wp_enqueue_style( 'cue-admin', CUE_URL . 'admin/assets/css/admin.min.css', array( 'genericons', 'mediaelement' ) );
 
 		wp_enqueue_script(
 			'cue-admin',
-			CUE_URL . 'admin/assets/scripts/cue.min.js',
+			CUE_URL . 'admin/assets/js/cue.min.js',
 			array(
 				'backbone',
 				'jquery-ui-sortable',

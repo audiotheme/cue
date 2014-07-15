@@ -12,10 +12,10 @@ module.exports = function( grunt ) {
 				browsers: ['> 1%', 'last 2 versions', 'ff 17', 'opera 12.1', 'ie 8', 'android 4']
 			},
 			plugin: {
-				src: 'assets/styles/cue.min.css'
+				src: 'assets/css/cue.min.css'
 			},
 			admin: {
-				src: 'admin/assets/styles/admin.min.css'
+				src: 'admin/assets/css/admin.min.css'
 			}
 		},
 
@@ -23,12 +23,12 @@ module.exports = function( grunt ) {
 			plugin: {
 				files: [
 					{
-						src: 'assets/styles/cue.min.css',
-						dest: 'assets/styles/cue.min.css'
+						src: 'assets/css/cue.min.css',
+						dest: 'assets/css/cue.min.css'
 					},
 					{
-						src: 'admin/assets/styles/admin.min.css',
-						dest: 'admin/assets/styles/admin.min.css'
+						src: 'admin/assets/css/admin.min.css',
+						dest: 'admin/assets/css/admin.min.css'
 					}
 				]
 			}
@@ -40,10 +40,10 @@ module.exports = function( grunt ) {
 			},
 			plugin: [
 				'Gruntfile.js',
-				'assets/scripts/*.js',
-				'admin/assets/scripts/*.js',
-				'!assets/scripts/*.min.js',
-				'!admin/assets/scripts/*.min.js'
+				'assets/js/*.js',
+				'admin/assets/js/*.js',
+				'!assets/js/*.min.js',
+				'!admin/assets/js/*.min.js'
 			]
 		},
 
@@ -62,12 +62,12 @@ module.exports = function( grunt ) {
 				},
 				files: [
 					{
-						src: 'assets/styles/sass/cue.scss',
-						dest: 'assets/styles/cue.min.css'
+						src: 'assets/css/sass/cue.scss',
+						dest: 'assets/css/cue.min.css'
 					},
 					{
-						src: 'admin/assets/styles/sass/admin.scss',
-						dest: 'admin/assets/styles/admin.min.css'
+						src: 'admin/assets/css/sass/admin.scss',
+						dest: 'admin/assets/css/admin.min.css'
 					}
 				]
 			}
@@ -78,20 +78,20 @@ module.exports = function( grunt ) {
 				files: [
 					{
 						src: [
-							'assets/scripts/cue-mejs.js',
-							'assets/scripts/cue-media-classes.js',
-							'assets/scripts/cue.js'
+							'assets/js/cue-mejs.js',
+							'assets/js/cue-media-classes.js',
+							'assets/js/cue.js'
 						],
-						dest: 'assets/scripts/cue.min.js'
+						dest: 'assets/js/cue.min.js'
 					},
 					{
 						src: [
-							'admin/assets/scripts/cue.js',
-							'admin/assets/scripts/workflows.js',
-							'admin/assets/scripts/models.js',
-							'admin/assets/scripts/views.js'
+							'admin/assets/js/cue.js',
+							'admin/assets/js/workflows.js',
+							'admin/assets/js/models.js',
+							'admin/assets/js/views.js'
 						],
-						dest: 'admin/assets/scripts/cue.min.js'
+						dest: 'admin/assets/js/cue.min.js'
 					}
 				]
 			}
@@ -104,8 +104,8 @@ module.exports = function( grunt ) {
 			},
 			sass: {
 				files: [
-					'assets/styles/sass/*.scss',
-					'admin/assets/styles/sass/*.scss'
+					'assets/css/sass/*.scss',
+					'admin/assets/css/sass/*.scss'
 				],
 				tasks: ['sass', 'autoprefixer', 'cssmin']
 			}
