@@ -10,6 +10,8 @@ window.cue = window.cue || {};
 		$html = $( 'html' ),
 		cssPrefix;
 
+	cue.l10n = $.extend( cue.l10n, _cueSettings.l10n );
+
 	// Feature detection.
 	cssPrefix = function( property ) {
 		var e, i, prefixes;
@@ -49,100 +51,61 @@ window.cue = window.cue || {};
 
 	$html.toggleClass( 'no-css-filters', ! cue.settings.hasCssFilters ).toggleClass( 'no-svg-filters', ! cue.settings.hasSvgFilters );
 
-	/**
-	 * jQuery plugin to initialize playlists.
-	 *
-	 * @class cuePlaylist
-	 * @memberOf jQuery.fn
-	 *
-	 * @param {Object} options Custom settings overrides.
-	 *
-	 * @return {jQuery} Chainable jQuery collection.
-	 */
-	$.fn.cuePlaylist = function( options ) {
-		var settings = $.extend({
-			autosizeProgress: false,
-			cueBackgroundUrl: '',
-			cuePlaylistTracks: [],
-			cueResponsiveProgress: true,
-			cueSkin: 'cue-skin-default',
-			defaultAudioHeight: 0,
-			enableAutosize: false,
-			features: [
-				'cuebackground',
-				'cueartwork',
-				'cueprevioustrack',
-				'playpause',
-				'cuenexttrack',
-				'progress',
-				'current',
-				'duration',
-				'cueplaylist',
-				'audiothememark'
-			],
-			pluginPath: cue.settings.pluginPath,
-			timeAndDurationSeparator: '<span class="mejs-time-separator"> / </span>'
-		}, options );
-
-		// Add selector settings.
-		settings.cueSelectors = {
-			playlist: this.selector,
-			track: '.cue-track'
-		};
-
-		// Merge custom selector options into the defaults.
-		if ( 'object' === typeof options && 'cueSelectors' in options ) {
-			settings.cueSelectors = $.extend( settings.cueSelectors, options.cueSelectors );
-		}
-
-		return this.each(function() {
+	// Document ready.
+	$( document ).ready(function( $ ) {
+		// Initialize the playlists.
+		$( '.cue-playlist-container' ).each(function() {
 			var $playlist = $( this ),
-				$media = $playlist.find( '.cue-audio' ),
-				$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' ),
+				$data = $playlist.find( '.cue-playlist-data' ),
+				backgroundUrl = '',
 				data;
 
 			if ( $data.length ) {
 				data = $.parseJSON( $data.first().html() );
 
 				// Set the background image source.
-				if ( ( 'undefined' === typeof options || 'undefined' === typeof options.cueBackgroundUrl ) && 'thumbnail' in data ) {
-					settings.cueBackgroundUrl = data.thumbnail;
-				}
-
-				// Add the tracks.
-				if ( ( 'undefined' === typeof options || 'undefined' === typeof options.cuePlaylistTracks ) && 'tracks' in data ) {
-					settings.cuePlaylistTracks = data.tracks;
+				if ( 'thumbnail' in data ) {
+					backgroundUrl = data.thumbnail;
 				}
 			}
 
-			// Blur the background image when it's created.
-			$media.on( 'backgroundCreate.cue', function( e, player ) {
+			$playlist.cuePlaylist({
+				cueBackgroundUrl: backgroundUrl,
+				cueResponsiveProgress: true,
+				cueSelectors: {
+					playlist: '.cue-playlist'
+				},
+				cueSkin: 'cue-skin-default',
+				defaultAudioHeight: 0,
+				features: [
+					'cuebackground',
+					'cueartwork',
+					'cuecurrentdetails',
+					'cueprevioustrack',
+					'playpause',
+					'cuenexttrack',
+					'progress',
+					'current',
+					'duration',
+					'cueplaylist',
+					'audiothememark'
+				]
+			}).cueMediaClasses({
+				breakpoints: [{
+					type: 'max-width',
+					size: 380
+				},
+				{
+					type: 'max-width',
+					size: 300
+				},
+				{
+					type: 'max-width',
+					size: 200
+				}]
+			}).find( '.cue-audio' ).on( 'backgroundCreate.cue', function( e, player ) {
 				player.container.find( '.mejs-player-background' ).Vague({ intensity: 10 }).blur();
 			});
-
-			if ( settings.cuePlaylistTracks.length ) {
-				// Initialize MediaElement.js.
-				$media.mediaelementplayer( settings );
-			}
-		});
-	};
-
-	// Document ready.
-	$(function( $ ) {
-		// Initialize the playlists.
-		$( '.cue-playlist' ).cuePlaylist().cueMediaClasses({
-			breakpoints: [{
-				type: 'max-width',
-				size: 380
-			},
-			{
-				type: 'max-width',
-				size: 300
-			},
-			{
-				type: 'max-width',
-				size: 200
-			}]
 		});
 	});
 

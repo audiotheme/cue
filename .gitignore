@@ -1,2 +1,3 @@
 node_modules
 *.min.*
+!assets/js/vendor/*.min.*
