@@ -90,7 +90,7 @@ window.cue = window.cue || {};
 					'cueplaylist',
 					'audiothememark'
 				]
-			}).cueMediaClasses({
+			}).find( '.cue-playlist' ).cueMediaClasses({
 				breakpoints: [{
 					type: 'max-width',
 					size: 380
