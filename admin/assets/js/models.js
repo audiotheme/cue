@@ -30,7 +30,7 @@ window.cue = window.cue || {};
 		model: cue.model.Track,
 
 		comparator: function( track ) {
-			return track.get( 'order' );
+			return parseInt( track.get( 'order' ), 10 );
 		},
 
 		fetch: function() {
