@@ -54,7 +54,7 @@ window.cue = window.cue || {};
 	// Document ready.
 	$( document ).ready(function( $ ) {
 		// Initialize the playlists.
-		$( '.cue-playlist-container' ).each(function() {
+		$( '.cue-playlist' ).each(function() {
 			var $playlist = $( this ),
 				$data = $playlist.find( '.cue-playlist-data' ),
 				backgroundUrl = '',
@@ -90,7 +90,7 @@ window.cue = window.cue || {};
 					'cueplaylist',
 					'audiothememark'
 				]
-			}).find( '.cue-playlist' ).cueMediaClasses({
+			}).cueMediaClasses({
 				breakpoints: [{
 					type: 'max-width',
 					size: 380
