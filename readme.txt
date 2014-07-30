@@ -62,6 +62,9 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.1.2 =
+* Fixed a sorting issue that caused the order of tracks to not be saved correctly.
+
 = 1.1.1 =
 * Added a customizer section to allow playlists to be selected for players registered by themes.
 * Added a new property to tracks returned by get_cue_playlist_tracks() for easier use with jPlayer.
