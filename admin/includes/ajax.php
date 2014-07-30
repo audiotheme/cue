@@ -41,7 +41,7 @@ function cue_ajax_save_playlist_tracks() {
 			continue;
 		}
 
-		$tracks[ $key ] = sanitize_cue_track( $track );
+		$tracks[ $key ] = sanitize_cue_track( $track, 'save' );
 	}
 
 	// Save the list of tracks to post meta.
