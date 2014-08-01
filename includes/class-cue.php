@@ -260,6 +260,7 @@ class Cue {
 
 		// Create an array: ID => post_title
 		$playlists = array_combine( wp_list_pluck( $playlists, 'ID' ), wp_list_pluck( $playlists, 'post_title' ) );
+		$playlists = array( 0 => '' ) + $playlists;
 
 		foreach ( $players as $id => $player ) {
 			$id = sanitize_key( $id );
