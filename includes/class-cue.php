@@ -29,7 +29,7 @@ class Cue {
 
 		add_action( 'init', array( $this, 'init' ), 15 );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
-		add_action( 'cue_after_playlist', array( $this, 'print_playlist_settings' ), 10, 2 );
+		add_action( 'cue_after_playlist', array( $this, 'print_playlist_settings' ), 10, 3 );
 		add_filter( 'cue_playlist_tracks', array( $this, 'wp_playlist_tracks_format' ), 10, 3 );
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
@@ -186,8 +186,9 @@ class Cue {
 	 *
 	 * @param WP_Post $playlist Playlist post object.
 	 * @param array $tracks List of tracks.
+	 * @param array $args
 	 */
-	public function print_playlist_settings( $playlist, $tracks ) {
+	public function print_playlist_settings( $playlist, $tracks, $args ) {
 		$thumbnail = '';
 		if ( has_post_thumbnail( $playlist->ID ) ) {
 			$thumbnail_id = get_post_thumbnail_id( $playlist->ID );
@@ -196,10 +197,15 @@ class Cue {
 			$thumbnail = $image[0];
 		}
 
-		$settings = apply_filters( 'cue_playlist_settings', array(
-			'thumbnail' => $thumbnail,
-			'tracks'    => $tracks,
-		) );
+		$settings = apply_filters(
+			'cue_playlist_settings',
+			array(
+				'thumbnail' => $thumbnail,
+				'tracks'    => $tracks,
+			),
+			$playlist,
+			$args
+		);
 		?>
 		<script type="application/json" class="cue-playlist-data"><?php echo json_encode( $settings ); ?></script>
 		<?php

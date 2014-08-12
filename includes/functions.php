@@ -52,11 +52,11 @@ function cue_playlist( $post, $args = array() ) {
 
 	echo '<div class="cue-playlist-container">';
 
-		do_action( 'cue_before_playlist', $post, $tracks );
+		do_action( 'cue_before_playlist', $post, $tracks, $args );
 
 		include( $template );
 
-		do_action( 'cue_after_playlist', $post, $tracks );
+		do_action( 'cue_after_playlist', $post, $tracks, $args );
 
 	echo '</div>';
 }
@@ -156,6 +156,7 @@ function cue_player( $player_id, $args = array() ) {
 
 	$args = array(
 		'enqueue'  => false,
+		'player'   => $player_id,
 		'template' => array(
 			"player-{$player_id}.php",
 			"player.php",
