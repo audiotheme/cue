@@ -31,6 +31,10 @@ function cue_playlist( $post, $args = array() ) {
 
 	$tracks = get_cue_playlist_tracks( $post );
 
+	if ( empty( $tracks ) ) {
+		return;
+	}
+
 	if ( ! isset( $args['enqueue'] ) || $args['enqueue'] ) {
 		Cue::enqueue_assets();
 	}
