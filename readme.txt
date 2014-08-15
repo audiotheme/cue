@@ -2,7 +2,7 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 3.8
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,6 +31,10 @@ We'll do our best to keep this plugin up to date, fix bugs and implement feature
 * Consider [contributing on GitHub](https://github.com/audiotheme/cue).
 * [Leave a review](http://wordpress.org/support/view/plugin-reviews/cue#postform) and let everyone know how much you love it.
 * [Follow @AudioTheme](https://twitter.com/AudioTheme) on Twitter.
+
+= Translation Credits =
+
+* Brazilian Portuguese (pt_BR) - Dionizio Bach [v1.2.0]
 
 == Installation ==
 
@@ -61,6 +65,19 @@ For more fine-grained control over where the playlist appears, a template tag is
 3. Playlist display on small screens and sidebar widgets.
 
 == Changelog ==
+
+= 1.2.0 =
+* Added Brazilian Portuguese translation.
+* Abstracted the core MediaElement.js functionality into a new jQuery plugin.
+* Improved responsiveness of the administration screen.
+* Added the third argument to the [cue] shortcode handler so it can be filtered.
+* Fixed the syntax for jQuery event triggers with multiple parameters.
+* Namespaced the window resize event.
+* Renamed /scripts and /styles assets directories to /js and /css.
+* Sanitized tracks in the AJAX save callback.
+* Allow an empty option to be selected for a player in the Customizer so it can be disabled.
+* Pass player ids and arguments through various hooks for context.
+* Prevent the playlist from displaying if it doesn't have any tracks.
 
 = 1.1.2 =
 * Fixed a sorting issue that caused the order of tracks to not be saved correctly.
