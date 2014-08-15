@@ -1,0 +1,348 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cue v1.1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-07-21 23:31-0300\n"
+"Last-Translator: DJIO | Dionizio Bonfim Bach <wordpress@djio.com.br>\n"
+"Language-Team: DJIO | Dionizio Bonfim Bach <wordpress@djio.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.6.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Language: pt_BR\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:49
+msgid "Players"
+msgstr "Players"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:59
+msgid "Shortcode"
+msgstr "Shortcode"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:106
+#: admin/includes/class-cue-admin.php:122
+msgid "Add Tracks"
+msgstr "Adicionar Faixas"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:107
+msgid "Add from URL"
+msgstr "Adicionar de URL"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:110
+msgid "Image Files"
+msgstr "Arquivos de Imagem"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:111
+msgid "Choose an Image"
+msgstr "Escolha uma Imagem"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:112
+msgid "Update Image"
+msgstr "Atualizar a Imagem"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:115
+#: admin/includes/class-cue-admin.php:120
+msgid "Audio Files"
+msgstr "Arquivos de Áudio"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:116
+msgid "Choose an Audio File"
+msgstr "Escolha um Arquivo de Áudio"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:117
+msgid "Update Audio"
+msgstr "Atualizar Áudio"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:121
+msgid "Choose Tracks"
+msgstr "Escolha as Faixas"
+
+# @ default
+#: admin/includes/class-cue-admin.php:175
+msgid "Tracks"
+msgstr "Faixas"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:177
+msgid ""
+"Add tracks to the playlist, then drag and drop to reorder them. Click the "
+"arrow on the right of each item to reveal more configuration options."
+msgstr ""
+"Adicione faixas à playlist, então arraste e solte para reordenar. Clique na "
+"seta à direita de cada item para revelar mais opções de configuração."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:194
+msgid "Choose which players should use this playlist:"
+msgstr "Escolha qual player deve usar esta playlist:"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:218
+msgid ""
+"Copy and paste the following shortcode into a post or page to embed this "
+"playlist."
+msgstr ""
+"Copie e cole o seguinte shortcode no post ou página bata incorporar esta "
+"playlist."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:243
+#: admin/includes/class-cue-admin.php:246
+msgid "Playlist updated."
+msgstr "Playlist atualizada."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:244
+msgid "Custom field updated."
+msgstr "O campo personalizado foi atualizado."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:245
+msgid "Custom field deleted."
+msgstr "O campo personalizado foi excluído."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:248
+#, php-format
+msgid "Playlist restored to revision from %s"
+msgstr "Playlist restaurada para a revisão em %s"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:250
+msgid "Playlist published."
+msgstr "Playlist publicada."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:251
+msgid "Playlist saved."
+msgstr "Playlist salva."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:252
+msgid "Playlist submitted."
+msgstr "Playlist enviada."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:253
+#, php-format
+msgid "Playlist scheduled for: <strong>%1$s</strong>."
+msgstr "Playlist agendada para: <strong>%1$s</strong>."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:255
+msgid "M j, Y @ G:i"
+msgstr "j \\d\\e F \\d\\e Y \\à\\s G:i"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:256
+msgid "Playlist draft updated."
+msgstr "O rascunho da playlist foi atualizada."
+
+# @ cue
+#: admin/includes/class-cue-admin.php:263
+msgid "View playlist"
+msgstr "Ver playlist"
+
+# @ cue
+#: admin/includes/class-cue-admin.php:272
+msgid "Preview Playlist"
+msgstr "Prévia da Playlist"
+
+# @ cue
+#: admin/includes/templates.php:13 includes/class-cue-widget-playlist.php:92
+msgid "Title:"
+msgstr "Título:"
+
+# @ cue
+#: admin/includes/templates.php:14
+msgid "Title"
+msgstr "Título"
+
+# @ cue
+#: admin/includes/templates.php:19
+msgid "Artist:"
+msgstr "Artista:"
+
+# @ cue
+#: admin/includes/templates.php:20
+msgid "Artist"
+msgstr "Artista"
+
+# @ cue
+#: admin/includes/templates.php:30
+msgid "Length:"
+msgstr "Duração:"
+
+# @ cue
+#: admin/includes/templates.php:31
+msgid "Length"
+msgstr "Duração"
+
+# @ cue
+#: admin/includes/templates.php:40
+msgid "Remove"
+msgstr "Remover"
+
+# @ cue
+#: admin/includes/templates.php:41
+msgid "Close"
+msgstr "Fechar"
+
+# @ cue
+#: admin/includes/templates.php:53
+msgid "Select Audio"
+msgstr "Selecione o Áudio"
+
+# @ cue
+#. translators: plugin header field 'Name'
+#: cue.php:0
+msgid "Cue"
+msgstr "Cue"
+
+# @ cue
+#. translators: plugin header field 'PluginURI'
+#. translators: plugin header field 'AuthorURI'
+#: cue.php:0
+msgid "http://audiotheme.com/"
+msgstr "http://audiotheme.com/"
+
+# @ cue
+#. translators: plugin header field 'Description'
+#: cue.php:0
+msgid "Create beautiful, fully responsive audio playlists."
+msgstr "Crie playlists de audio lindas e totalmente responsivas."
+
+# @ cue
+#. translators: plugin header field 'Author'
+#: cue.php:0
+msgid "AudioTheme"
+msgstr "AudioTheme"
+
+# @ cue
+#. translators: plugin header field 'Version'
+#: cue.php:0
+msgid "1.1.1"
+msgstr "1.1.1"
+
+# @ cue
+#: includes/class-cue-widget-playlist.php:28
+msgid "Playlist"
+msgstr "Playlist"
+
+# @ cue
+#: includes/class-cue-widget-playlist.php:32
+msgid "A list of songs"
+msgstr "A lista de músicas"
+
+# @ cue
+#: includes/class-cue-widget-playlist.php:96
+msgid "Playlist:"
+msgstr "Playlist:"
+
+# @ cue
+#: includes/class-cue.php:87
+msgctxt "post format general name"
+msgid "Playlists"
+msgstr "Playlists"
+
+# @ cue
+#: includes/class-cue.php:88
+msgctxt "post format singular name"
+msgid "Playlist"
+msgstr "Playlist"
+
+# @ cue
+#: includes/class-cue.php:89
+msgctxt "playlist"
+msgid "Add New"
+msgstr "Adicionar Nova"
+
+# @ cue
+#: includes/class-cue.php:90
+msgid "Add New Playlist"
+msgstr "Adicionar Nova Playlist"
+
+# @ cue
+#: includes/class-cue.php:91
+msgid "Edit Playlist"
+msgstr "Editar Playlist"
+
+# @ cue
+#: includes/class-cue.php:92
+msgid "New Playlist"
+msgstr "Nova Playlist"
+
+# @ cue
+#: includes/class-cue.php:93
+msgid "View Playlist"
+msgstr "Ver Playlist"
+
+# @ cue
+#: includes/class-cue.php:94
+msgid "Search Playlists"
+msgstr "Pesquisar Playlists"
+
+# @ cue
+#: includes/class-cue.php:95
+msgid "No playlists found."
+msgstr "Nenhuma playlist encontrado."
+
+# @ cue
+#: includes/class-cue.php:96
+msgid "No playlists found in Trash."
+msgstr "Nenhuma playlist encontrada na Lixeira."
+
+# @ cue
+#: includes/class-cue.php:97
+msgid "All Playlists"
+msgstr "Todas as Playlists"
+
+# @ cue
+#: includes/class-cue.php:98
+msgid "Playlists"
+msgstr "Playlists"
+
+# @ cue
+#: includes/class-cue.php:99
+msgctxt "add new on admin bar"
+msgid "Playlist"
+msgstr "Playlist"
+
+# @ cue
+#: includes/class-cue.php:138
+msgid "Next Track"
+msgstr "Nova Faixa"
+
+# @ cue
+#: includes/class-cue.php:139
+msgid "Previous Track"
+msgstr "Faixa Anterior"
+
+# @ cue
+#: includes/class-cue.php:252
+msgid "Cue Players"
+msgstr "Preparar Players"
+
+# @ cue
+#: includes/class-cue.php:253
+msgid "Choose a playlist for each registered player."
+msgstr "Escolha uma playlist para cada player registrado."
