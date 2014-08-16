@@ -56,7 +56,7 @@ window.cue = window.cue || {};
 		// Initialize the playlists.
 		$( '.cue-playlist' ).each(function() {
 			var $playlist = $( this ),
-				$data = $playlist.find( '.cue-playlist-data' ),
+				$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' ),
 				backgroundUrl = '',
 				data;
 
