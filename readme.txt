@@ -66,6 +66,9 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.2.1 =
+* Fixed the background image based on the post thumbnail feature.
+
 = 1.2.0 =
 * Added Brazilian Portuguese translation.
 * Abstracted the core MediaElement.js functionality into a new jQuery plugin.
