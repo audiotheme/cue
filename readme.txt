@@ -66,6 +66,9 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.2.2 =
+* Fixed the feature that allowed the background image to be used as the default track artwork.
+
 = 1.2.1 =
 * Fixed the background image based on the post thumbnail feature.
 

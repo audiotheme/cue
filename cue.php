@@ -11,7 +11,7 @@
  * Plugin Name: Cue
  * Plugin URI: http://audiotheme.com/
  * Description: Create beautiful, fully responsive audio playlists.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: AudioTheme
  * Author URI: http://audiotheme.com/
  * License: GPL-2.0+
