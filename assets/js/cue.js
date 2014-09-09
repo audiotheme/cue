@@ -69,7 +69,9 @@ window.cue = window.cue || {};
 				}
 			}
 
-			$playlist.cuePlaylist({
+			$playlist.on( 'backgroundCreate.cue', function( e, player ) {
+				player.container.find( '.mejs-player-background' ).Vague({ intensity: 10 }).blur();
+			}).cuePlaylist({
 				cueBackgroundUrl: backgroundUrl,
 				cueResponsiveProgress: true,
 				cueSelectors: {
@@ -103,8 +105,6 @@ window.cue = window.cue || {};
 					type: 'max-width',
 					size: 200
 				}]
-			}).find( '.cue-audio' ).on( 'backgroundCreate.cue', function( e, player ) {
-				player.container.find( '.mejs-player-background' ).Vague({ intensity: 10 }).blur();
 			});
 		});
 	});
