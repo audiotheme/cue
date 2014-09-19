@@ -1,7 +1,7 @@
 <div class="cue-playlist" itemscope itemtype="http://schema.org/MusicPlaylist">
 	<meta itemprop="numTracks" content="<?php echo count( $tracks ); ?>" />
 
-	<audio src="<?php echo esc_url( $tracks[0]['audioUrl'] ); ?>" width="100%" height="" class="cue-audio" controls preload="none"></audio>
+	<audio src="<?php echo esc_url( $tracks[0]['audioUrl'] ); ?>" controls preload="none" class="cue-audio" style="width: 100%; height: auto"></audio>
 
 	<ol class="cue-tracks">
 		<?php foreach ( $tracks as $track ) : ?>

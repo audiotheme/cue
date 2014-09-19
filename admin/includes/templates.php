@@ -53,6 +53,6 @@
 	<a class="button button-secondary cue-track-audio-selector"><?php _e( 'Select Audio', 'cue' ); ?></a>
 
 	<# if ( data.audioUrl ) { #>
-		<audio src="{{ data.audioUrl }}" width="100%" height="30" class="cue-audio" controls preload="none"></audio>
+		<audio src="{{ data.audioUrl }}" class="cue-audio" controls preload="none" style="width: 100%; height: 30px"></audio>
 	<# } #>
 </script>
