@@ -68,6 +68,12 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.2.3 =
+* Fixed the blur effect in Firefox.
+* Created a solution that should provide a blur alternative in IE.
+* Removed the blur script dependency in favor of an SVG filter.
+* Switched to inline styles to size audio elements instead of invalid attributes.
+
 = 1.2.2 =
 * Fixed the feature that allowed the background image to be used as the default track artwork.
 
