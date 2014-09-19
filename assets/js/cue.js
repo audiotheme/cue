@@ -44,9 +44,9 @@ window.cue = window.cue || {};
 		var result = false;
 		try {
 			result = 'SVGFEColorMatrixElement' in window && 2 === SVGFEColorMatrixElement.SVG_FECOLORMATRIX_TYPE_SATURATE;
-		}
-		catch( e ) {}
-		return result;
+		} catch( e ) {}
+		// IE doesn't support SVG filters on HTML elements.
+		return result && ! /(MSIE|Trident)/.test( window.navigator.userAgent );
 	}());
 
 	$html.toggleClass( 'no-css-filters', ! cue.settings.hasCssFilters ).toggleClass( 'no-svg-filters', ! cue.settings.hasSvgFilters );
@@ -69,9 +69,17 @@ window.cue = window.cue || {};
 				}
 			}
 
-			$playlist.on( 'backgroundCreate.cue', function( e, player ) {
-				player.container.find( '.mejs-player-background' ).Vague({ intensity: 10 }).blur();
-			}).cuePlaylist({
+			if ( ! cue.settings.hasCssFilters && cue.settings.hasSvgFilters ) {
+				if ( ! $( '#cue-filter-blur' ).length ) {
+					$( 'body' ).append( '<svg style="position: absolute"><filter id="cue-filter-blur"><feGaussianBlur class="blur" stdDeviation="20" color-interpolation-filters="sRGB"/></filter></svg>' );
+				}
+
+				$playlist.on( 'backgroundCreate.cue', function( e, player ) {
+					player.container.find( '.mejs-player-background' ).css( 'filter', 'url(#cue-filter-blur)' );
+				});
+			}
+
+			$playlist.cuePlaylist({
 				cueBackgroundUrl: backgroundUrl,
 				cueResponsiveProgress: true,
 				cueSelectors: {

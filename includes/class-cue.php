@@ -130,8 +130,7 @@ class Cue {
 		wp_register_style( 'cue', CUE_URL . 'assets/css/cue.min.css', array( 'mediaelement' ), '1.0.0' );
 
 		wp_register_script( 'jquery-cue', CUE_URL . 'assets/js/vendor/jquery.cue.min.js', array( 'jquery', 'mediaelement' ), '1.0.0', true );
-		wp_register_script( 'cue', CUE_URL . 'assets/js/cue.min.js', array( 'cue-vague', 'jquery-cue' ), '1.0.0', true );
-		wp_register_script( 'cue-vague', CUE_URL . 'assets/js/vendor/Vague.js', array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'cue', CUE_URL . 'assets/js/cue.min.js', array( 'jquery-cue' ), '1.0.0', true );
 
 		wp_localize_script( 'cue', '_cueSettings', array(
 			'l10n' => array(
