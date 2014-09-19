@@ -50,6 +50,10 @@ module.exports = function( grunt ) {
 		makepot: {
 			plugin: {
 				options: {
+					mainFile: 'cue.php',
+					potHeaders: {
+						poedit: true
+					},
 					type: 'wp-plugin'
 				}
 			}
