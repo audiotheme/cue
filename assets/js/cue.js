@@ -71,7 +71,7 @@ window.cue = window.cue || {};
 
 			if ( ! cue.settings.hasCssFilters && cue.settings.hasSvgFilters ) {
 				if ( ! $( '#cue-filter-blur' ).length ) {
-					$( 'body' ).append( '<svg style="position: absolute"><filter id="cue-filter-blur"><feGaussianBlur class="blur" stdDeviation="20" color-interpolation-filters="sRGB"/></filter></svg>' );
+					$( 'body' ).append( '<svg id="cue-filter-svg" style="position: absolute; bottom: 0"><filter id="cue-filter-blur"><feGaussianBlur class="blur" stdDeviation="20" color-interpolation-filters="sRGB"/></filter></svg>' );
 				}
 
 				$playlist.on( 'backgroundCreate.cue', function( e, player ) {
