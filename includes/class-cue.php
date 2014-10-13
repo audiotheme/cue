@@ -244,7 +244,12 @@ class Cue {
 	 * @param WP_Customize_Manager $wp_customize Customizer instance.
 	 */
 	public function customize_register( $wp_customize ) {
-		$players = get_cue_players();
+		$description = '';
+		$players     = get_cue_players();
+
+		if ( empty( $players ) ) {
+			return;
+		}
 
 		$playlists = get_posts( array(
 			'post_type'      => 'cue_playlist',
@@ -253,15 +258,18 @@ class Cue {
 			'order'          => 'asc',
 		) );
 
-		if ( empty( $players ) || empty( $playlists ) ) {
-			return;
-		}
-
 		$wp_customize->add_section( 'cue', array(
 			'title'       => __( 'Cue Players', 'cue' ),
 			'description' => __( 'Choose a playlist for each registered player.', 'cue' ),
 			'priority'    => 115,
 		) );
+
+		if ( empty( $playlists ) ) {
+			$description = sprintf(
+				__( '<a href="%s">Create a playlist</a> for this player.', 'cue' ),
+				'http://192.168.1.20/americanaura/wordpress/wp-admin/post-new.php?post_type=cue_playlist'
+			);
+		}
 
 		// Create an array: ID => post_title
 		$playlists = array_combine( wp_list_pluck( $playlists, 'ID' ), wp_list_pluck( $playlists, 'post_title' ) );
@@ -276,11 +284,12 @@ class Cue {
 			) );
 
 			$wp_customize->add_control( 'cue_player_' . $id, array(
-				'choices'  => $playlists,
-				'label'    => $player['name'],
-				'section'  => 'cue',
-				'settings' => 'cue_players[' . $id . ']',
-				'type'     => 'select',
+				'choices'     => $playlists,
+				'description' => $description,
+				'label'       => $player['name'],
+				'section'     => 'cue',
+				'settings'    => 'cue_players[' . $id . ']',
+				'type'        => 'select',
 			) );
 		}
 	}
