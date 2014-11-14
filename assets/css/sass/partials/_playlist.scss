@@ -73,6 +73,12 @@
 		margin: 0;
 		padding: 0;
 	}
+
+	&.is-playlist-hidden {
+		.cue-tracks {
+			display: none;
+		}
+	}
 }
 
 .cue-playlist.max-width-200 {

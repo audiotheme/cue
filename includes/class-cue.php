@@ -163,8 +163,9 @@ class Cue {
 	public function cue_shortcode_handler( $atts = array() ) {
 		$atts = shortcode_atts(
 			array(
-				'id'       => 0,
-				'template' => '',
+				'id'            => 0,
+				'show_playlist' => true,
+				'template'      => '',
 			),
 			$atts,
 			'cue'
@@ -172,6 +173,8 @@ class Cue {
 
 		$id = $atts['id'];
 		unset( $atts['id'] );
+
+		$atts['show_playlist'] = $this->shortcode_bool( $atts['show_playlist'] );
 
 		ob_start();
 		cue_playlist( $id, $atts );
@@ -292,5 +295,19 @@ class Cue {
 				'type'        => 'select',
 			) );
 		}
+	}
+
+	/**
+	 * Helper method to determine if a shortcode attribute is true or false.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string|int|bool $var Attribute value.
+	 *
+	 * @return bool
+	 */
+	protected function shortcode_bool( $var ) {
+		$falsey = array( 'false', '0', 'no', 'n' );
+		return ( ! $var || in_array( strtolower( $var ), $falsey ) ) ? false : true;
 	}
 }
