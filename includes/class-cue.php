@@ -300,7 +300,7 @@ class Cue {
 	/**
 	 * Helper method to determine if a shortcode attribute is true or false.
 	 *
-	 * @since 1.3.0
+	 * @since 1.2.4
 	 *
 	 * @param string|int|bool $var Attribute value.
 	 *

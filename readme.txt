@@ -68,6 +68,12 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.2.4 =
+* Added a 'show_playlist' shortcode attribute to toggle the playlist visibility.
+* Absolutely positioned the SVG filter to remove it from the document flow and prevent it from creating empty space in some browsers.
+* Added a message in the Customizer for registered players if a playlist hasn't been published yet.
+* Updated jquery.cue.js to 1.1.1
+
 = 1.2.3 =
 * Fixed the blur effect in Firefox.
 * Created a solution that should provide a blur alternative in IE.
