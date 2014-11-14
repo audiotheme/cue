@@ -109,6 +109,7 @@ module.exports = function( grunt ) {
 			sass: {
 				files: [
 					'assets/css/sass/*.scss',
+					'assets/css/sass/**/*.scss',
 					'admin/assets/css/sass/*.scss'
 				],
 				tasks: ['sass', 'autoprefixer', 'cssmin']
