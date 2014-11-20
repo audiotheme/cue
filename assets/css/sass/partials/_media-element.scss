@@ -278,6 +278,19 @@
 	}
 }
 
+// Only one track is in the playlist.
+// Hide the previous/next buttons.
+.cue-tracks-count-1 {
+	.cue-skin-default.mejs-container {
+		.mejs-controls {
+			.mejs-next-button,
+			.mejs-previous-button {
+				display: none;
+			}
+		}
+	}
+}
+
 // Style the background image if blur filters aren't supported.
 .no-css-filters.no-svg-filters {
 	.cue-skin-default.mejs-container .mejs-player-background {
