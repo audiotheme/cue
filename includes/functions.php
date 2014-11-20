@@ -55,7 +55,7 @@ function cue_playlist( $post, $args = array() ) {
 	$template = $template_loader->locate_template( $template_names );
 
 	$classes   = array( 'cue-playlist' );
-	$classes[] = ( isset( $args['show_playlist'] ) && $args['show_playlist'] ) ? '' : 'is-playlist-hidden';
+	$classes[] = ( isset( $args['show_playlist'] ) && false == $args['show_playlist'] ) ? 'is-playlist-hidden' : '';
 	$classes   = implode( ' ', array_filter( $classes ) );
 
 	echo '<div class="cue-playlist-container">';
