@@ -68,6 +68,10 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.2.5 =
+* Fixed bug that caused playlists in widgets to disappear.
+* Hide the previous and next track buttons when a playlist only has one track.
+
 = 1.2.4 =
 * Added a 'show_playlist' shortcode attribute to toggle the playlist visibility.
 * Absolutely positioned the SVG filter to remove it from the document flow and prevent it from creating empty space in some browsers.
