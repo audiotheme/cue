@@ -55,3 +55,48 @@ function cue_ajax_save_playlist_tracks() {
 	// Send the response.
 	wp_send_json_success( $data );
 }
+
+/**
+ * Parse the Cue shortcode for display within a TinyMCE view.
+ *
+ * @since 1.3.0
+ */
+function cue_ajax_parse_shortcode() {
+	global $wp_scripts;
+
+	if ( empty( $_POST['shortcode'] ) ) {
+		wp_send_json_error();
+	}
+
+	$shortcode = do_shortcode( wp_unslash( $_POST['shortcode'] ) );
+
+	if ( empty( $shortcode ) ) {
+		wp_send_json_error( array(
+			'type' => 'no-items',
+			'message' => __( 'No items found.' ),
+		) );
+	}
+
+	$head  = '';
+	$styles = wpview_media_sandbox_styles();
+
+	foreach ( $styles as $style ) {
+		$head .= '<link type="text/css" rel="stylesheet" href="' . $style . '">';
+	}
+
+	$head .= '<link rel="stylesheet" href="' . CUE_URL . 'assets/css/cue.min.css' . '">';
+	$head .= '<style type="text/css">.cue-tracks { max-height: none;}</style>';
+
+	if ( ! empty( $wp_scripts ) ) {
+		$wp_scripts->done = array();
+	}
+
+	ob_start();
+	echo $shortcode;
+	wp_print_scripts( 'cue' );
+
+	wp_send_json_success( array(
+		'head' => $head,
+		'body' => ob_get_clean(),
+	) );
+}

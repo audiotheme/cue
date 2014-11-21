@@ -22,6 +22,8 @@ class Cue_Admin {
 	 */
 	public function load() {
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
+		add_action( 'admin_footer-post.php', array( $this, 'print_footer_scripts' ) );
+		add_action( 'admin_footer-post-new.php', array( $this, 'print_footer_scripts' ) );
 		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_audio_attachment_for_js' ), 20, 3 );
 		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_image_attachment_for_js' ), 20, 3 );
 
@@ -31,6 +33,7 @@ class Cue_Admin {
 
 		add_action( 'wp_ajax_cue_get_playlist', 'cue_ajax_get_playlist' );
 		add_action( 'wp_ajax_cue_save_playlist_tracks', 'cue_ajax_save_playlist_tracks' );
+		add_action( 'wp_ajax_cue_parse_shortcode', 'cue_ajax_parse_shortcode' );
 	}
 
 	/**
@@ -298,6 +301,24 @@ class Cue_Admin {
 	 */
 	public function print_playlist_edit_templates() {
 		include( CUE_DIR . 'admin/includes/templates.php' );
+	}
+
+	/**
+	 * Print footer scripts.
+	 *
+	 * @since 1.3.0
+	 */
+	public function print_footer_scripts() {
+		?>
+		<script type="text/javascript">
+		wp.mce.views.register( 'cue', _.extend( {}, wp.mce.av, {
+			View: _.extend( {}, wp.mce.av.View, {
+				action: 'cue_parse_shortcode'
+			}),
+			edit: null
+		} ) );
+		</script>
+		<?php
 	}
 
 	/**
