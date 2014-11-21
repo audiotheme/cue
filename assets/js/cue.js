@@ -75,7 +75,7 @@ window.cue = window.cue || {};
 				}
 
 				$playlist.on( 'backgroundCreate.cue', function( e, player ) {
-					player.container.find( '.mejs-player-background' ).css( 'filter', 'url(#cue-filter-blur)' );
+					player.container.find( '.mejs-player-background' ).css( 'filter', 'url(\'' + window.location.href + '#cue-filter-blur\')' );
 				});
 			}
 
