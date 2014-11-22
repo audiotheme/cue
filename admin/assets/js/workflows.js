@@ -57,12 +57,6 @@ window.cue = window.cue || {};
 		_addTracks: function( frame ) {
 			var workflow = this;
 
-			// Set extensions that can be uploaded.
-			wp.Uploader.defaults.filters = [{
-				title: l10n.workflows.addTracks.fileTypes,
-				extensions: 'm4a,mp3,ogg,wma'
-			}];
-
 			// Return the existing frame for this workflow.
 			if ( frame ) {
 				return frame;
@@ -79,6 +73,16 @@ window.cue = window.cue || {};
 				},
 				multiple: 'add'
 			});
+
+			// Set the extensions that can be uploaded.
+			frame.uploader.options.uploader.plupload = {
+				filters: {
+					mime_types: [{
+						title: l10n.workflows.addTracks.fileTypes,
+						extensions: 'm4a,mp3,ogg,wma'
+					}]
+				}
+			};
 
 			// Prevent the Embed controller scanner from changing the state.
 			frame.state( 'embed' ).props.off( 'change:url', frame.state( 'embed' ).debouncedScan );
@@ -117,14 +121,6 @@ window.cue = window.cue || {};
 		_selectArtwork: function( frame ) {
 			var workflow = this;
 
-			// Reset the extensions that can be uploaded.
-			wp.Uploader.defaults.filters = [
-				{
-					files: l10n.workflows.selectArtwork.fileTypes,
-					extensions: 'jpg,jpeg,gif,png'
-				}
-			];
-
 			// Return existing frame for this workflow.
 			if ( frame ) {
 				return frame;
@@ -141,6 +137,16 @@ window.cue = window.cue || {};
 				},
 				multiple: false
 			});
+
+			// Set the extensions that can be uploaded.
+			frame.uploader.options.uploader.plupload = {
+				filters: {
+					mime_types: [{
+						files: l10n.workflows.selectArtwork.fileTypes,
+						extensions: 'jpg,jpeg,gif,png'
+					}]
+				}
+			};
 
 			// Automatically select the existing artwork if possible.
 			frame.on( 'open', function() {
@@ -177,14 +183,6 @@ window.cue = window.cue || {};
 		_selectAudio: function( frame ) {
 			var workflow = this;
 
-			// Set extensions that can be uploaded.
-			wp.Uploader.defaults.filters = [
-				{
-					title: l10n.workflows.selectAudio.fileTypes,
-					extensions: 'm4a,mp3,ogg,wma'
-				}
-			];
-
 			// Return the existing frame for this workflow.
 			if ( frame ) {
 				return frame;
@@ -201,6 +199,16 @@ window.cue = window.cue || {};
 				},
 				multiple: false
 			});
+
+			// Set the extensions that can be uploaded.
+			frame.uploader.options.uploader.plupload = {
+				filters: {
+					mime_types: [{
+						title: l10n.workflows.selectAudio.fileTypes,
+						extensions: 'm4a,mp3,ogg,wma'
+					}]
+				}
+			};
 
 			// Prevent the Embed controller scanner from changing the state.
 			frame.state( 'embed' ).props.off( 'change:url', frame.state( 'embed' ).debouncedScan );
