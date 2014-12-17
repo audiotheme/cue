@@ -2,7 +2,7 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 3.8
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -67,6 +67,13 @@ For more fine-grained control over where the playlist appears, a template tag is
 3. Playlist display on small screens and sidebar widgets.
 
 == Changelog ==
+
+= 1.2.6 =
+* Added previews for the shortcode in the visual editor.
+* Fixed an error in the Customizer when there weren't any published playlists.
+* Fixed the allowed file types when uploading.
+* Fixed the SVG blur filter when previewing in the Customizer.
+* Updated jquery.cue.js to 1.1.3
 
 = 1.2.5 =
 * Fixed bug that caused playlists in widgets to disappear.
