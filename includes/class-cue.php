@@ -268,14 +268,17 @@ class Cue {
 		) );
 
 		if ( empty( $playlists ) ) {
+			$playlists = array();
+
 			$description = sprintf(
 				__( '<a href="%s">Create a playlist</a> for this player.', 'cue' ),
 				'http://192.168.1.20/americanaura/wordpress/wp-admin/post-new.php?post_type=cue_playlist'
 			);
+		} else {
+			// Create an array: ID => post_title
+			$playlists = array_combine( wp_list_pluck( $playlists, 'ID' ), wp_list_pluck( $playlists, 'post_title' ) );
 		}
 
-		// Create an array: ID => post_title
-		$playlists = array_combine( wp_list_pluck( $playlists, 'ID' ), wp_list_pluck( $playlists, 'post_title' ) );
 		$playlists = array( 0 => '' ) + $playlists;
 
 		foreach ( $players as $id => $player ) {
