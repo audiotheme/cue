@@ -272,7 +272,7 @@ class Cue {
 
 			$description = sprintf(
 				__( '<a href="%s">Create a playlist</a> for this player.', 'cue' ),
-				'http://192.168.1.20/americanaura/wordpress/wp-admin/post-new.php?post_type=cue_playlist'
+				admin_url( 'post-new.php?post_type=cue_playlist' )
 			);
 		} else {
 			// Create an array: ID => post_title
