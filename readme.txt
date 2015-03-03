@@ -68,6 +68,9 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.2.7 =
+* Fixed a broken link in the Customizer when there aren't any published playlists.
+
 = 1.2.6 =
 * Added previews for the shortcode in the visual editor.
 * Fixed an error in the Customizer when there weren't any published playlists.
