@@ -2,11 +2,11 @@
   "name": "cue",
   "description": "Create beautiful, fully responsive audio playlists in WordPress.",
   "version": "1.2.6",
-  "homepage": "http://audiotheme.com/",
+  "homepage": "https://audiotheme.com/",
   "author": {
     "name": "Brady Vercher",
     "email": "brady@audiotheme.com",
-    "url": "http://audiotheme.com/"
+    "url": "https://audiotheme.com/"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

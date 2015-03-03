@@ -5,7 +5,7 @@ Requires at least: 3.8
 Tested up to: 4.1
 Stable tag: trunk
 License: GPL-2.0+
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Create beautiful, fully responsive audio playlists.
 
@@ -20,18 +20,18 @@ Cue gives you the ability to easily create stylish playlists and display them an
 
 = AudioTheme Integration =
 
-Cue was originally built for the [AudioTheme Framework](http://audiotheme.com/), but we wanted everyone to have the ability to easily create beautiful playlists, so we're releasing it free for general use. Additional integration is built into our framework to extend Cue and allow tracks in your discography to be used as sources for playlist tracks.
+Cue was originally built for [AudioTheme](https://audiotheme.com/), but we wanted everyone to have the ability to easily create beautiful playlists, so we're releasing it free for general use. Additional integration is built into our framework to extend Cue and allow tracks in your discography to be used as sources for playlist tracks.
 
-For an example of how Cue can be extended, check out [CueBar, a jukebox audio player](http://demo.audiotheme.com/cuebar/) made for WordPress.
+For an example of how Cue can be extended, check out [CueBar, a jukebox audio player](https://demo.audiotheme.com/cuebar/) made for WordPress.
 
 = Support Policy =
 
 We'll do our best to keep this plugin up to date, fix bugs and implement features when possible, but technical support will only be provided for active AudioTheme customers. If you enjoy this plugin and would like to support its development, you can:
 
-* [Check out AudioTheme](http://audiotheme.com/) and tell your friends!
-* Help out on the [support forums](http://wordpress.org/support/plugin/cue).
+* [Check out AudioTheme](https://audiotheme.com/) and tell your friends!
+* Help out on the [support forums](https://wordpress.org/support/plugin/cue).
 * Consider [contributing on GitHub](https://github.com/audiotheme/cue).
-* [Leave a review](http://wordpress.org/support/view/plugin-reviews/cue#postform) and let everyone know how much you love it.
+* [Leave a review](https://wordpress.org/support/view/plugin-reviews/cue#postform) and let everyone know how much you love it.
 * [Follow @AudioTheme](https://twitter.com/AudioTheme) on Twitter.
 
 = Translation Credits =
@@ -40,7 +40,7 @@ We'll do our best to keep this plugin up to date, fix bugs and implement feature
 
 == Installation ==
 
-Install Cue like any other plugin. [Check out the codex](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins) if you have any questions.
+Install Cue like any other plugin. [Check out the codex](https://codex.wordpress.org/Managing_Plugins#Installing_Plugins) if you have any questions.
 
 = Usage =
 
