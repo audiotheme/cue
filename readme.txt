@@ -37,6 +37,7 @@ We'll do our best to keep this plugin up to date, fix bugs and implement feature
 = Translation Credits =
 
 * Brazilian Portuguese (pt_BR) - Dionizio Bach [v1.2.0]
+* French (fr_FR) - Gwenhael Le Mansec [v1.2.8]
 
 == Installation ==
 
@@ -67,6 +68,9 @@ For more fine-grained control over where the playlist appears, a template tag is
 3. Playlist display on small screens and sidebar widgets.
 
 == Changelog ==
+
+= 1.2.8 =
+* Added French translation.
 
 = 1.2.7 =
 * Fixed a broken link in the Customizer when there aren't any published playlists.
