@@ -1,3 +1,5 @@
+/*global _:false, wp:false */
+
 (function( $, wp ) {
 	var extend,
 		postID = $( '#post_ID' ).val() || 0;
