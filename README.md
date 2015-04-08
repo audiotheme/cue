@@ -3,7 +3,7 @@
 Create beautiful, fully responsive audio playlists in WordPress.
 
 __Contributors:__ [Brady Vercher](https://twitter.com/bradyvercher)  
-__Requires:__ WordPress 4.0+ 
+__Requires:__ WordPress 4.0+  
 __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)
 
 
@@ -24,4 +24,4 @@ For an example of how Cue can be extended, check out [CueBar, a jukebox audio pl
 
 ## Installation
 
-[Cue is in the WordPress.org plugin directory](https://wordpress.org/plugins/cue/) and can be installed directly form within your admin panel.
+[Cue is in the WordPress.org plugin directory](https://wordpress.org/plugins/cue/) and can be installed within your admin panel.
