@@ -20,15 +20,15 @@ Cue gives you the ability to easily create stylish playlists and display them an
 
 = AudioTheme Integration =
 
-Cue was originally built for [AudioTheme](https://audiotheme.com/?utm_source=wordpress.org&utm_medium=link&utm_term=cue&utm_campaign=readmes), but we wanted everyone to have the ability to easily create beautiful playlists, so we're releasing it free for general use. Additional integration is built into our framework to extend Cue and allow tracks in your discography to be used as sources for playlist tracks.
+Cue was originally built for [AudioTheme](https://audiotheme.com/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins), but we wanted everyone to have the ability to easily create beautiful playlists, so we're releasing it free for general use. Additional integration is built into our framework to extend Cue and allow tracks in your discography to be used as sources for playlist tracks.
 
-For an example of how Cue can be extended, check out [CueBar, a jukebox audio player](https://demo.audiotheme.com/cuebar/?utm_source=wordpress.org&utm_medium=link&utm_term=cue&utm_campaign=readmes) made for WordPress.
+For an example of how Cue can be extended, check out [CueBar, a jukebox audio player](https://demo.audiotheme.com/cuebar/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins) made for WordPress.
 
 = Support Policy =
 
 We'll do our best to keep this plugin up to date, fix bugs and implement features when possible, but technical support will only be provided for active AudioTheme customers. If you enjoy this plugin and would like to support its development, you can:
 
-* [Check out AudioTheme](https://audiotheme.com/?utm_source=wordpress.org&utm_medium=link&utm_term=cue&utm_campaign=readmes) and tell your friends!
+* [Check out AudioTheme](https://audiotheme.com/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins) and tell your friends!
 * Help out on the [support forums](https://wordpress.org/support/plugin/cue).
 * Consider [contributing on GitHub](https://github.com/audiotheme/cue).
 * [Leave a review](https://wordpress.org/support/view/plugin-reviews/cue#postform) and let everyone know how much you love it.

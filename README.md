@@ -18,9 +18,9 @@ Cue gives you the ability to easily create stylish playlists and display them an
 
 = AudioTheme Integration =
 
-Cue was originally built for [AudioTheme](https://audiotheme.com/?utm_source=github.com&utm_medium=link&utm_term=cue&utm_campaign=readmes), but we wanted everyone to have the ability to easily create beautiful playlists, so we're releasing it free for general use. Additional integration is built into our framework to extend Cue and allow tracks in your discography to be used as sources for playlist tracks.
+Cue was originally built for [AudioTheme](https://audiotheme.com/?utm_source=github.com&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins), but we wanted everyone to have the ability to easily create beautiful playlists, so we're releasing it free for general use. Additional integration is built into our framework to extend Cue and allow tracks in your discography to be used as sources for playlist tracks.
 
-For an example of how Cue can be extended, check out [CueBar, a jukebox audio player](https://demo.audiotheme.com/cuebar/?utm_source=github.com&utm_medium=link&utm_term=cue&utm_campaign=readmes) made for WordPress.
+For an example of how Cue can be extended, check out [CueBar, a jukebox audio player](https://demo.audiotheme.com/cuebar/?utm_source=github.com&utm_medium=link&utm_term=cue-readme&utm_campaign=plugins) made for WordPress.
 
 ## Installation
 
