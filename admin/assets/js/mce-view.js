@@ -1,7 +1,8 @@
 (function( $, wp ) {
-	var postID = $( '#post_ID' ).val() || 0;
+	var extend,
+		postID = $( '#post_ID' ).val() || 0;
 
-	wp.mce.views.register( 'cue', {
+	extend = {
 		action: 'cue_parse_shortcode',
 		edit: null,
 		state: [],
@@ -52,5 +53,18 @@
 				}
 			} );
 		}
-	} );
+	};
+
+	// Support for versions before WP 4.2
+	if ( wp.mce.av ) {
+		extend = _.extend( {}, wp.mce.av, {
+			View: _.extend( {}, wp.mce.av.View, {
+				action: 'cue_parse_shortcode'
+			}),
+			edit: null
+		} );
+	}
+
+	wp.mce.views.register( 'cue', extend );
+
 } )( jQuery, wp );

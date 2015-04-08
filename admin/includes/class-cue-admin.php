@@ -83,7 +83,7 @@ class Cue_Admin {
 		wp_enqueue_script(
 			'cue-mce-view',
 			CUE_URL . 'admin/assets/js/mce-view.js',
-			array( 'jquery', 'mce-view' ),
+			array( 'jquery', 'mce-view', 'underscore' ),
 			'1.0.0',
 			true
 		);
