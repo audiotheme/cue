@@ -2,9 +2,9 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cue 1.2.8\n"
+"Project-Id-Version: Cue 1.2.9\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/cue\n"
-"POT-Creation-Date: 2015-03-27 16:15:50+00:00\n"
+"POT-Creation-Date: 2015-04-08 19:36:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,120 +28,120 @@ msgstr ""
 msgid "No items found."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:52
+#: admin/includes/class-cue-admin.php:51
 msgid "Players"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:62
+#: admin/includes/class-cue-admin.php:61
 msgid "Shortcode"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:109
-#: admin/includes/class-cue-admin.php:125
+#: admin/includes/class-cue-admin.php:127
+#: admin/includes/class-cue-admin.php:143
 msgid "Add Tracks"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:110
+#: admin/includes/class-cue-admin.php:128
 msgid "Add from URL"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:113
+#: admin/includes/class-cue-admin.php:131
 msgid "Image Files"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:114
+#: admin/includes/class-cue-admin.php:132
 msgid "Choose an Image"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:115
+#: admin/includes/class-cue-admin.php:133
 msgid "Update Image"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:118
-#: admin/includes/class-cue-admin.php:123
+#: admin/includes/class-cue-admin.php:136
+#: admin/includes/class-cue-admin.php:141
 msgid "Audio Files"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:119
+#: admin/includes/class-cue-admin.php:137
 msgid "Choose an Audio File"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:120
+#: admin/includes/class-cue-admin.php:138
 msgid "Update Audio"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:124
+#: admin/includes/class-cue-admin.php:142
 msgid "Choose Tracks"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:178
+#: admin/includes/class-cue-admin.php:196
 msgid "Tracks"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:180
+#: admin/includes/class-cue-admin.php:198
 msgid ""
 "Add tracks to the playlist, then drag and drop to reorder them. Click the "
 "arrow on the right of each item to reveal more configuration options."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:197
+#: admin/includes/class-cue-admin.php:215
 msgid "Choose which players should use this playlist:"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:221
+#: admin/includes/class-cue-admin.php:239
 msgid ""
 "Copy and paste the following shortcode into a post or page to embed this "
 "playlist."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:246
-#: admin/includes/class-cue-admin.php:249
+#: admin/includes/class-cue-admin.php:264
+#: admin/includes/class-cue-admin.php:267
 msgid "Playlist updated."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:247
+#: admin/includes/class-cue-admin.php:265
 msgid "Custom field updated."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:248
+#: admin/includes/class-cue-admin.php:266
 msgid "Custom field deleted."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:251
+#: admin/includes/class-cue-admin.php:269
 #. translators: %s: date and time of the revision
 msgid "Playlist restored to revision from %s"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:253
+#: admin/includes/class-cue-admin.php:271
 msgid "Playlist published."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:254
+#: admin/includes/class-cue-admin.php:272
 msgid "Playlist saved."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:255
+#: admin/includes/class-cue-admin.php:273
 msgid "Playlist submitted."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:256
+#: admin/includes/class-cue-admin.php:274
 msgid "Playlist scheduled for: <strong>%1$s</strong>."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:258
+#: admin/includes/class-cue-admin.php:276
 #. translators: Publish box date format, see http:php.net/date
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:259
+#: admin/includes/class-cue-admin.php:277
 msgid "Playlist draft updated."
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:266
+#: admin/includes/class-cue-admin.php:284
 msgid "View playlist"
 msgstr ""
 
-#: admin/includes/class-cue-admin.php:275
+#: admin/includes/class-cue-admin.php:293
 msgid "Preview Playlist"
 msgstr ""
 
