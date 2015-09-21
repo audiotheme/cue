@@ -73,7 +73,7 @@ function cue_ajax_parse_shortcode() {
 	if ( empty( $shortcode ) ) {
 		wp_send_json_error( array(
 			'type' => 'no-items',
-			'message' => __( 'No items found.' ),
+			'message' => __( 'No items found.', 'cue' ),
 		) );
 	}
 
