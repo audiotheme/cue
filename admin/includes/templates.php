@@ -1,5 +1,14 @@
 <script type="text/html" id="tmpl-cue-playlist-track">
-	<h4 class="cue-track-title"><span class="text">{{{ data.title }}}</span> <i class="cue-track-toggle js-toggle"></i></h4>
+	<h4 class="cue-track-title">
+		<span class="text">
+			<# if ( data.title ) { #>
+				{{{ data.title }}}
+			<# } else { #>
+				<?php esc_html_e( '(no title)', 'cue' ); ?>
+			<# } #>
+		</span>
+		<i class="cue-track-toggle js-toggle"></i>
+	</h4>
 
 	<div class="cue-track-inside">
 		<div class="cue-track-audio-group"></div>
