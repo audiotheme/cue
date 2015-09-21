@@ -7,6 +7,21 @@ module.exports = function( grunt ) {
 
 	grunt.initConfig({
 
+		addtextdomain: {
+			target: {
+				options: {
+					updateDomains: ['all']
+				},
+				files: {
+					src: [
+						'*.php',
+	                    '**/*.php',
+	                    '!node_modules/**'
+                    ]
+				}
+			}
+		},
+
 		autoprefixer: {
 			options: {
 				browsers: ['> 1%', 'last 2 versions', 'ff 17', 'opera 12.1', 'ie 8', 'android 4']
