@@ -1,12 +1,9 @@
-/*global _cueSettings:false, cue:false, MediaElementPlayer:false, mejs:false */
-
-window.cue = window.cue || {};
+/*global MediaElementPlayer:false */
 
 (function( window, $, undefined )  {
 	'use strict';
 
 	$.extend( MediaElementPlayer.prototype, {
-
 		buildaudiothememark: function( player, controls, layers, media ) {
 			layers.append( '<a href="https://audiotheme.com/" target="_blank" class="mejs-audiotheme-mark">AudioTheme</a>' );
 		},
