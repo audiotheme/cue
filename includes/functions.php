@@ -88,7 +88,9 @@ function get_cue_playlist_tracks( $post = 0, $context = 'display' ) {
 		$parts = parse_url( $track['audioUrl'] );
 		if ( ! empty( $parts['path'] ) ) {
 			$ext = pathinfo( $parts['path'], PATHINFO_EXTENSION );
-			$tracks[ $key ][ $ext ] = $track['audioUrl'];
+			if ( ! empty( $ext ) ) {
+				$tracks[ $key ][ $ext ] = $track['audioUrl'];
+			}
 		}
 	}
 
