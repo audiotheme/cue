@@ -1,8 +1,8 @@
 === Cue ===
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
-Requires at least: 4.0
-Tested up to: 4.2
+Requires at least: 4.2
+Tested up to: 4.4
 Stable tag: trunk
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -68,6 +68,14 @@ For more fine-grained control over where the playlist appears, a template tag is
 3. Playlist display on small screens and sidebar widgets.
 
 == Changelog ==
+
+= 1.3.0 =
+* Added a volume bar to the default player.
+* Display a "(no title)" placeholder in the admin panel if a track doesn't have a title.
+* Added some missing text domains to translation functions.
+* Added actions in the playlist template to make it easier to output additional details.
+* Updated jquery.cue.js to 1.1.4.
+* Updated the AudioTheme icon.
 
 = 1.2.9 =
 * Update the TinyMCE preview for WordPress 4.2.
