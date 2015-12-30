@@ -104,6 +104,9 @@ window.cue = window.cue || {};
 			}).cueMediaClasses({
 				breakpoints: [{
 					type: 'max-width',
+					size: 480
+				}, {
+					type: 'max-width',
 					size: 380
 				},
 				{

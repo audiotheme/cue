@@ -54,6 +54,7 @@
 		.mejs-track-artist {
 			display: block;
 			line-height: 2;
+			margin-right: 45px;
 		}
 
 		.mejs-track-title {
@@ -350,6 +351,23 @@
 	}
 }
 
+.cue-playlist.max-width-480 {
+	.cue-skin-default.mejs-container {
+		.mejs-track-details {
+			.mejs-track-title {
+				font-size: 14px;
+			}
+		}
+
+		.mejs-controls {
+			.mejs-volume-button,
+			.mejs-horizontal-volume-slider {
+				display: none;
+			}
+		}
+	}
+}
+
 // Narrow variation element queries.
 .cue-playlist.max-width-380 {
 	.cue-skin-default.mejs-container {
@@ -412,8 +430,8 @@
 			width: 100%;
 			z-index: 5;
 
-			.mejs-track-title {
-				font-size: 14px;
+			.mejs-track-artist {
+				margin-right: 0;
 			}
 		}
 
