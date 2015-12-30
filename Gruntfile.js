@@ -15,9 +15,9 @@ module.exports = function( grunt ) {
 				files: {
 					src: [
 						'*.php',
-	                    '**/*.php',
-	                    '!node_modules/**'
-                    ]
+						'**/*.php',
+						'!node_modules/**'
+					]
 				}
 			}
 		},
@@ -103,11 +103,11 @@ module.exports = function( grunt ) {
 				},
 				files: [
 					{
-						src: 'assets/css/sass/cue.scss',
+						src: 'assets/sass/cue.scss',
 						dest: 'assets/css/cue.min.css'
 					},
 					{
-						src: 'admin/assets/css/sass/admin.scss',
+						src: 'admin/assets/sass/admin.scss',
 						dest: 'admin/assets/css/admin.min.css'
 					}
 				]
@@ -145,9 +145,9 @@ module.exports = function( grunt ) {
 			},
 			sass: {
 				files: [
-					'assets/css/sass/*.scss',
-					'assets/css/sass/**/*.scss',
-					'admin/assets/css/sass/*.scss'
+					'assets/sass/*.scss',
+					'assets/sass/**/*.scss',
+					'admin/assets/sass/*.scss'
 				],
 				tasks: ['sass', 'autoprefixer', 'cssmin']
 			}
