@@ -6,11 +6,16 @@
 	<ol class="cue-tracks">
 		<?php foreach ( $tracks as $track ) : ?>
 			<li class="cue-track" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
+				<?php do_action( 'cue_playlist_track_top', $track, $post, $args ); ?>
+
 				<span class="cue-track-details cue-track-cell">
 					<span class="cue-track-title" itemprop="name"><?php echo $track['title']; ?></span>
 					<span class="cue-track-artist" itemprop="byArtist"><?php echo esc_html( $track['artist'] ); ?></span>
 				</span>
+
 				<span class="cue-track-length cue-track-cell"><?php echo esc_html( $track['length'] ); ?></span>
+
+				<?php do_action( 'cue_playlist_track_bottom', $track, $post, $args ); ?>
 			</li>
 		<?php endforeach; ?>
 	</ol>
