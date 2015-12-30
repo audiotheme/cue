@@ -1,16 +1,18 @@
 /*global exports:false, module:false, require:false */
 
+var autoprefixer = require( 'autoprefixer' );
+
 module.exports = function( grunt ) {
 	'use strict';
 
-	require('matchdep').filterDev('grunt-*').forEach( grunt.loadNpmTasks );
+	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
 	grunt.initConfig({
 
 		addtextdomain: {
 			target: {
 				options: {
-					updateDomains: ['all']
+					updateDomains: [ 'all' ]
 				},
 				files: {
 					src: [
@@ -19,18 +21,6 @@ module.exports = function( grunt ) {
 						'!node_modules/**'
 					]
 				}
-			}
-		},
-
-		autoprefixer: {
-			options: {
-				browsers: ['> 1%', 'last 2 versions', 'ff 17', 'opera 12.1', 'ie 8', 'android 4']
-			},
-			plugin: {
-				src: 'assets/css/cue.min.css'
-			},
-			admin: {
-				src: 'admin/assets/css/admin.min.css'
 			}
 		},
 
@@ -96,6 +86,23 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		postcss: {
+			options: {
+				processors: [
+					autoprefixer({
+						browsers: [ '> 1%', 'last 2 versions', 'ff 17', 'opera 12.1', 'android 4' ],
+						cascade: false
+					})
+				]
+			},
+			plugin: {
+				src: 'assets/css/cue.min.css'
+			},
+			admin: {
+				src: 'admin/assets/css/admin.min.css'
+			}
+		},
+
 		sass: {
 			plugin: {
 				options: {
@@ -140,8 +147,8 @@ module.exports = function( grunt ) {
 
 		watch: {
 			js: {
-				files: ['<%= jshint.plugin %>'],
-				tasks: ['jshint', 'uglify']
+				files: [ '<%= jshint.plugin %>' ],
+				tasks: [ 'jshint', 'uglify' ]
 			},
 			sass: {
 				files: [
@@ -149,12 +156,12 @@ module.exports = function( grunt ) {
 					'assets/sass/**/*.scss',
 					'admin/assets/sass/*.scss'
 				],
-				tasks: ['sass', 'autoprefixer', 'cssmin']
+				tasks: [ 'sass', 'autoprefixer', 'cssmin' ]
 			}
 		}
 
 	});
 
-	grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'watch']);
+	grunt.registerTask( 'default', [ 'jshint', 'uglify', 'sass', 'postcss', 'cssmin', 'watch' ]);
 
 };
