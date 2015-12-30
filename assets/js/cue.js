@@ -94,10 +94,10 @@ window.cue = window.cue || {};
 					'cueprevioustrack',
 					'playpause',
 					'cuenexttrack',
+					'volume',
 					'progress',
 					'current',
 					'duration',
-					'volume',
 					'cueplaylist',
 					'audiothememark'
 				]
