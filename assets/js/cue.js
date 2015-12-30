@@ -97,6 +97,7 @@ window.cue = window.cue || {};
 					'progress',
 					'current',
 					'duration',
+					'volume',
 					'cueplaylist',
 					'audiothememark'
 				]

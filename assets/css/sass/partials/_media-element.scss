@@ -141,6 +141,7 @@
 		.mejs-previous-button {
 			cursor: pointer;
 			height: 20px;
+			margin-right: 15px;
 			opacity: 0.6;
 			position: relative;
 			transition: opacity .2s;
@@ -172,8 +173,6 @@
 		}
 
 		.mejs-previous-button {
-			margin-right: 15px;
-
 			button {
 				border-width: 8px 12px 8px 0;
 
@@ -238,6 +237,59 @@
 
 			.mejs-time-separator {
 				padding: 0 5px;
+			}
+		}
+
+		.mejs-volume-button {
+			height: 24px;
+			margin-right: 10px;
+			opacity: 0.6;
+			top: -2px;
+			width: 24px;
+
+			button,
+			button:focus {
+				background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LDE2di0xLjVjMS4zNzgsMCwyLjUtMS4xMjIsMi41LTIuNWMwLTEuMzc5LTEuMTIyLTIuNS0yLjUtMi41VjhjMi4yMDksMCw0LDEuNzkxLDQsNEMxOCwxNC4yMDksMTYuMjA5LDE2LDE0LDE2eiBNMTQsNCB2MS41YzMuNTg0LDAsNi41LDIuOTE2LDYuNSw2LjVzLTIuOTE2LDYuNS02LjUsNi41VjIwYzQuNDE4LDAsOC0zLjU4Miw4LThTMTguNDE4LDQsMTQsNHogTTIsOXY2aDRsNiw2VjNMNiw5SDJ6Ii8+PC9zdmc+");
+				height: 24px;
+				width: 24px;
+			}
+
+			&.mejs-unmute button,
+			&.mejs-unmute button:focus {
+				background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LDkuNVY4YzIuMjA5LDAsNCwxLjc5MSw0LDRjMCwwLjgxNC0wLjI0NiwxLjU3LTAuNjY0LDIuMjAyTDE2LjIzNCwxMy4xYzAuMTY1LTAuMzMzLDAuMjY2LTAuNzAzLDAuMjY2LTEuMSBDMTYuNSwxMC42MjEsMTUuMzc4LDkuNSwxNCw5LjV6IE0yMC41LDEyYzAsMS41MDMtMC41MTgsMi44ODUtMS4zNzgsMy45ODhsMS4wNzMsMS4wNzNDMjEuMzIyLDE1LjY4MiwyMiwxMy45MiwyMiwxMiBjMC00LjQxOC0zLjU4Mi04LTgtOHYxLjVDMTcuNTg0LDUuNSwyMC41LDguNDE2LDIwLjUsMTJ6IE0xMiwzTDkuMDY3LDUuOTMzTDEyLDguODY2VjN6IE0yLDMuMDYxbDQuOTcsNC45N0w2LDlIMnY2aDRsNiw2di03LjkzOSBsNC43ODUsNC43ODVDMTUuOTM4LDE4LjI1MiwxNS4wMDEsMTguNSwxNCwxOC41VjIwYzEuNDIyLDAsMi43NTUtMC4zNzYsMy45MTItMS4wMjhMMjAuOTM5LDIyTDIyLDIwLjkzOUwzLjA2MSwyTDIsMy4wNjF6Ii8+PC9zdmc+");
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		.mejs-horizontal-volume-slider {
+			height: 20px;
+			width: 100px;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.mejs-horizontal-volume-current,
+			.mejs-horizontal-volume-total {
+				border-radius: 3px;
+				height: 6px;
+				margin-top: -3px;
+				position: absolute;
+				top: 50%;
+			}
+
+			.mejs-horizontal-volume-total {
+				background: #fff;
+				opacity: 0.6;
+				width: 100%;
+			}
+
+			.mejs-horizontal-volume-current {
+				background: #fff;
+				opacity: 1;
 			}
 		}
 	}
