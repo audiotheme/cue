@@ -58,11 +58,19 @@ function cue_playlist( $post, $args = array() ) {
 	$classes[] = ( isset( $args['show_playlist'] ) && false == $args['show_playlist'] ) ? 'is-playlist-hidden' : '';
 	$classes   = implode( ' ', array_filter( $classes ) );
 
+    if ( ! isset( $args['container'] ) || isset( $args['container'] ) && $args['container'] ) {
+        echo '<div class="cue-playlist-container">';
+    }
+
     do_action( 'cue_before_playlist', $post, $tracks, $args );
 
     include( $template );
 
     do_action( 'cue_after_playlist', $post, $tracks, $args );
+
+    if ( ! isset( $args['container'] ) || isset( $args['container'] ) && $args['container'] ) {
+        echo '</div>';
+    }
 }
 
 /**
