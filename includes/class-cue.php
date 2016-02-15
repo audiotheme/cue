@@ -191,6 +191,8 @@ class Cue {
 	 * @param array $args
 	 */
 	public function print_playlist_settings( $playlist, $tracks, $args ) {
+        if ( isset( $args['print_playlist_data'] ) && ! $args['print_playlist_data'] ) return;
+
 		$thumbnail = '';
 		if ( has_post_thumbnail( $playlist->ID ) ) {
 			$thumbnail_id = get_post_thumbnail_id( $playlist->ID );
