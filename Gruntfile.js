@@ -186,6 +186,6 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'release', [ 'clean', 'jshint', 'uglify', 'sass', 'postcss', 'cssmin', 'watch' ]);
 
-    grunt.registerTask( 'default', [ 'clean', 'jshint', 'concat', 'sass', 'postcss' ]);
+    grunt.registerTask( 'default', [ 'clean', 'jshint', 'concat', 'sass', 'postcss', 'watch' ]);
 
 };
