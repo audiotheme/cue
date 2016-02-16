@@ -50,7 +50,7 @@ function cue_playlist( $post, $args = array() ) {
 	$template_names = array(
 		"playlist-{$post->ID}.php",
 		"playlist-{$post->post_name}.php",
-		"playlist.php",
+		'playlist.php',
 	);
 
 	// Prepend custom templates.
@@ -144,7 +144,7 @@ function get_cue_default_track() {
  * @return array
  */
 function sanitize_cue_track( $track, $context = 'display' ) {
-	if ( 'save' == $context ) {
+	if ( 'save' === $context ) {
 		$valid_props = get_cue_default_track();
 
 		// Remove properties that aren't in the whitelist.
@@ -181,7 +181,7 @@ function cue_player( $player_id, $args = array() ) {
 		'player'   => $player_id,
 		'template' => array(
 			"player-{$player_id}.php",
-			"player.php",
+			'player.php',
 		),
 	);
 
