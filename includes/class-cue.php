@@ -96,7 +96,7 @@ class Cue {
 			'not_found_in_trash' => __( 'No playlists found in Trash.', 'cue' ),
 			'all_items'          => __( 'All Playlists', 'cue' ),
 			'menu_name'          => __( 'Playlists', 'cue' ),
-			'name_admin_bar'     => _x( 'Playlist', 'add new on admin bar', 'cue' )
+			'name_admin_bar'     => _x( 'Playlist', 'add new on admin bar', 'cue' ),
 		);
 
 		$args = array(
@@ -213,7 +213,7 @@ class Cue {
 			$args
 		);
 		?>
-		<script type="application/json" class="cue-playlist-data"><?php echo json_encode( $settings ); ?></script>
+		<script type="application/json" class="cue-playlist-data"><?php echo wp_json_encode( $settings ); ?></script>
 		<?php
 	}
 
@@ -315,6 +315,6 @@ class Cue {
 	 */
 	protected function shortcode_bool( $var ) {
 		$falsey = array( 'false', '0', 'no', 'n' );
-		return ( ! $var || in_array( strtolower( $var ), $falsey ) ) ? false : true;
+		return ( ! $var || in_array( strtolower( $var ), $falsey, true ) ) ? false : true;
 	}
 }
