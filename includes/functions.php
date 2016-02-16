@@ -35,7 +35,15 @@ function cue_playlist( $post, $args = array() ) {
 		return;
 	}
 
-	if ( ! isset( $args['enqueue'] ) || $args['enqueue'] ) {
+	$args = wp_parse_args( $args, array(
+		'container'     => true,
+		'enqueue'       => true,
+		'print_data'    => true,
+		'show_playlist' => true,
+		'template'      => '',
+	) );
+
+	if ( $args['enqueue'] ) {
 		Cue::enqueue_assets();
 	}
 
@@ -55,22 +63,22 @@ function cue_playlist( $post, $args = array() ) {
 	$template = $template_loader->locate_template( $template_names );
 
 	$classes   = array( 'cue-playlist' );
-	$classes[] = ( isset( $args['show_playlist'] ) && false == $args['show_playlist'] ) ? 'is-playlist-hidden' : '';
+	$classes[] = ( $args['show_playlist'] ) ? '' : 'is-playlist-hidden';
 	$classes   = implode( ' ', array_filter( $classes ) );
 
-    if ( ! isset( $args['container'] ) || isset( $args['container'] ) && $args['container'] ) {
-        echo '<div class="cue-playlist-container">';
-    }
+	if ( $args['container'] ) {
+		echo '<div class="cue-playlist-container">';
+	}
 
-    do_action( 'cue_before_playlist', $post, $tracks, $args );
+	do_action( 'cue_before_playlist', $post, $tracks, $args );
 
-    include( $template );
+	include( $template );
 
-    do_action( 'cue_after_playlist', $post, $tracks, $args );
+	do_action( 'cue_after_playlist', $post, $tracks, $args );
 
-    if ( ! isset( $args['container'] ) || isset( $args['container'] ) && $args['container'] ) {
-        echo '</div>';
-    }
+	if ( $args['container'] ) {
+		echo '</div>';
+	}
 }
 
 /**
