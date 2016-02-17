@@ -38,6 +38,7 @@ function cue_playlist( $post, $args = array() ) {
 	$args = wp_parse_args( $args, array(
 		'container'     => true,
 		'enqueue'       => true,
+		'print_data'    => true,
 		'show_playlist' => true,
 		'player'        => '',
 		'template'      => '',
