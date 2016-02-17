@@ -35,6 +35,14 @@ function cue_playlist( $post, $args = array() ) {
 		return;
 	}
 
+	$args = wp_parse_args( $args, array(
+		'enqueue'       => true,
+		'print_data'    => true,
+		'show_playlist' => true,
+		'player'        => '',
+		'template'      => '',
+	) );
+
 	if ( ! isset( $args['enqueue'] ) || $args['enqueue'] ) {
 		Cue::enqueue_assets();
 	}
