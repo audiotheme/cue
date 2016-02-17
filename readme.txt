@@ -69,6 +69,10 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 == Changelog ==
 
+= 1.3.1 =
+* Added a `container` argument to the `cue_playlist()` template tag to disable the container.
+* Added a `pring_data` argument to the `cue_playlist()` template tag to disable the JSON data.
+
 = 1.3.0 =
 * Added a volume bar to the default player.
 * Display a "(no title)" placeholder in the admin panel if a track doesn't have a title.
