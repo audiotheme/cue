@@ -2,17 +2,17 @@
 /**
  * Cue
  *
- * @package Cue
+ * @package   Cue
  * @copyright Copyright (c) 2014, AudioTheme, LLC
- * @license GPL-2.0+
- * @since 1.0.0
+ * @license   GPL-2.0+
+ * @since     1.0.0
  */
 
 /**
  * Template loader.
  *
  * @package Cue
- * @since 1.0.0
+ * @since   1.0.0
  */
 class Cue_Template_Loader extends Gamajo_Template_Loader {
 	/**

@@ -2,17 +2,17 @@
 /**
  * Cue playlist widget.
  *
- * @package Cue
+ * @package   Cue
  * @copyright Copyright (c) 2014, AudioTheme, LLC
- * @license GPL-2.0+
- * @since 1.0.0
+ * @license   GPL-2.0+
+ * @since     1.0.0
  */
 
 /**
  * Playlist widget class.
  *
  * @package Cue
- * @since 1.0.0
+ * @since   1.0.0
  */
 class Cue_Widget_Playlist extends WP_Widget {
 	/**
