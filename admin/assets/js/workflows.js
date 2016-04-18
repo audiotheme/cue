@@ -55,8 +55,6 @@ window.cue = window.cue || {};
 		 * @param {Object} frame
 		 */
 		_addTracks: function( frame ) {
-			var workflow = this;
-
 			// Return the existing frame for this workflow.
 			if ( frame ) {
 				return frame;

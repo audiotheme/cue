@@ -1,11 +1,11 @@
-/*global _:false, _cueSettings:false, Backbone:false, cue:false, mejs:false, wp:false */
+/*global _:false, _cueSettings:false, cue:false, mejs:false, wp:false */
 
 window.cue = window.cue || {};
 
 (function( window, $, _, mejs, wp, undefined ) {
 	'use strict';
 
-	var l10n, workflows;
+	var l10n;
 
 	cue.data = _cueSettings;
 	l10n = cue.data.l10n;

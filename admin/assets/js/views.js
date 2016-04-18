@@ -147,16 +147,12 @@ window.cue = window.cue || {};
 
 		buttonClick: function( e ) {
 			var self = this,
-				$button = $( e.target ),
-				$spinner = $button.siblings( '.spinner' );
+				$button = $( e.target );
 
 			if ( ! self.saved ) {
 				this.collection.save().done(function( data ) {
 					self.saved = true;
 					$button.click();
-				}).fail(function() {
-					//$button.prop( 'disabled', false );
-					//$spinner.hide();
 				});
 			}
 
@@ -474,8 +470,7 @@ window.cue = window.cue || {};
 		},
 
 		cleanup: function() {
-			var track = this.model.toJSON(),
-				playerId = this.$el.find( '.mejs-audio' ).attr( 'id' ),
+			var playerId = this.$el.find( '.mejs-audio' ).attr( 'id' ),
 				player = playerId ? mejs.players[ playerId ] : null;
 
 			if ( player ) {
