@@ -1,4 +1,4 @@
-/*global _cueSettings:false, cue:false, SVGFEColorMatrixElement:false */
+/*global _cueSettings:false, cue:false, jQuery:false, SVGFEColorMatrixElement:false */
 
 window.cue = window.cue || {};
 

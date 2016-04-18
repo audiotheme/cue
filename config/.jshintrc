@@ -6,10 +6,9 @@
   "latedef": true,
   "noarg": true,
   "quotmark": "single",
-  "strict": true,
   "undef": true,
   "unused": "vars",
 
   "browser": true,
-  "jquery": true
+  "browserify": true
 }

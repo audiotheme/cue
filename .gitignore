@@ -1,4 +1,5 @@
 .DS_Store
 node_modules
+*.bundle.js
 *.min.*
 !assets/js/vendor/*.min.*

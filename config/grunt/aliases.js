@@ -4,7 +4,6 @@ module.exports = function( grunt, options ) {
 			'build'
 		],
 		'build': [
-			'clean',
 			'check',
 			'build:css',
 			'build:js'
@@ -14,10 +13,14 @@ module.exports = function( grunt, options ) {
 			'cssmin'
 		],
 		'build:js': [
+			'browserify:build',
 			'uglify',
 		],
 		'check': [
 			'jshint'
+		],
+		'develop:js': [
+			'browserify:develop'
 		],
 		'release': [
 			'check',

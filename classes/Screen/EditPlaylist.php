@@ -79,15 +79,15 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function enqueue_assets() {
-		$post = get_post();
+		$post   = get_post();
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_media();
-		wp_enqueue_style( 'genericons', $this->plugin->get_url( 'assets/css/genericons.css' ) );
-		wp_enqueue_style( 'cue-admin', $this->plugin->get_url( 'admin/assets/css/admin.min.css', array( 'genericons', 'mediaelement' ) ) );
+		wp_enqueue_style( 'cue-admin' );
 
 		wp_enqueue_script(
-			'cue-admin',
-			$this->plugin->get_url( 'admin/assets/js/cue.min.js' ),
+			'cue-playlist-edit',
+			$this->plugin->get_url( 'admin/assets/js/playlist-edit.bundle' . $suffix . '.js' ),
 			array(
 				'backbone',
 				'jquery-ui-sortable',
@@ -100,7 +100,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 			true
 		);
 
-		wp_localize_script( 'cue-admin', '_cueSettings', array(
+		wp_localize_script( 'cue-playlist-edit', '_cueSettings', array(
 			'tracks'   => get_cue_playlist_tracks( $post->ID, 'edit' ),
 			'settings' => array(
 				'pluginPath' => includes_url( 'js/mediaelement/', 'relative' ),
@@ -129,6 +129,9 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 				),
 			),
 		) );
+
+		// Alias for backward compatibility.
+		wp_register_script( 'cue-admin', false, array( 'cue-playlist-edit' ) );
 	}
 
 	/**

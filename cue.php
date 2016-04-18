@@ -88,6 +88,7 @@ require( cue()->get_path( 'includes/functions.php' ) );
 if ( is_admin() ) {
 	cue()
 		->register_hooks( new Cue_Admin() )
+		->register_hooks( new Cue_Provider_AdminAssets() )
 		->register_hooks( new Cue_Screen_EditPlaylist() )
 		->register_hooks( new Cue_Provider_AJAX() );
 }

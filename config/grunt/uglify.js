@@ -11,12 +11,9 @@ module.exports = {
 			},
 			{
 				src: [
-					'admin/assets/js/cue.js',
-					'admin/assets/js/workflows.js',
-					'admin/assets/js/models.js',
-					'admin/assets/js/views.js'
+					'admin/assets/js/playlist-edit.bundle.js',
 				],
-				dest: 'admin/assets/js/cue.min.js'
+				dest: 'admin/assets/js/playlist-edit.bundle.min.js'
 			}
 		]
 	}

@@ -1,4 +1,4 @@
-/*global MediaElementPlayer:false */
+/*global jQuery:false, MediaElementPlayer:false */
 
 (function( window, $, undefined )  {
 	'use strict';
