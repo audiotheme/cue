@@ -38,6 +38,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		}
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_action( 'admin_notices',         array( $this, 'print_javascript_required_notice' ) );
 		add_action( 'edit_form_after_title', array( $this, 'display_edit_view' ) );
 		add_action( 'admin_footer',          array( $this, 'print_templates' ) );
 	}
@@ -132,6 +133,31 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 
 		// Alias for backward compatibility.
 		wp_register_script( 'cue-admin', false, array( 'cue-playlist-edit' ) );
+	}
+
+	/**
+	 * Print a notice about JavaScript being required.
+	 *
+	 * @since 2.0.0
+	 */
+	public function print_javascript_required_notice() {
+		?>
+		<noscript>
+			<div class="notice notice-error">
+				<h2 class="notice-title"><?php esc_html_e( 'JavaScript Disabled' ); ?></h2>
+				<p>
+					<?php
+					$notice = sprintf(
+						__( 'Cue requires JavaScript in order to function correctly. Please <a href="%s">enable it in your browser</a> to continue.' ),
+						'http://enable-javascript.com/'
+					);
+
+					echo wp_kses( $notice, array( 'a' => array( 'href' => array() ) ) );
+					?>
+				</p>
+			</div>
+		</noscript>
+		<?php
 	}
 
 	/**
