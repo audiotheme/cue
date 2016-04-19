@@ -40,7 +40,8 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function register_hooks() {
-		add_action( 'wp_enqueue_scripts',    array( $this, 'register_assets' ), 1 );
+		// Register early so assets are available in the TinyMCE view AJAX callback.
+		add_action( 'init', array( $this, 'register_assets' ), 15 );
 	}
 
 	/**
