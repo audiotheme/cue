@@ -8,7 +8,7 @@ var $ = require( 'jquery' ),
 cue.data = _cueSettings; // Back-compat.
 cue.settings( _cueSettings );
 
-wp.media.view.settings.post.id = cue.data.settings.postId;
+wp.media.view.settings.post.id = cue.data.postId;
 wp.media.view.settings.defaultProps = {};
 
 // Add mime-type aliases to MediaElement plugin support.

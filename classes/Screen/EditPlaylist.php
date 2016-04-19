@@ -102,13 +102,11 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		);
 
 		wp_localize_script( 'cue-playlist-edit', '_cueSettings', array(
-			'tracks'   => get_cue_playlist_tracks( $post->ID, 'edit' ),
-			'settings' => array(
-				'pluginPath' => includes_url( 'js/mediaelement/', 'relative' ),
-				'postId'     => $post->ID,
-				'saveNonce'  => wp_create_nonce( 'save-tracks_' . $post->ID ),
-			),
-			'l10n' => array(
+			'pluginPath' => includes_url( 'js/mediaelement/', 'relative' ),
+			'postId'     => $post->ID,
+			'saveNonce'  => wp_create_nonce( 'save-tracks_' . $post->ID ),
+			'tracks'     => get_cue_playlist_tracks( $post->ID, 'edit' ),
+			'l10n'       => array(
 				'addTracks'  => __( 'Add Tracks', 'cue' ),
 				'addFromUrl' => __( 'Add from URL', 'cue' ),
 				'workflows'  => array(
