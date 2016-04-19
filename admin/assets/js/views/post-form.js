@@ -21,7 +21,7 @@ PostForm = wp.Backbone.View.extend({
 	},
 
 	render: function() {
-		this.views.add( '#cue-section', [
+		this.views.add( '#cue-playlist-editor .cue-panel-body', [
 			new AddTracksButton({
 				collection: this.collection,
 				l10n: this.l10n

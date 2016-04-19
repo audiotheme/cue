@@ -169,11 +169,16 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 	 */
 	public function display_edit_view( $post ) {
 		?>
-		<div id="cue-section" class="cue-section">
-			<h3 class="cue-section-title"><?php _e( 'Tracks', 'cue' ); ?></h3>
-			<p>
-				<?php _e( 'Add tracks to the playlist, then drag and drop to reorder them. Click the arrow on the right of each item to reveal more configuration options.', 'cue' ); ?>
-			</p>
+		<div id="cue-playlist-editor" class="cue-panel hide-if-no-js">
+			<div class="cue-panel-header">
+				<h2 class="cue-panel-title"><?php _e( 'Tracks', 'cue' ); ?></h2>
+			</div>
+
+			<div class="cue-panel-body">
+				<p>
+					<?php _e( 'Add tracks to the playlist, then drag and drop to reorder them. Click the arrow on the right of each item to reveal more configuration options.', 'cue' ); ?>
+				</p>
+			</div>
 		</div>
 		<?php
 	}
