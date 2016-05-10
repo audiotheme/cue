@@ -81,6 +81,14 @@
 	}
 }
 
+.cue-playlist.max-width-300 {
+	.cue-track {
+		.cue-track-length {
+			display: none;
+		}
+	}
+}
+
 .cue-playlist.max-width-200 {
 	.cue-track {
 		border-color: rgba(0, 0, 0, 0.1);
@@ -92,10 +100,6 @@
 			.cue-track-title {
 				font-weight: normal;
 			}
-		}
-
-		.cue-track-length {
-			display: none;
 		}
 
 		&:hover,
