@@ -81,6 +81,7 @@ window.cue = window.cue || {};
 
 				$playlist.cuePlaylist({
 					cueBackgroundUrl: backgroundUrl,
+					cuePlaylistLoop: false,
 					cueResponsiveProgress: true,
 					cueSelectors: {
 						playlist: '.cue-playlist'
