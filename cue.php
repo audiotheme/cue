@@ -93,4 +93,4 @@ if ( is_admin() ) {
 }
 
 // Instantiate and load the plugin.
-add_action( 'plugins_loaded', array( $cue, 'load_plugin' ) );
+add_action( 'plugins_loaded', array( cue(), 'load_plugin' ) );
