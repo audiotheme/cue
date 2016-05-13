@@ -36,7 +36,6 @@ class Cue_Provider_I18n extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function load_textdomain() {
-		$plugin_rel_path = dirname( $this->plugin->get_basename() ) . '/languages';
-		load_plugin_textdomain( $this->plugin->get_slug(), false, $plugin_rel_path );
+		load_plugin_textdomain( $this->plugin->get_slug() );
 	}
 }
