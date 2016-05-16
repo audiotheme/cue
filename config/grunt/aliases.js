@@ -22,13 +22,13 @@ module.exports = function( grunt, options ) {
 		'develop:js': [
 			'browserify:develop'
 		],
-		'release': [
+		'package': [
 			'check',
 			'string-replace:release',
 			'build:css',
 			'build:js',
 			'addtextdomain',
-			'makepot'
+			'compress:package'
 		]
 	};
 };

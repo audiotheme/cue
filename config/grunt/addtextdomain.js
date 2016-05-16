@@ -7,6 +7,7 @@ module.exports = {
 			src: [
 				'*.php',
 				'**/*.php',
+				'!dist/**',
 				'!node_modules/**',
 				'!tests/**',
 				'!vendor/**'
