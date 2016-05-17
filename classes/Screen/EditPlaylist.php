@@ -142,11 +142,11 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		?>
 		<noscript>
 			<div class="notice notice-error">
-				<h2 class="notice-title"><?php esc_html_e( 'JavaScript Disabled' ); ?></h2>
+				<h2 class="notice-title"><?php esc_html_e( 'JavaScript Disabled', 'cue' ); ?></h2>
 				<p>
 					<?php
 					$notice = sprintf(
-						__( 'Cue requires JavaScript in order to function correctly. Please <a href="%s">enable it in your browser</a> to continue.' ),
+						__( 'Cue requires JavaScript in order to function correctly. Please <a href="%s">enable it in your browser</a> to continue.', 'cue' ),
 						'http://enable-javascript.com/'
 					);
 
