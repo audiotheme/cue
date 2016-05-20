@@ -331,6 +331,10 @@
 	padding: 0;
 }
 
+#post-body-content > .cue-panel:last-child {
+	margin-bottom: 0;
+}
+
 @media only screen and (max-width: 480px) {
 	.cue-track-title {
 		padding-top: 15px;

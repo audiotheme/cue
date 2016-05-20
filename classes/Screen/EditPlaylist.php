@@ -171,14 +171,27 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 			<div class="cue-panel-header">
 				<h2 class="cue-panel-title"><?php _e( 'Tracks', 'cue' ); ?></h2>
 			</div>
-
 			<div class="cue-panel-body">
 				<p>
 					<?php _e( 'Add tracks to the playlist, then drag and drop to reorder them. Click the arrow on the right of each item to reveal more configuration options.', 'cue' ); ?>
 				</p>
 			</div>
 		</div>
+
+		<?php if ( ! function_exists( 'cuepro' ) ) : ?>
+			<div class="cue-panel">
+				<div class="cue-panel-header">
+					<h2 class="cue-panel-title">Cue Pro</h2>
+				</div>
+				<div class="cue-panel-body">
+					<p>
+						<?php esc_html_e( 'Want to sell, share, or gain insight into how visitors interact with your tracks?', 'cue' ); ?>
+						<a href="https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-meta-box&utm_campaign=plugins" target="_blank"><?php esc_html_e( 'Level up with Cue Pro.', 'cue' ); ?></a>
+					</p>
+				</div>
+			</div>
 		<?php
+		endif;
 	}
 
 	/**
