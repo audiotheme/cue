@@ -10,7 +10,7 @@
  * Plugin Name: Cue
  * Plugin URI:  https://audiotheme.com/view/cue/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-plugin-uri&utm_campaign=plugins
  * Description: Create beautiful, fully responsive audio playlists.
- * Version:     2.0.0-beta
+ * Version:     2.0.0
  * Author:      AudioTheme
  * Author URI:  https://audiotheme.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-author-uri&utm_campaign=plugins
  * License:     GPL-2.0+
