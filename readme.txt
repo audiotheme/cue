@@ -55,7 +55,7 @@ In addition to stats, *Cue Pro* allows you to add links for each track. Point yo
 
 *Cue* was originally integrated in our commercial platform, but we wanted everyone to have the ability to easily create beautiful playlists, so we released it free for general use. It powers the unique players in all of our premium music themes, as well as [*CueBar*](https://audiotheme.com/view/cuebar/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins), a site-wide, continuous audio player made for WordPress.
 
-**We care deeply about our work and stand by it.** We’d love to have your support and the opportunity to earn your loyalty.
+We care about our work and stand by it. We’d love to have your support and the opportunity to earn your loyalty.
 
 
 ### Support Policy
@@ -93,13 +93,13 @@ For more fine-grained control over where the playlist appears, a template tag is
 
 ## Frequently Asked Questions
 
-#### How do I disable the tracklist?
+#### How do I disable the track list?
 
 Add a `show_playlist` attribute to your `[cue]` shortcode and set the value to `0`. Something like this should do it:
 
 `[cue id="1" show_playlist="0"]`
 
-#### Why do my playlists get truncated when saved?
+#### Why do my playlists get truncated when they're saved?
 
 We've heard reports that this may happen around 70 tracks on some hosts, but it could occur with fewer tracks. First off, 70 tracks seems a bit excessive and may introduce other performance issues, so we recommend limiting the tracks to a more reasonable number.
 
@@ -149,7 +149,7 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 ## Changelog
 
-### 2.0.0
+### 2.0.0 - May 23, 2016
 * Refactored the code to make it easier to maintain.
 * Introduced a public initialize() JavaScript method.
 * Disabled automatic looping when a playlist is finished playing.
