@@ -47,7 +47,7 @@ class Cue_PostType_Playlist extends Cue_PostType_AbstractPostType {
 			'has_archive'        => false,
 			'hierarchical'       => false,
 			'labels'             => $this->get_labels(),
-			'menu_icon'          => 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAgMjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxyZWN0IGZpbGw9IiMwMTAxMDEiIHg9IjEiIHk9IjQiIHdpZHRoPSIxMCIgaGVpZ2h0PSIyIi8+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTEzLjAxIDMuMDMxdjcuMzVjLTAuNDU2LTAuMjE4LTAuOTYxLTAuMzUtMS41LTAuMzVjLTEuOTMzIDAtMy41IDEuNTY3LTMuNSAzLjVzMS41NjcgMy41IDMuNSAzLjVzMy41LTEuNTY3IDMuNS0zLjV2LTcuNSBsNC0xdi0zTDEzLjAxIDMuMDMxeiIvPjxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik02LjAxIDEzLjUzMWMwLTAuMTcxIDAuMDMyLTAuMzMzIDAuMDQ4LTAuNUgxLjAxdjJoNS4yMTNDNi4wODggMTQuNiA2IDE0LjEgNiAxMy41MzF6Ii8+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTcuMjk0IDEwLjAzMUgxLjAxdjJoNS4yMzNDNi40NTUgMTEuMyA2LjggMTAuNiA3LjMgMTAuMDMxeiIvPjxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xMS4wMSA4LjA1NFY3LjAzMWgtMTB2Mmg3LjM2N0M5LjE0IDguNSAxMCA4LjEgMTEgOC4wNTR6Ii8+PC9zdmc+',
+			'menu_icon'          => 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8cGF0aCBkPSJNMTEsOGg3djJoLTdWOHogTTcsM3Y3LjNDNi41LDEwLjEsNiwxMCw1LjUsMTBDMy42LDEwLDIsMTEuNiwyLDEzLjVTMy42LDE3LDUuNSwxN1M5LDE1LjQsOSwxMy41VjZoOVYzSDd6IE0xMSwxM2g3di0yaC03IFYxM3ogTTExLDE2aDd2LTJoLTdWMTZ6Ii8+DQo8L3N2Zz4NCg==',
 			'public'             => false,
 			'publicly_queryable' => false,
 			'rewrite'            => false,
