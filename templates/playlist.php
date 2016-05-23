@@ -13,6 +13,8 @@
 					<span class="cue-track-artist" itemprop="byArtist"><?php echo esc_html( $track['artist'] ); ?></span>
 				</span>
 
+				<?php do_action( 'cue_playlist_track_details_after', $track, $post, $args ); ?>
+
 				<span class="cue-track-length cue-track-cell"><?php echo esc_html( $track['length'] ); ?></span>
 
 				<?php do_action( 'cue_playlist_track_bottom', $track, $post, $args ); ?>

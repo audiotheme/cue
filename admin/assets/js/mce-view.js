@@ -1,6 +1,8 @@
-/*global _:false, wp:false */
+/*global _:false, jQuery:false, wp:false */
 
 (function( $, wp ) {
+	'use strict';
+
 	var extend,
 		postID = $( '#post_ID' ).val() || 0;
 
