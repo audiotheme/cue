@@ -1,4 +1,4 @@
-# Cue
+# Cue by AudioTheme.com
 
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald  
 Tags: playlist, audio, music, mp3, tracks, player  
