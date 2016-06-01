@@ -37,6 +37,7 @@ class Cue_Provider_Shortcode extends Cue_AbstractProvider {
 			array(
 				'id'            => 0,
 				'show_playlist' => true,
+				'theme'         => get_cue_default_theme(),
 				'template'      => '',
 			),
 			$atts,

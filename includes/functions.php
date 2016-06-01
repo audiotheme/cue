@@ -2,10 +2,10 @@
 /**
  * Cue API methods and template tags.
  *
- * @package Cue
+ * @package   Cue
  * @copyright Copyright (c) 2014, AudioTheme, LLC
- * @license GPL-2.0+
- * @since 1.0.0
+ * @license   GPL-2.0+
+ * @since     1.0.0
  */
 
 /**
@@ -41,6 +41,7 @@ function cue_playlist( $post, $args = array() ) {
 		'print_data'    => true,
 		'show_playlist' => true,
 		'player'        => '',
+		'theme'         => get_cue_default_theme(),
 		'template'      => '',
 	) );
 
@@ -63,8 +64,14 @@ function cue_playlist( $post, $args = array() ) {
 	$template_loader = new Cue_Template_Loader();
 	$template = $template_loader->locate_template( $template_names );
 
+	$themes = get_cue_themes();
+	if ( ! isset( $themes[ $args['theme'] ] ) ) {
+		$args['theme'] = 'default';
+	}
+
 	$classes   = array( 'cue-playlist' );
-	$classes[] = ( $args['show_playlist'] ) ? '' : 'is-playlist-hidden';
+	$classes[] = $args['show_playlist'] ? '' : 'is-playlist-hidden';
+	$classes[] = sprintf( 'cue-theme-%s', sanitize_html_class( $args['theme'] ) );
 	$classes   = implode( ' ', array_filter( $classes ) );
 
 	if ( $args['container'] ) {
@@ -262,4 +269,28 @@ function get_cue_player_tracks( $player_id, $args = array() ) {
 
 	$playlist_id = get_cue_player_playlist_id( $player_id );
 	return get_cue_playlist_tracks( $playlist_id, $args['context'] );
+}
+
+/**
+ * Retrieve registered themes.
+ *
+ * @since 2.1.0
+ *
+ * @return array
+ */
+function get_cue_themes() {
+	return apply_filters( 'cue_themes', array(
+		'default' => esc_html__( 'Default' ),
+	) );
+}
+
+/**
+ * Retrieve the default theme.
+ *
+ * @since 2.1.0
+ *
+ * @return string
+ */
+function get_cue_default_theme() {
+	return get_option( 'cue_default_theme', 'default' );
 }

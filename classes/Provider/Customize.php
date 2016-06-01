@@ -34,6 +34,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 	public function customize_register( $wp_customize ) {
 		$description = '';
 		$players     = get_cue_players();
+		$themes      = get_cue_themes();
 
 		if ( empty( $players ) ) {
 			return;
@@ -47,9 +48,8 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 		) );
 
 		$wp_customize->add_section( 'cue', array(
-			'title'       => __( 'Cue Players', 'cue' ),
-			'description' => __( 'Choose a playlist for each registered player.', 'cue' ),
-			'priority'    => 115,
+			'title'    => __( 'Cue Players', 'cue' ),
+			'priority' => 115,
 		) );
 
 		if ( empty( $playlists ) ) {
@@ -80,6 +80,25 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 				'label'       => $player['name'],
 				'section'     => 'cue',
 				'settings'    => 'cue_players[' . $id . ']',
+				'type'        => 'select',
+			) );
+		}
+
+		if ( count( $themes ) > 1 ) {
+			$wp_customize->add_setting( 'cue_default_theme', array(
+				'capability'        => 'edit_theme_options',
+				'default'           => 'default',
+				'sanitize_callback' => 'sanitize_key',
+				'type'              => 'option',
+			) );
+
+			$wp_customize->add_control( 'cue_default_theme', array(
+				'choices'     => get_cue_themes(),
+				'description' => '',
+				'label'       => esc_html__( 'Default Theme' ),
+				'priority'    => 100,
+				'section'     => 'cue',
+				'settings'    => 'cue_default_theme',
 				'type'        => 'select',
 			) );
 		}
