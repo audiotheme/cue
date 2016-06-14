@@ -185,8 +185,7 @@
 }
 
 .cue-track-column-group {
-	@extend .clearfix;
-
+	@include clearfix();
 	padding-left: 140px;
 
 	.cue-track-column {
