@@ -149,6 +149,11 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 ## Changelog
 
+### 2.0.1 - June 20, 2016
+* Fixed a bug where every other track would be skipped in Safari.
+* Updated jquery.cue.js to version 1.1.7. Disables playlist looping.
+* Updated the Gamajo Template Loader library to 1.2.0.
+
 ### 2.0.0 - May 23, 2016
 * Refactored the code to make it easier to maintain.
 * Introduced a public initialize() JavaScript method.
