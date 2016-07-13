@@ -61,7 +61,7 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 			'jquery-cue',
 			$this->plugin->get_url( 'assets/js/vendor/jquery.cue.min.js' ),
 			array( 'jquery', 'mediaelement' ),
-			'1.1.5',
+			'1.1.7',
 			true
 		);
 
