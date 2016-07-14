@@ -55,23 +55,12 @@ window.cue = window.cue || {};
 		initialize: function() {
 			// Initialize the playlists.
 			$( '.cue-playlist' ).each(function() {
-				var data,
+				var data = {},
 					$playlist = $( this ),
-					$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' ),
-					backgroundUrl = '',
-					skin = 'cue-skin-default';
+					$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' );
 
 				if ( $data.length ) {
 					data = $.parseJSON( $data.first().html() );
-
-					// Set the background image source.
-					if ( 'thumbnail' in data ) {
-						backgroundUrl = data.thumbnail;
-					}
-
-					if ( 'skin' in data ) {
-						skin = data.skin;
-					}
 				}
 
 				if ( ! cue.settings.hasCssFilters && cue.settings.hasSvgFilters ) {
@@ -85,14 +74,14 @@ window.cue = window.cue || {};
 				}
 
 				$playlist.cuePlaylist({
-					cueBackgroundUrl: backgroundUrl,
+					cueBackgroundUrl: data.thumbnail || '',
 					cuePermalink: data.permalink || '',
 					cuePlaylistLoop: false,
 					cueResponsiveProgress: true,
 					cueSelectors: {
 						playlist: '.cue-playlist'
 					},
-					cueSkin: skin,
+					cueSkin: data.skin || 'cue-skin-default',
 					defaultAudioHeight: 0,
 					features: [
 						'cuebackground',
