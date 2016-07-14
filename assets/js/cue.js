@@ -86,6 +86,7 @@ window.cue = window.cue || {};
 
 				$playlist.cuePlaylist({
 					cueBackgroundUrl: backgroundUrl,
+					cuePermalink: data.permalink || '',
 					cuePlaylistLoop: false,
 					cueResponsiveProgress: true,
 					cueSelectors: {
