@@ -94,8 +94,8 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 
 			$wp_customize->add_control( 'cue_default_theme', array(
 				'choices'     => get_cue_themes(),
-				'description' => '',
-				'label'       => esc_html__( 'Default Theme' ),
+				'description' => esc_html__( 'Choose a default theme to use for players.', 'cue' ),
+				'label'       => esc_html__( 'Default Theme', 'cue' ),
 				'priority'    => 100,
 				'section'     => 'cue',
 				'settings'    => 'cue_default_theme',

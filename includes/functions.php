@@ -280,7 +280,7 @@ function get_cue_player_tracks( $player_id, $args = array() ) {
  */
 function get_cue_themes() {
 	return apply_filters( 'cue_themes', array(
-		'default' => esc_html__( 'Default' ),
+		'default' => esc_html__( 'Default', 'cue' ),
 	) );
 }
 
