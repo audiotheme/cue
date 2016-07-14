@@ -106,6 +106,8 @@ window.cue = window.cue || {};
 						'current',
 						'duration',
 						'cueplaylist',
+						'cueshare',
+						'cuepopup',
 						'audiothememark'
 					]
 				}).cueMediaClasses({
