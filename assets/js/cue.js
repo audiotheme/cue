@@ -83,22 +83,7 @@ window.cue = window.cue || {};
 					},
 					cueSkin: data.skin || 'cue-skin-default',
 					defaultAudioHeight: 0,
-					features: [
-						'cuebackground',
-						'cueartwork',
-						'cuecurrentdetails',
-						'cueprevioustrack',
-						'playpause',
-						'cuenexttrack',
-						'volume',
-						'progress',
-						'current',
-						'duration',
-						'cueplaylist',
-						'cueshare',
-						'cuepopup',
-						'audiothememark'
-					]
+					features: $.fn.cuePlaylist.features
 				}).cueMediaClasses({
 					breakpoints: [{
 						type: 'max-width',
@@ -119,6 +104,21 @@ window.cue = window.cue || {};
 			});
 		}
 	});
+
+	$.fn.cuePlaylist.features = [
+		'cuebackground',
+		'cueartwork',
+		'cuecurrentdetails',
+		'cueprevioustrack',
+		'playpause',
+		'cuenexttrack',
+		'volume',
+		'progress',
+		'current',
+		'duration',
+		'cueplaylist',
+		'audiothememark'
+	];
 
 	$( document )
 		.ready( cue.initialize )
