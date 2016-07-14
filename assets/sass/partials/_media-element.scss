@@ -82,6 +82,7 @@
 			border-radius: 0;
 			border-style: solid;
 			box-shadow: none;
+			color: #fff;
 			height: 20px;
 			margin: 0;
 			outline: 0;
@@ -91,6 +92,11 @@
 
 			&:before {
 				content: "";
+			}
+
+			svg {
+				fill: currentColor;
+				vertical-align: middle;
 			}
 
 			&:active,
