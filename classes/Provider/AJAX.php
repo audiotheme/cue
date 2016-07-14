@@ -115,7 +115,7 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 		wp_print_scripts( 'cue' );
 
 		wp_send_json_success( array(
-			'head' => $head,
+			'head' => apply_filters( 'cue_parse_shortcode_head', $head ),
 			'body' => ob_get_clean(),
 		) );
 	}
