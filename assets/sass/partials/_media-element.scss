@@ -317,23 +317,27 @@
 	}
 
 	.mejs-audiotheme-mark {
-		background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA0MCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTEwLDQwQzQuNSw0MCwwLDM1LjUsMCwzMHM0LjUtMTAsMTAtMTBzMTAsNC41LDEwLDEwUzE1LjUsNDAsMTAsNDB6IE0wLDBsNDAsNDBWMjBMMjAsMEgweiBNODAsMEg0MHYxNGg0MFYweiBNNzQsNDBMNjAsMThMNDYsNDBINzR6Ii8+PC9zdmc+");
-		background-repeat: no-repeat;
-		display: block;
-		height: 16px;
-		opacity: 0.6;
-		overflow: hidden;
-		position: absolute;
-		top: 15px;
-		right: 15px;
-		text-indent: 100%;
-		transition: opacity .2s;
-		white-space: nowrap;
-		width: 30px;
+		color: #fff;
+	}
+}
 
-		&:hover {
-			opacity: 1;
-		}
+.mejs-audiotheme-mark {
+	color: #fff;
+	display: block;
+	height: 16px;
+	opacity: 0.6;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	transition: opacity .2s;
+	width: 30px;
+
+	svg {
+		fill: currentColor;
+	}
+
+	&:hover {
+		opacity: 1;
 	}
 }
 
