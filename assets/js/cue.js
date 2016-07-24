@@ -75,6 +75,7 @@ window.cue = window.cue || {};
 
 				$playlist.cuePlaylist({
 					cueBackgroundUrl: data.thumbnail || '',
+					cueEmbedLink: data.embed_link || '',
 					cuePermalink: data.permalink || '',
 					cuePlaylistLoop: false,
 					cueResponsiveProgress: true,

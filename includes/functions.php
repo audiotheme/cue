@@ -294,3 +294,28 @@ function get_cue_themes() {
 function get_cue_default_theme() {
 	return get_option( 'cue_default_theme', 'default' );
 }
+
+/**
+ * Retrieve the link for embedding a playlist.
+ *
+ * @since 2.1.0
+ *
+ * @param WP_Post $post Post object.
+ * @param array $args Array of extra arguments.
+ * @return string
+ */
+function get_cue_embed_link( $post, $args = array() ) {
+	$post = get_post( $post );
+
+	$themes = get_cue_themes();
+	if ( ! isset( $themes[ $args['theme'] ] ) ) {
+		$args['theme'] = 'default';
+	}
+
+	$query_args = array(
+		'cue_embed' => $post->post_name,
+		'cue_theme' => $args['theme'],
+	);
+
+	return add_query_arg( $query_args, home_url( '/' ) );
+}

@@ -70,10 +70,11 @@ class Cue_Plugin extends Cue_AbstractPlugin {
 		$settings = apply_filters(
 			'cue_playlist_settings',
 			array(
-				'permalink' => get_permalink( $playlist->ID ),
-				'skin'      => sprintf( 'cue-skin-%s', sanitize_html_class( $args['theme'] ) ),
-				'thumbnail' => $thumbnail,
-				'tracks'    => $tracks,
+				'embed_link' => get_cue_embed_link( $playlist, $args ),
+				'permalink'  => get_permalink( $playlist->ID ),
+				'skin'       => sprintf( 'cue-skin-%s', sanitize_html_class( $args['theme'] ) ),
+				'thumbnail'  => $thumbnail,
+				'tracks'     => $tracks,
 			),
 			$playlist,
 			$args
