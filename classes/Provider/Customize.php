@@ -36,20 +36,48 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 		$players     = get_cue_players();
 		$themes      = get_cue_themes();
 
-		if ( empty( $players ) ) {
-			return;
+		$wp_customize->add_section( 'cue', array(
+			'title'    => __( 'Cue Players', 'cue' ),
+			'priority' => 115,
+		) );
+
+		if ( ! empty( $players ) ) {
+			$this->register_player_controls( $players );
 		}
 
+		if ( count( $themes ) > 1 ) {
+			$wp_customize->add_setting( 'cue_default_theme', array(
+				'capability'        => 'edit_theme_options',
+				'default'           => 'default',
+				'sanitize_callback' => 'sanitize_key',
+				'type'              => 'option',
+			) );
+
+			$wp_customize->add_control( 'cue_default_theme', array(
+				'choices'     => get_cue_themes(),
+				'description' => esc_html__( 'Choose a default theme to use for players.', 'cue' ),
+				'label'       => esc_html__( 'Default Theme', 'cue' ),
+				'priority'    => 100,
+				'section'     => 'cue',
+				'settings'    => 'cue_default_theme',
+				'type'        => 'select',
+			) );
+		}
+	}
+
+	/**
+	 * Register controls to select a playlist for each player.
+	 *
+	 * @since 2.1.0
+	 *
+	 * @param array $players Array of players.
+	 */
+	protected function register_player_controls( $players ) {
 		$playlists = get_posts( array(
 			'post_type'      => 'cue_playlist',
 			'posts_per_page' => -1,
 			'orderby'        => 'title',
 			'order'          => 'asc',
-		) );
-
-		$wp_customize->add_section( 'cue', array(
-			'title'    => __( 'Cue Players', 'cue' ),
-			'priority' => 115,
 		) );
 
 		if ( empty( $playlists ) ) {
@@ -80,25 +108,6 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 				'label'       => $player['name'],
 				'section'     => 'cue',
 				'settings'    => 'cue_players[' . $id . ']',
-				'type'        => 'select',
-			) );
-		}
-
-		if ( count( $themes ) > 1 ) {
-			$wp_customize->add_setting( 'cue_default_theme', array(
-				'capability'        => 'edit_theme_options',
-				'default'           => 'default',
-				'sanitize_callback' => 'sanitize_key',
-				'type'              => 'option',
-			) );
-
-			$wp_customize->add_control( 'cue_default_theme', array(
-				'choices'     => get_cue_themes(),
-				'description' => esc_html__( 'Choose a default theme to use for players.', 'cue' ),
-				'label'       => esc_html__( 'Default Theme', 'cue' ),
-				'priority'    => 100,
-				'section'     => 'cue',
-				'settings'    => 'cue_default_theme',
 				'type'        => 'select',
 			) );
 		}
