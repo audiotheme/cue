@@ -42,7 +42,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 		) );
 
 		if ( ! empty( $players ) ) {
-			$this->register_player_controls( $players );
+			$this->register_player_controls( $wp_customize, $players );
 		}
 
 		if ( count( $themes ) > 1 ) {
@@ -70,9 +70,10 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 	 *
 	 * @since 2.1.0
 	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer instance.
 	 * @param array $players Array of players.
 	 */
-	protected function register_player_controls( $players ) {
+	protected function register_player_controls( $wp_customize, $players ) {
 		$playlists = get_posts( array(
 			'post_type'      => 'cue_playlist',
 			'posts_per_page' => -1,
