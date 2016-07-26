@@ -32,9 +32,8 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 	 * @param WP_Customize_Manager $wp_customize Customizer instance.
 	 */
 	public function customize_register( $wp_customize ) {
-		$description = '';
-		$players     = get_cue_players();
-		$themes      = get_cue_themes();
+		$players = get_cue_players();
+		$themes  = get_cue_themes();
 
 		$wp_customize->add_section( 'cue', array(
 			'title'    => __( 'Cue Players', 'cue' ),
@@ -74,6 +73,8 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 	 * @param array $players Array of players.
 	 */
 	protected function register_player_controls( $wp_customize, $players ) {
+		$description = '';
+
 		$playlists = get_posts( array(
 			'post_type'      => 'cue_playlist',
 			'posts_per_page' => -1,
