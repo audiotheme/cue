@@ -49,6 +49,10 @@ window.cue = window.cue || {};
 		return result && ! /(MSIE|Trident)/.test( window.navigator.userAgent );
 	}());
 
+	cue.settings.isTouch = (function() {
+		return ( 'ontouchstart' in window ) || window.DocumentTouch && document instanceof window.DocumentTouch;
+	}());
+
 	$html.toggleClass( 'no-css-filters', ! cue.settings.hasCssFilters ).toggleClass( 'no-svg-filters', ! cue.settings.hasSvgFilters );
 
 	$.extend( cue, {
@@ -58,6 +62,8 @@ window.cue = window.cue || {};
 				var data = {},
 					$playlist = $( this ),
 					$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' );
+
+				$playlist.addClass( cue.settings.isTouch ? 'touch' : 'no-touch' );
 
 				if ( $data.length ) {
 					data = $.parseJSON( $data.first().html() );
