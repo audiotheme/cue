@@ -44,6 +44,27 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 			$this->register_player_controls( $wp_customize, $players );
 		}
 
+		$native_themes = apply_filters( 'cue_native_themes', array() );
+
+		if ( ! empty( $native_themes ) ) {
+			$wp_customize->add_setting( 'cue_native_theme', array(
+				'default'           => 'default',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'sanitize_key',
+				'type'              => 'option',
+			) );
+
+			$wp_customize->add_control( 'cue_native_theme', array(
+				'choices'     => array( 'default' => esc_html( 'Default', 'cue' ) ) + $native_themes,
+				'description' => esc_html__( 'Choose a default theme to use for the native audio players in WordPress.', 'cue' ),
+				'label'       => esc_html__( 'Native Audio Theme', 'cue' ),
+				'priority'    => 95,
+				'section'     => 'cue',
+				'settings'    => 'cue_native_theme',
+				'type'        => 'select',
+			) );
+		}
+
 		if ( count( $themes ) > 1 ) {
 			$wp_customize->add_setting( 'cue_default_theme', array(
 				'capability'        => 'edit_theme_options',
@@ -54,8 +75,8 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 
 			$wp_customize->add_control( 'cue_default_theme', array(
 				'choices'     => get_cue_themes(),
-				'description' => esc_html__( 'Choose a default theme to use for players.', 'cue' ),
-				'label'       => esc_html__( 'Default Theme', 'cue' ),
+				'description' => esc_html__( 'Choose a default theme to use for Cue playlists.', 'cue' ),
+				'label'       => esc_html__( 'Default Cue Theme', 'cue' ),
 				'priority'    => 100,
 				'section'     => 'cue',
 				'settings'    => 'cue_default_theme',

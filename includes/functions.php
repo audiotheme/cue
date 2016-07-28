@@ -296,6 +296,17 @@ function get_cue_default_theme() {
 }
 
 /**
+ * Retrieve the theme to use for native audio shortcodes.
+ *
+ * @since 2.1.0
+ *
+ * @return string
+ */
+function get_cue_native_theme() {
+	return get_option( 'cue_native_theme', 'default' );
+}
+
+/**
  * Retrieve the link for embedding a playlist.
  *
  * @since 2.1.0

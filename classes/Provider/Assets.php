@@ -81,5 +81,13 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 				'togglePlaylist' => __( 'Toggle Playlist', 'cue' ),
 			),
 		) );
+
+		wp_register_script(
+			'cue-wp-mediaelement',
+			$this->plugin->get_url( 'assets/js/wp-mediaelement.js' ),
+			array( 'wp-mediaelement' ),
+			'1.0.0',
+			true
+		);
 	}
 }
