@@ -58,7 +58,7 @@ abstract class Cue_AbstractPlugin {
 	protected $url;
 
 	/**
-	 * Retrieve the absolute path for the main plugin file.
+	 * Retrieve the relative path to the main plugin file from the plugin directory.
 	 *
 	 * @since 2.0.0
 	 *

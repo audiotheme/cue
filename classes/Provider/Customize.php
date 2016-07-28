@@ -112,7 +112,10 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 			);
 		} else {
 			// Create an array: ID => post_title
-			$playlists = array_combine( wp_list_pluck( $playlists, 'ID' ), wp_list_pluck( $playlists, 'post_title' ) );
+			$playlists = array_combine(
+				wp_list_pluck( $playlists, 'ID' ),
+				wp_list_pluck( $playlists, 'post_title' )
+			);
 		}
 
 		$playlists = array( 0 => '' ) + $playlists;

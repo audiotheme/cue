@@ -19,7 +19,7 @@ abstract class Cue_AbstractProvider {
 	 * Plugin instance.
 	 *
 	 * @since 2.0.0
-	 * @var CueBar_Plugin
+	 * @var Cue_Plugin
 	 */
 	protected $plugin;
 
@@ -28,7 +28,7 @@ abstract class Cue_AbstractProvider {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param CueBar_Plugin $plugin Main plugin instance.
+	 * @param Cue_Plugin $plugin Main plugin instance.
 	 */
 	public function set_plugin( $plugin ) {
 		$this->plugin = $plugin;
