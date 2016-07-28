@@ -1,4 +1,4 @@
-/*global MediaElementPlayer:false */
+/*global MediaElementPlayer:false, mejs:false */
 
 (function() {
 	var settings = window._wpmejsSettings || {};
@@ -23,7 +23,7 @@
 
 		player.container.on( 'controlsresize', function() {
 			controls.find( '.mejs-time-rail, .mejs-time-slider' ).css( 'width', '' );
-		})
+		});
 
 		player.container.addClass(function() {
 			return ( 'ontouchstart' in window ) || window.DocumentTouch && document instanceof window.DocumentTouch ? 'touch' : 'no-touch';
