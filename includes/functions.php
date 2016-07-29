@@ -296,14 +296,31 @@ function get_cue_default_theme() {
 }
 
 /**
- * Retrieve the theme to use for native audio shortcodes.
+ * Retrieve the default theme to use for native audio shortcodes.
  *
  * @since 2.1.0
  *
  * @return string
  */
-function get_cue_native_theme() {
+function get_cue_default_native_theme() {
 	return get_option( 'cue_native_theme', 'default' );
+}
+
+/**
+ * Retrieve the theme to use for a single native audio shortcode.
+ *
+ * @since 2.1.0
+ *
+ * @param  array $atts Shortcode attributes.
+ * @return string
+ */
+function get_cue_native_theme( $atts ) {
+	$theme = get_cue_default_native_theme();
+	if ( ! empty( $atts['theme'] ) ) {
+		$theme = $atts['theme'];
+	}
+
+	return $theme;
 }
 
 /**
