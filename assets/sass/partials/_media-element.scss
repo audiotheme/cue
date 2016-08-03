@@ -9,6 +9,7 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	text-align: left;
 	width: 100%;
 
 	.mejs-inner {
@@ -72,6 +73,7 @@
 		position: static;
 
 		div {
+			float: left;
 			height: auto;
 			width: auto;
 		}
@@ -272,6 +274,7 @@
 		}
 
 		.mejs-horizontal-volume-slider {
+			float: left;
 			height: 20px;
 			width: 100px;
 

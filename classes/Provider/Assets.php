@@ -57,6 +57,9 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 			'1.0.0'
 		);
 
+		wp_style_add_data( 'cue', 'rtl', 'replace' );
+		wp_style_add_data( 'cue', 'suffix', '.min' );
+
 		wp_register_script(
 			'jquery-cue',
 			$this->plugin->get_url( 'assets/js/vendor/jquery.cue.min.js' ),

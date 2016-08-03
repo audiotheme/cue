@@ -10,7 +10,8 @@ module.exports = function( grunt, options ) {
 		],
 		'build:css': [
 			'sass',
-			'cssmin'
+			'cssmin',
+			'rtlcss'
 		],
 		'build:js': [
 			'browserify:build',
