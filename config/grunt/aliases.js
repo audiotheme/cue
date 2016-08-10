@@ -25,7 +25,7 @@ module.exports = function( grunt, options ) {
 		],
 		'package': [
 			'check',
-			'string-replace:release',
+			'replace',
 			'build:css',
 			'build:js',
 			'addtextdomain',
