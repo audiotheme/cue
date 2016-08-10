@@ -2,9 +2,9 @@
 
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald  
 Tags: playlist, audio, music, mp3, tracks, player  
-Requires at least: 4.3  
-Tested up to: 4.5  
-Stable tag: trunk  
+Requires at least: 4.4  
+Tested up to: 4.6  
+Stable tag: 2.1.0  
 License: GPL-2.0+  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,6 +148,22 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.1.0 - August 10, 2016
+* Added a feature for plugins to register custom themes for playlists.
+* Added a Customizer control to let plugins register custom themes for native audio players.
+* Introduced `cue_playlist_top` and `cue_playlist_bottom` actions.
+* Introduced the `cue_parse_shortcode_head` filter for embedding styles in the TinyMCE view.
+* Introduced the `cue_playlist_thumbnail_size` filter for changing the size of a playlist's featured image (used for the background image).
+* Moved the MediaElement.js features array to `$.fn.cuePlaylist.features` to allow public access.
+* Added a `no-touch` or `touch` class to the playlist container to indicate touch support.
+* Added `cuePermalink` to the JavaScript player options.
+* Added `cueEmbedLink` to the JavaScript player options.
+* Fixed the blur effect on the background image in Webkit browsers.
+* Made minor CSS tweaks for better theme compatibility.
+* Set the playlist CPT `public` argument to `true`.
+* Added RTL language support.
+* Added missing text domains.
 
 ### 2.0.1 - June 20, 2016
 * Fixed a bug where every other track would be skipped in Safari.
