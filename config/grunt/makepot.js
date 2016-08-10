@@ -5,6 +5,7 @@ module.exports = {
 				'.git/.*',
 				'dist/.*',
 				'node_modules/.*',
+				'svn/.*',
 				'tests/.*',
 				'vendor/.*'
 			],

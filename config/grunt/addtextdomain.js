@@ -9,6 +9,7 @@ module.exports = {
 				'**/*.php',
 				'!dist/**',
 				'!node_modules/**',
+				'!svn/**',
 				'!tests/**',
 				'!vendor/**'
 			]
