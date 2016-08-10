@@ -67,7 +67,7 @@ fi
 # Deploy to WordPress.org.
 echo
 echo "Committing to WordPress.org. This may take a while..."
-#svn commit -m "Release "${VERSION}"." || { echo "Unable to commit."; exit 1; }
+svn commit -m "Release $VERSION." || { echo "Unable to commit."; exit 1; }
 
 cd ..
 rm -rf svn
