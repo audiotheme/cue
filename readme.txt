@@ -4,7 +4,7 @@ Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player  
 Requires at least: 4.4  
 Tested up to: 4.6  
-Stable tag: 2.1.0  
+Stable tag: 2.1.1  
 License: GPL-2.0+  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,6 +148,9 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.1.1 - August 12, 2016
+* Left align text in track lists.
 
 ### 2.1.0 - August 10, 2016
 * Added a feature for plugins to register custom themes for playlists.
