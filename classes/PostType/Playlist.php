@@ -79,7 +79,7 @@ class Cue_PostType_Playlist extends Cue_PostType_AbstractPostType {
 			'parent_item_colon'     => esc_html__( 'Parent Playlist:', 'cue' ),
 			'all_items'             => esc_html__( 'All Playlists', 'cue' ),
 			'menu_name'             => esc_html_x( 'Playlists', 'admin menu name', 'cue' ),
-			'name_admin_bar'        => esc_html_x( 'Playlists', 'add new on admin bar', 'cue' ),
+			'name_admin_bar'        => esc_html_x( 'Playlist', 'add new on admin bar', 'cue' ),
 			'archives'              => esc_html__( 'Post Archives', 'cue' ),
 			'insert_into_item'      => esc_html__( 'Insert into playlist', 'cue' ),
 			'uploaded_to_this_item' => esc_html__( 'Uploaded to this playlist', 'cue' ),
