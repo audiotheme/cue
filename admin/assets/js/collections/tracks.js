@@ -15,7 +15,7 @@ Tracks = Backbone.Collection.extend({
 	fetch: function() {
 		var collection = this;
 
-		return wp.ajax.post( 'cue_get_playlist', {
+		return wp.ajax.post( 'cue_get_playlist_tracks', {
 			post_id: settings.postId
 		}).done(function( tracks ) {
 			collection.reset( tracks );

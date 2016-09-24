@@ -21,7 +21,7 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function register_hooks() {
-		add_action( 'wp_ajax_cue_get_playlist',         array( $this, 'get_playlist' ) );
+		add_action( 'wp_ajax_cue_get_playlist_tracks',  array( $this, 'get_playlist_tracks' ) );
 		add_action( 'wp_ajax_cue_save_playlist_tracks', array( $this, 'save_playlist_tracks' ) );
 		add_action( 'wp_ajax_cue_parse_shortcode',      array( $this, 'parse_shortcode' ) );
 	}
@@ -31,7 +31,7 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 *
 	 * @since 2.0.0
 	 */
-	public function get_playlist() {
+	public function get_playlist_tracks() {
 		$post_id = absint( $_POST['post_id'] );
 		wp_send_json_success( get_cue_playlist_tracks( $post_id, 'edit' ) );
 	}
