@@ -8,8 +8,7 @@
 
 	extend = {
 		action: 'cue_parse_shortcode',
-		edit: null,
-		state: [],
+		state: [ 'cue-playlists' ],
 
 		initialize: function() {
 			var self = this;
@@ -42,6 +41,11 @@
 					self.pausePlayers();
 				} );
 			} );
+		},
+
+		edit: function( text, update ) {
+			// var state = wp.media.editor.open().setState( 'cue-playlists' ),
+			// shortcode = wp.shortcode.next( 'cue', text ).shortcode;
 		},
 
 		pausePlayers: function() {

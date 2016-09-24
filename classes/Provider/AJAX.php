@@ -21,9 +21,45 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function register_hooks() {
+		add_action( 'wp_ajax_cue_get_playlists',        array( $this, 'get_playlists' ) );
 		add_action( 'wp_ajax_cue_get_playlist_tracks',  array( $this, 'get_playlist_tracks' ) );
 		add_action( 'wp_ajax_cue_save_playlist_tracks', array( $this, 'save_playlist_tracks' ) );
 		add_action( 'wp_ajax_cue_parse_shortcode',      array( $this, 'parse_shortcode' ) );
+	}
+
+	/**
+	 * AJAX callback to retrieve playlists.
+	 *
+	 * @since 2.2.0
+	 */
+	public function get_playlists() {
+		$data = array();
+		$page = isset( $_POST['paged'] ) ? absint( $_POST['paged'] ) : 1;
+		$posts_per_page = isset( $_POST['posts_per_page'] ) ? absint( $_POST['posts_per_page'] ) : 40;
+
+		$playlists = new WP_Query( array(
+			'post_type'      => 'cue_playlist',
+			'post_status'    => 'publish',
+			'posts_per_page' => $posts_per_page,
+			'paged'          => $page,
+		) );
+
+		if ( $playlists->have_posts() ) {
+			foreach ( $playlists->posts as $playlist ) {
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $playlist->ID ), array( 120, 120 ) );
+
+				$data[ $playlist->ID ] = array(
+					'id'        => $playlist->ID,
+					'title'     => $playlist->post_title,
+					'thumbnail' => $image[0],
+				);
+			}
+		}
+
+		$send['maxNumPages'] = $playlists->max_num_pages;
+		$send['playlists'] = array_values( $data );
+
+		wp_send_json_success( $send );
 	}
 
 	/**

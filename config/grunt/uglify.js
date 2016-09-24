@@ -14,6 +14,12 @@ module.exports = {
 					'admin/assets/js/playlist-edit.bundle.js',
 				],
 				dest: 'admin/assets/js/playlist-edit.bundle.min.js'
+			},
+			{
+				src: [
+					'admin/assets/js/wp-media.bundle.js',
+				],
+				dest: 'admin/assets/js/wp-media.bundle.min.js'
 			}
 		]
 	}

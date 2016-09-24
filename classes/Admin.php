@@ -14,7 +14,7 @@
  * @package Cue
  * @since 1.0.0
  */
-class Cue_Admin {
+class Cue_Admin extends Cue_AbstractProvider {
 	/**
 	 * Load administration functionality.
 	 *
@@ -23,6 +23,7 @@ class Cue_Admin {
 	public function register_hooks() {
 		add_action( 'admin_enqueue_scripts',        array( $this, 'enqueue_assets' ) );
 		add_action( 'admin_head',                   array( $this, 'admin_head' ) );
+		add_action( 'admin_footer',                 array( $this, 'print_templates' ) );
 		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_audio_attachment_for_js' ), 20, 3 );
 		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_image_attachment_for_js' ), 20, 3 );
 	}
@@ -39,10 +40,30 @@ class Cue_Admin {
 
 		wp_enqueue_script(
 			'cue-mce-view',
-			CUE_URL . 'admin/assets/js/mce-view.js',
+			$this->plugin->get_url( 'admin/assets/js/mce-view.js' ),
 			array( 'jquery', 'mce-view', 'underscore' ),
 			'1.0.0',
 			true
+		);
+
+		wp_enqueue_script(
+			'cue-media',
+			$this->plugin->get_url( 'admin/assets/js/wp-media.bundle.js' ),
+			array( 'media-views', 'wp-backbone', 'wp-util' ),
+			'1.0.0',
+			true
+		);
+
+		wp_localize_script( 'cue-media', '_cueMediaSettings', array(
+			'l10n' => array(
+				'insertFromCue'  => esc_html__( 'Insert from Cue', 'cue' ),
+				'insertPlaylist' => esc_html__( 'Insert Playlist', 'cue' ),
+			),
+		) );
+
+		wp_enqueue_style(
+			'cue-media',
+			$this->plugin->get_url( 'admin/assets/css/wp-media.min.css' )
 		);
 	}
 
@@ -57,6 +78,19 @@ class Cue_Admin {
 		#adminmenu #menu-posts-cue_playlist div.wp-menu-image.svg { background-position: 50% 7px;}
 		</style>
 		<?php
+	}
+
+	/**
+	 * Include the HTML templates.
+	 *
+	 * @since 2.2.0
+	 */
+	public function print_templates() {
+		if ( 'post' !== get_current_screen()->base ) {
+			return;
+		}
+
+		include( $this->plugin->get_path( 'admin/views/templates-media.php' ) );
 	}
 
 	/**

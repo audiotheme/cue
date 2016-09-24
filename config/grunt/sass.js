@@ -11,6 +11,10 @@ module.exports = {
 			{
 				src: 'admin/assets/sass/admin.scss',
 				dest: 'admin/assets/css/admin.min.css'
+			},
+			{
+				src: 'admin/assets/sass/wp-media.scss',
+				dest: 'admin/assets/css/wp-media.min.css'
 			}
 		]
 	}

@@ -13,6 +13,10 @@ config = {
 			{
 				src: 'admin/assets/js/playlist-edit.js',
 				dest: 'admin/assets/js/playlist-edit.bundle.js'
+			},
+			{
+				src: 'admin/assets/js/wp-media.js',
+				dest: 'admin/assets/js/wp-media.bundle.js'
 			}
 		]
 	}
