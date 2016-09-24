@@ -48,6 +48,10 @@ class Cue_Widget_Playlist extends WP_Widget {
 	public function widget( $args, $instance ) {
 		extract( $args );
 
+		if ( empty( $instance['post_id'] ) ) {
+			return;
+		}
+
 		$instance['title_raw'] = $instance['title'];
 		$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		$instance['title'] = apply_filters( 'cue_widget_title', $instance['title'], $instance, $args, $this->id_base );
