@@ -1,5 +1,5 @@
 var EditPlaylistFrame,
-	l10n = require( 'cue' ).l10n,
+	_ = require( 'underscore' ),
 	PlaylistBrowser = require( '../content/playlist-browser' ),
 	PlaylistsController = require( '../../controllers/playlists' ),
 	PlaylistToolbar = require( '../toolbar/playlist' ),
@@ -8,7 +8,7 @@ var EditPlaylistFrame,
 
 EditPlaylistFrame = MediaFrame.extend({
 	initialize: function() {
-		_.extend( this.options {
+		_.extend( this.options, {
 			uploader: false
 		});
 
