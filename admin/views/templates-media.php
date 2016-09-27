@@ -15,31 +15,54 @@
 		<h2><?php esc_html_e( 'Playlist Settings', 'cue' ); ?></h2>
 
 		<?php $themes = get_cue_themes(); ?>
-		<label class="setting">
-			<span><?php esc_html_e( 'Theme', 'cue' ); ?></span>
-			<select data-setting="theme">
-				<option value=""></option>
-				<?php
-				foreach ( $themes as $id => $name ) {
-					printf(
-						'<option value="%s">%s</option>',
-						esc_attr( $id ),
-						esc_html( $name )
-					);
-				}
-				?>
-			</select>
-		</label>
+		<div class="setting">
+			<p>
+				<label>
+					<span><?php esc_html_e( 'Theme', 'cue' ); ?></span>
+					<select data-setting="theme">
+						<option value=""></option>
+						<?php
+						foreach ( $themes as $id => $name ) {
+							printf(
+								'<option value="%s">%s</option>',
+								esc_attr( $id ),
+								esc_html( $name )
+							);
+						}
+						?>
+					</select>
+				</label>
+			</p>
 
-		<!--<label class="setting">
-			<span><?php esc_html_e( 'Width', 'cue' ); ?></span>
-			<input type="text" data-setting="width">
-		</label>-->
+			<?php if ( ! function_exists( 'cuepro' ) ) : ?>
+				<p class="description">
+					<?php
+					wp_kses( printf(
+						__( '<a href="%s" target="_blank">Upgrade to Cue Pro</a> to access more themes.', 'cue' ),
+						'https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-theme-description&utm_campaign=plugins'
+					), array( 'a' => array( 'href' => true, 'target' => true ) ) );
+					?>
+				</p>
+			<?php endif; ?>
+		</div>
 
-		<label class="setting">
-			<input type="checkbox" data-setting="show_playlist" checked>
-			<span><?php esc_html_e( 'Show Tracklist', 'cue' ); ?></span>
-		</label>
+		<!--<div class="setting">
+			<p>
+				<label>
+					<span><?php esc_html_e( 'Width', 'cue' ); ?></span>
+					<input type="text" data-setting="width">
+				</label>
+			</p>
+		</div>-->
+
+		<div class="setting">
+			<p>
+				<label>
+					<input type="checkbox" data-setting="show_playlist" checked>
+					<span><?php esc_html_e( 'Show Tracklist', 'cue' ); ?></span>
+				</label>
+			</p>
+		</div>
 	</div>
 </script>
 
