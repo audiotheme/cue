@@ -19,13 +19,13 @@
 			<div class="cue-track-column cue-track-column-left">
 				<p>
 					<label>
-						<?php _e( 'Title:', 'cue' ); ?><br>
+						<?php esc_html_e( 'Title:', 'cue' ); ?><br>
 						<input type="text" name="tracks[][title]" placeholder="<?php esc_attr_e( 'Title', 'cue' ); ?>" value="{{{ data.title }}}" data-setting="title" class="regular-text">
 					</label>
 				</p>
 				<p>
 					<label>
-						<?php _e( 'Artist:', 'cue' ); ?><br>
+						<?php esc_html_e( 'Artist:', 'cue' ); ?><br>
 						<input type="text" name="tracks[][artist]" placeholder="<?php esc_attr_e( 'Artist', 'cue' ); ?>" value="{{{ data.artist }}}" data-setting="artist" class="regular-text">
 					</label>
 				</p>
@@ -36,7 +36,7 @@
 			<div class="cue-track-column cue-track-column-right">
 				<p>
 					<label>
-						<?php _e( 'Length:', 'cue' ); ?><br>
+						<?php esc_html_e( 'Length:', 'cue' ); ?><br>
 						<input type="text" name="tracks[][length]" placeholder="<?php esc_attr_e( 'Length', 'cue' ); ?>" value="{{ data.length }}" data-setting="length" class="small-text">
 					</label>
 				</p>
@@ -46,8 +46,8 @@
 		</div>
 
 		<div class="cue-track-actions">
-			<a class="cue-track-remove js-remove"><?php _e( 'Remove', 'cue' ); ?></a> |
-			<a class="js-close"><?php _e( 'Close', 'cue' ); ?></a>
+			<a class="cue-track-remove js-remove"><?php esc_html_e( 'Remove', 'cue' ); ?></a> |
+			<a class="js-close"><?php esc_html_e( 'Close', 'cue' ); ?></a>
 		</div>
 	</div>
 </script>
@@ -59,7 +59,7 @@
 </script>
 
 <script type="text/html" id="tmpl-cue-playlist-track-audio">
-	<a class="button button-secondary cue-track-audio-selector"><?php _e( 'Select Audio', 'cue' ); ?></a>
+	<a class="button button-secondary cue-track-audio-selector"><?php esc_html_e( 'Select Audio', 'cue' ); ?></a>
 
 	<# if ( data.audioUrl ) { #>
 		<audio src="{{ data.audioUrl }}" class="cue-audio" controls preload="none" style="width: 100%; height: 30px"></audio>

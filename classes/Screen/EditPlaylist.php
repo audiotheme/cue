@@ -56,7 +56,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		if ( ! empty( $players ) ) {
 			add_meta_box(
 				'cue-players',
-				__( 'Players', 'cue' ),
+				esc_html__( 'Players', 'cue' ),
 				array( $this, 'display_players_meta_box' ),
 				'cue_playlist',
 				'side',
@@ -66,7 +66,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 
 		add_meta_box(
 			'cue-playlist-shortcode',
-			__( 'Shortcode', 'cue' ),
+			esc_html__( 'Shortcode', 'cue' ),
 			array( $this, 'display_shortcode_meta_box' ),
 			'cue_playlist',
 			'side',
@@ -107,23 +107,23 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 			'saveNonce'  => wp_create_nonce( 'save-tracks_' . $post->ID ),
 			'tracks'     => get_cue_playlist_tracks( $post->ID, 'edit' ),
 			'l10n'       => array(
-				'addTracks'  => __( 'Add Tracks', 'cue' ),
-				'addFromUrl' => __( 'Add from URL', 'cue' ),
+				'addTracks'  => esc_html__( 'Add Tracks', 'cue' ),
+				'addFromUrl' => esc_html__( 'Add from URL', 'cue' ),
 				'workflows'  => array(
 					'selectArtwork' => array(
-						'fileTypes'       => __( 'Image Files', 'cue' ),
-						'frameTitle'      => __( 'Choose an Image', 'cue' ),
-						'frameButtonText' => __( 'Update Image', 'cue' ),
+						'fileTypes'       => esc_html__( 'Image Files', 'cue' ),
+						'frameTitle'      => esc_html__( 'Choose an Image', 'cue' ),
+						'frameButtonText' => esc_html__( 'Update Image', 'cue' ),
 					),
 					'selectAudio'   => array(
-						'fileTypes'       => __( 'Audio Files', 'cue' ),
-						'frameTitle'      => __( 'Choose an Audio File', 'cue' ),
-						'frameButtonText' => __( 'Update Audio', 'cue' ),
+						'fileTypes'       => esc_html__( 'Audio Files', 'cue' ),
+						'frameTitle'      => esc_html__( 'Choose an Audio File', 'cue' ),
+						'frameButtonText' => esc_html__( 'Update Audio', 'cue' ),
 					),
 					'addTracks'     => array(
-						'fileTypes'       => __( 'Audio Files', 'cue' ),
-						'frameTitle'      => __( 'Choose Tracks', 'cue' ),
-						'frameButtonText' => __( 'Add Tracks', 'cue' ),
+						'fileTypes'       => esc_html__( 'Audio Files', 'cue' ),
+						'frameTitle'      => esc_html__( 'Choose Tracks', 'cue' ),
+						'frameButtonText' => esc_html__( 'Add Tracks', 'cue' ),
 					),
 				),
 			),
@@ -169,11 +169,11 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		?>
 		<div id="cue-playlist-editor" class="cue-panel hide-if-no-js">
 			<div class="cue-panel-header">
-				<h2 class="cue-panel-title"><?php _e( 'Tracks', 'cue' ); ?></h2>
+				<h2 class="cue-panel-title"><?php esc_html_e( 'Tracks', 'cue' ); ?></h2>
 			</div>
 			<div class="cue-panel-body">
 				<p>
-					<?php _e( 'Add tracks to the playlist, then drag and drop to reorder them. Click the arrow on the right of each item to reveal more configuration options.', 'cue' ); ?>
+					<?php esc_html_e( 'Add tracks to the playlist, then drag and drop to reorder them. Click the arrow on the right of each item to reveal more configuration options.', 'cue' ); ?>
 				</p>
 			</div>
 		</div>
@@ -181,11 +181,11 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		<?php if ( ! function_exists( 'cuepro' ) ) : ?>
 			<div class="cue-panel">
 				<div class="cue-panel-header">
-					<h2 class="cue-panel-title">Cue Pro</h2>
+					<h2 class="cue-panel-title"><?php esc_html_e( 'Cue Pro', 'cue' ); ?></h2>
 				</div>
 				<div class="cue-panel-body">
 					<p>
-						<?php esc_html_e( 'Want to sell, share, or gain insight into how visitors interact with your tracks?', 'cue' ); ?>
+						<?php esc_html_e( 'Want to sell, share, and gain insight into how visitors interact with your audio?', 'cue' ); ?>
 						<a href="https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-meta-box&utm_campaign=plugins" target="_blank"><?php esc_html_e( 'Level up with Cue Pro.', 'cue' ); ?></a>
 					</p>
 				</div>
@@ -205,12 +205,13 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 	public function display_players_meta_box( $post ) {
 		wp_nonce_field( 'save-playlist-players_' . $post->ID, 'cue_playlist_players_nonce' );
 
-		printf( '<p>%s</p>', __( 'Choose which players should use this playlist:', 'cue' ) );
+		printf( '<p>%s</p>', esc_html__( 'Choose which players should use this playlist:', 'cue' ) );
 
 		$players = get_cue_players();
 		echo '<ul style="margin-bottom: 0">';
 			foreach ( $players as $id => $player ) {
-				printf( '<li><label><input type="checkbox" name="cue_players[]" value="%2$s"%3$s> %1$s</label></li>',
+				printf(
+					'<li><label><input type="checkbox" name="cue_players[]" value="%2$s"%3$s> %1$s</label></li>',
 					esc_html( $player['name'] ),
 					esc_attr( $player['id'] ),
 					checked( $player['playlist_id'], $post->ID, false )
@@ -229,7 +230,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 	public function display_shortcode_meta_box( $post ) {
 		?>
 		<p>
-			<?php _e( 'Copy and paste the following shortcode into a post or page to embed this playlist.', 'cue' ); ?>
+			<?php esc_html_e( 'Copy and paste the following shortcode into a post or page to embed this playlist.', 'cue' ); ?>
 		</p>
 		<p>
 			<input type="text" value="<?php echo esc_attr( '[cue id="' . $post->ID . '"]' ); ?>" readonly>
@@ -278,7 +279,9 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 
 		// Connect selected players with the current playlist.
 		if ( ! empty( $_POST['cue_players'] ) ) {
-			foreach ( $_POST['cue_players'] as $player_id ) {
+			$players = array_map( 'absint', $_POST['cue_players'] );
+
+			foreach ( $players as $player_id ) {
 				$data[ $player_id ] = $post_id;
 			}
 		}

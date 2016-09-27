@@ -127,8 +127,8 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 
 		if ( empty( $shortcode ) ) {
 			wp_send_json_error( array(
-				'type' => 'no-items',
-				'message' => __( 'No items found.', 'cue' ),
+				'type'    => 'no-items',
+				'message' => esc_html__( 'No items found.', 'cue' ),
 			) );
 		}
 

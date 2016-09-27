@@ -78,10 +78,10 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 
 		wp_localize_script( 'cue', '_cueSettings', array(
 			'l10n' => array(
-				'nextTrack'      => __( 'Next Track', 'cue' ),
-				'previousTrack'  => __( 'Previous Track', 'cue' ),
-				'togglePlayer'   => __( 'Toggle Player', 'cue' ),
-				'togglePlaylist' => __( 'Toggle Playlist', 'cue' ),
+				'nextTrack'      => esc_html__( 'Next Track', 'cue' ),
+				'previousTrack'  => esc_html__( 'Previous Track', 'cue' ),
+				'togglePlayer'   => esc_html__( 'Toggle Player', 'cue' ),
+				'togglePlaylist' => esc_html__( 'Toggle Playlist', 'cue' ),
 			),
 		) );
 

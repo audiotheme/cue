@@ -24,12 +24,12 @@ class Cue_Widget_Playlist extends WP_Widget {
 	 * @see WP_Widget::construct()
 	 */
 	public function __construct( $id_base = false, $name = false, $widget_options = array(), $control_options = array() ) {
-		$id_base = ( $id_base ) ? $id_base : 'cue-playlist';
-		$name = ( $name ) ? $name : __( 'Playlist', 'cue' );
+		$id_base = $id_base ? $id_base : 'cue-playlist';
+		$name = $name ? $name : esc_html__( 'Playlist', 'cue' );
 
 		$widget_options = wp_parse_args( $widget_options, array(
 			'classname'   => 'widget_cue_playlist',
-			'description' => __( 'A list of songs', 'cue' ),
+			'description' => esc_html__( 'A list of audio.', 'cue' ),
 		) );
 
 		$control_options = wp_parse_args( $control_options, array() );
@@ -93,16 +93,17 @@ class Cue_Widget_Playlist extends WP_Widget {
 		$title = wp_strip_all_tags( $instance['title'] );
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'cue' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'cue' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>" class="widefat">
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php _e( 'Playlist:', 'cue' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php esc_html_e( 'Playlist:', 'cue' ); ?></label>
 			<select name="<?php echo $this->get_field_name( 'post_id' ); ?>" id="<?php echo $this->get_field_id( 'post_id' ); ?>" class="widefat">
 				<option value=""></option>
 				<?php
 				foreach ( $playlists as $playlist ) {
-					printf( '<option value="%s"%s>%s</option>',
+					printf(
+						'<option value="%s"%s>%s</option>',
 						$playlist->ID,
 						selected( $instance['post_id'], $playlist->ID, false ),
 						esc_html( $playlist->post_title )

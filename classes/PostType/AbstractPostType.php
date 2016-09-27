@@ -45,20 +45,6 @@ abstract class Cue_PostType_AbstractPostType {
 	abstract protected function get_updated_messages( $post );
 
 	/**
-	 * Use a v4 UUID for new CPTs.
-	 *
-	 * @param  array $data Post data to save to the database.
-	 * @return array
-	 */
-	public function add_uuid_to_new_posts( $data ) {
-		if ( empty( $data['guid'] ) && $this->post_type === $data['post_type'] ) {
-			$data['guid'] = wp_slash( sprintf( 'urn:uuid:%s', bandkit_generate_uuid_v4() ) );
-		}
-
-		return $data;
-	}
-
-	/**
 	 * Filter post type update messages.
 	 *
 	 * @since 2.0.0

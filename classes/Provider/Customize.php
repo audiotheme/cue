@@ -36,7 +36,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 		$themes  = get_cue_themes();
 
 		$wp_customize->add_section( 'cue', array(
-			'title'    => __( 'Cue Players', 'cue' ),
+			'title'    => esc_html__( 'Cue Players', 'cue' ),
 			'priority' => 115,
 		) );
 
@@ -108,7 +108,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 
 			$description = sprintf(
 				__( '<a href="%s">Create a playlist</a> for this player.', 'cue' ),
-				admin_url( 'post-new.php?post_type=cue_playlist' )
+				esc_url( admin_url( 'post-new.php?post_type=cue_playlist' ) )
 			);
 		} else {
 			// Create an array: ID => post_title
@@ -130,7 +130,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 
 			$wp_customize->add_control( 'cue_player_' . $id, array(
 				'choices'     => $playlists,
-				'description' => $description,
+				'description' => wp_kses( $description, array( 'a' => array( 'href' => true ) ) ),
 				'label'       => $player['name'],
 				'section'     => 'cue',
 				'settings'    => 'cue_players[' . $id . ']',
