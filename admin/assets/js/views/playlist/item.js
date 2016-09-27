@@ -19,7 +19,6 @@ Playlist = wp.Backbone.View.extend({
 	},
 
 	render: function() {
-		this.$el.text( this.model.get( 'title' ) );
 		this.$el.html( this.template( this.model.toJSON() ) );
 		return this;
 	},

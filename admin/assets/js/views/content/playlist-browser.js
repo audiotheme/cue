@@ -1,6 +1,7 @@
 var PlaylistBrowser,
 	_ = require( 'underscore' ),
-	PlaylistItem = require( '../playlist/item' ),
+	PlaylistItems = require( '../playlist/items' ),
+	PlaylistNoItems = require( '../playlist/no-items' ),
 	PlaylistSidebar = require( '../playlist/sidebar' ),
 	wp = require( 'wp' );
 
@@ -15,37 +16,30 @@ PlaylistBrowser = wp.Backbone.View.extend({
 		this._pending = false;
 
 		_.bindAll( this, 'scroll' );
-		this.listenTo( this.collection, 'add', this.addItem );
 		this.listenTo( this.collection, 'reset', this.render );
-	},
 
-	render: function() {
 		if ( ! this.collection.length ) {
 			this.getPlaylists();
 		}
-
-		this.$el.off( 'scroll' ).on( 'scroll', this.scroll );
-
-		this.$el.html( '<ul class="cue-playlist-browser-list" />' );
-
-		this.views.add(
-			new PlaylistSidebar({
-				controller: this.controller
-			})
-		);
-
-		this.collection.each( this.addItem, this );
-
-		return this;
 	},
 
-	addItem: function( model ) {
-		var view = new PlaylistItem({
-			controller: this.controller,
-			model: model
-		}).render();
+	render: function() {
+		this.$el.off( 'scroll' ).on( 'scroll', this.scroll );
 
-		this.$el.children( 'ul' ).append( view.el );
+		this.views.add([
+			new PlaylistItems({
+				collection: this.collection,
+				controller: this.controller
+			}),
+			new PlaylistSidebar({
+				controller: this.controller
+			}),
+			new PlaylistNoItems({
+				collection: this.collection
+			})
+		]);
+
+		return this;
 	},
 
 	scroll: function() {

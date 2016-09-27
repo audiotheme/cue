@@ -126,6 +126,32 @@
 	word-wrap: break-word;
 }
 
+.cue-playlist-browser-empty {
+	align-content: center;
+	align-items: center;
+	background: #fff;
+	display: none;
+	flex-flow: column nowrap;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 80; // Above the sidebar.
+
+	h2 {
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 28px;
+		margin: 0;
+	}
+
+	&.is-visible {
+		display: flex;
+	}
+}
+
 @media screen and (max-width: 1100px) {
 	.cue-playlist-browser-list-item {
 		width: 33.33%;

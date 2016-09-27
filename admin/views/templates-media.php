@@ -42,3 +42,10 @@
 		</label>
 	</div>
 </script>
+
+<script type="text/html" id="tmpl-cue-playlist-browser-empty">
+	<h2><?php esc_html_e( 'No items found.', 'cue' ); ?></h2>
+	<p>
+		<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=cue_playlist' ) ); ?>"><?php esc_html_e( 'Create a playlist.', 'cue' ); ?></a>
+	</p>
+</script>
