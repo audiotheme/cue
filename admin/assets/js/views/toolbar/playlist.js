@@ -35,6 +35,8 @@ PlaylistToolbar = wp.media.view.Toolbar.extend({
 
 		if ( ! attributes.show_playlist ) {
 			attributes.show_playlist = '0';
+		} else {
+			delete attributes.show_playlist;
 		}
 
 		html = wp.shortcode.string({

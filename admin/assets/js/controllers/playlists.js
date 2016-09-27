@@ -22,7 +22,11 @@ Playlists = wp.media.controller.State.extend({
 		var collection = options.collection || new Backbone.Collection(),
 			selection = options.selection || new Backbone.Collection();
 
-		this.set( 'attributes', new Backbone.Model({ id: null }) );
+		this.set( 'attributes', new Backbone.Model({
+			id: null,
+			show_playlist: true
+		}) );
+
 		this.set( 'collection', collection );
 		this.set( 'selection', selection );
 
