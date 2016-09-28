@@ -10,6 +10,7 @@
 	padding: 0;
 	overflow: hidden;
 	text-align: left;
+	transform: translate3d(0, 0, 0); // Prevents dark borders caused by CSS blur.
 	width: 100%;
 
 	.mejs-inner {
