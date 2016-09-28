@@ -158,6 +158,41 @@
 	}
 }
 
+.cue-media-toggle-button {
+	background-color: #0073aa;
+	border-radius: 0;
+	border-width: 0;
+	-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px #0073aa;
+	box-shadow: 0 0 0 1px #fff, 0 0 0 2px #0073aa;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 24px;
+	height: 24px;
+	margin: 0;
+	outline: none;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: center;
+	text-indent: -2px;
+	width: 24px;
+	z-index: 10;
+
+	&:hover {
+		text-indent: 0;
+
+		 &:before {
+			content: "\f460";
+		}
+	}
+
+	.is-selected & {
+		display: block;
+	}
+}
+
 @media screen and (max-width: 1100px) {
 	.cue-playlist-browser-list-item {
 		width: 33.33%;

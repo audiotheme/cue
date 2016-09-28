@@ -20,6 +20,9 @@
 		</div>
 		<span class="cue-media-thumbnail-title">{{ data.title }}</span>
 	</div>
+	<button type="button" class="cue-media-toggle-button dashicons dashicons-yes" tabindex="0">
+		<span class="screen-reader-text"><?php esc_html_e( 'Deselect', 'cue' ); ?></span>
+	</button>
 </script>
 
 <script type="text/html" id="tmpl-cue-playlist-browser-sidebar">
