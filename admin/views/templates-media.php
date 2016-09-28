@@ -1,3 +1,15 @@
+<?php
+/**
+ * Underscore.js templates for the Media Manager.
+ *
+ * @package   Cue
+ * @since     2.2.0
+ * @copyright Copyright (c) 2016 AudioTheme, LLC
+ * @license   GPL-2.0+
+ */
+
+?>
+
 <script type="text/html" id="tmpl-cue-playlist-browser-list-item">
 	<div class="cue-media-thumbnail">
 		<?php include( $this->plugin->get_path( 'admin/assets/images/playlist.svg' ) ); ?>

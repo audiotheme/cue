@@ -32,6 +32,8 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 * Enqueue a script for rendering the Cue shortcode in the editor.
 	 *
 	 * @since 1.2.9
+	 *
+	 * @param string $hook_suffix The current admin page.
 	 */
 	public function enqueue_assets( $hook_suffix ) {
 		if ( 'post.php' !== $hook_suffix && 'post-new.php' !== $hook_suffix ) {
@@ -100,9 +102,9 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $response Response data.
+	 * @param array   $response   Response data.
 	 * @param WP_Post $attachment Attachment object.
-	 * @param array $meta Attachment metadata.
+	 * @param array   $meta       Attachment metadata.
 	 * @return array
 	 */
 	public function prepare_audio_attachment_for_js( $response, $attachment, $meta ) {
@@ -142,9 +144,9 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $response Response data.
+	 * @param array   $response   Response data.
 	 * @param WP_Post $attachment Attachment object.
-	 * @param array $meta Attachment metadata.
+	 * @param array   $meta       Attachment metadata.
 	 * @return array
 	 */
 	public function prepare_image_attachment_for_js( $response, $attachment, $meta ) {

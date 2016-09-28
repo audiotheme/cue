@@ -51,8 +51,8 @@ class Cue_Plugin extends Cue_AbstractPlugin {
 	 * @since 1.1.0
 	 *
 	 * @param WP_Post $playlist Playlist post object.
-	 * @param array $tracks List of tracks.
-	 * @param array $args
+	 * @param array   $tracks   List of tracks.
+	 * @param array   $args     Playlist arguments.
 	 */
 	public function print_playlist_settings( $playlist, $tracks, $args ) {
 		if ( isset( $args['print_data'] ) && ! $args['print_data'] ) {
@@ -81,7 +81,7 @@ class Cue_Plugin extends Cue_AbstractPlugin {
 			$args
 		);
 		?>
-		<script type="application/json" class="cue-playlist-data"><?php echo json_encode( $settings ); ?></script>
+		<script type="application/json" class="cue-playlist-data"><?php echo wp_json_encode( $settings ); ?></script>
 		<?php
 	}
 
@@ -90,9 +90,9 @@ class Cue_Plugin extends Cue_AbstractPlugin {
 	 *
 	 * @since 1.1.1
 	 *
-	 * @param array $tracks Array of tracks.
+	 * @param array   $tracks   Array of tracks.
 	 * @param WP_Post $playlist Playlist post object.
-	 * @param string $context Context the tracks will be used in.
+	 * @param string  $context  Context the tracks will be used in.
 	 * @return array
 	 */
 	public function wp_playlist_tracks_format( $tracks, $playlist, $context ) {

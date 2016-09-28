@@ -104,7 +104,7 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 
 		// Response data.
 		$data = array(
-			'nonce' => wp_create_nonce( 'save-tracks_' . $post_id )
+			'nonce' => wp_create_nonce( 'save-tracks_' . $post_id ),
 		);
 
 		// Send the response.

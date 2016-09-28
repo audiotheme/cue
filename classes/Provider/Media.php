@@ -30,9 +30,9 @@ class Cue_Provider_Media extends Cue_AbstractProvider {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param  array $atts      Shortcode attributes.
-	 * @param  array $defaults  The supported attributes and their defaults.
-	 * @param  array $user_atts The user defined shortcode attributes.
+	 * @param array $atts      Shortcode attributes.
+	 * @param array $defaults  The supported attributes and their defaults.
+	 * @param array $user_atts The user defined shortcode attributes.
 	 * @return array
 	 */
 	public function filter_audio_shortcode_attributes( $atts, $defaults, $user_atts ) {
@@ -62,9 +62,9 @@ class Cue_Provider_Media extends Cue_AbstractProvider {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param  string  $html  HTML output.
-	 * @param  array   $atts  Array of shortcode attributes.
-	 * @param  WP_Post $audio Audio attachment.
+	 * @param string  $html  HTML output.
+	 * @param array   $atts  Array of shortcode attributes.
+	 * @param WP_Post $audio Audio attachment.
 	 * @return string
 	 */
 	public function filter_audio_shortcode_html( $html, $atts, $audio ) {

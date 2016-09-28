@@ -29,7 +29,7 @@ class Cue_Provider_Shortcode extends Cue_AbstractProvider {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param  array $atts Optional. List of shortcode attributes.
+	 * @param array $atts Optional. List of shortcode attributes.
 	 * @return string HTML output.
 	 */
 	public function render_shortcode( $atts = array() ) {
@@ -60,11 +60,10 @@ class Cue_Provider_Shortcode extends Cue_AbstractProvider {
 	 * @since 1.2.4
 	 *
 	 * @param string|int|bool $var Attribute value.
-	 *
 	 * @return bool
 	 */
 	protected function shortcode_bool( $var ) {
 		$falsey = array( 'false', '0', 'no', 'n' );
-		return ( ! $var || in_array( strtolower( $var ), $falsey ) ) ? false : true;
+		return ( ! $var || in_array( strtolower( $var ), $falsey, true ) ) ? false : true;
 	}
 }

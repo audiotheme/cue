@@ -70,7 +70,7 @@ abstract class Cue_PostType_AbstractPostType {
 	 * @since 2.0.0
 	 *
 	 * @param array   $messages Post updated messages.
-	 * @param WP_Post $post Post object.
+	 * @param WP_Post $post     Post object.
 	 * @return array
 	 */
 	protected function maybe_add_message_links( $messages, $post ) {
@@ -103,6 +103,6 @@ abstract class Cue_PostType_AbstractPostType {
 	 * @return bool
 	 */
 	protected function is_draft_or_pending( $post ) {
-		return isset( $post->post_status ) && in_array( $post->post_status, array( 'draft', 'pending', 'auto-draft' ) );
+		return isset( $post->post_status ) && in_array( $post->post_status, array( 'draft', 'pending', 'auto-draft' ), true );
 	}
 }

@@ -1,3 +1,15 @@
+<?php
+/**
+ * Underscore.js templates for the Edit Playlist screen.
+ *
+ * @package   Cue
+ * @since     2.0.0
+ * @copyright Copyright (c) 2016 AudioTheme, LLC
+ * @license   GPL-2.0+
+ */
+
+?>
+
 <script type="text/html" id="tmpl-cue-playlist-track">
 	<h4 class="cue-track-title">
 		<span class="text">

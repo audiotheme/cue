@@ -29,7 +29,7 @@ class Cue_Widget_Playlist extends WP_Widget {
 
 		$widget_options = wp_parse_args( $widget_options, array(
 			'classname'   => 'widget_cue_playlist',
-			'description' => esc_html__( 'A list of audio.', 'cue' ),
+			'description' => esc_html__( 'A playable collection of audio tracks.', 'cue' ),
 		) );
 
 		$control_options = wp_parse_args( $control_options, array() );
@@ -42,7 +42,7 @@ class Cue_Widget_Playlist extends WP_Widget {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $args Args specific to the widget area (sidebar).
+	 * @param array $args     Args specific to the widget area (sidebar).
 	 * @param array $instance Widget instance settings.
 	 */
 	public function widget( $args, $instance ) {
@@ -57,15 +57,15 @@ class Cue_Widget_Playlist extends WP_Widget {
 		$instance['title'] = apply_filters( 'cue_widget_title', $instance['title'], $instance, $args, $this->id_base );
 
 		// Allow templates specific to widget areas.
-		$templates = array( "widget-{$args['id']}-playlist.php", "widget-playlist.php" );
+		$templates = array( "widget-{$args['id']}-playlist.php", 'widget-playlist.php' );
 
 		echo $before_widget;
 
-			echo ( empty( $instance['title'] ) ) ? '' : $before_title . $instance['title'] . $after_title;
+		echo ( empty( $instance['title'] ) ) ? '' : $before_title . $instance['title'] . $after_title;
 
-			if ( ! $output = apply_filters( 'cue_playlist_widget_output', '', $instance, $args ) ) {
-				cue_playlist( $instance['post_id'], array( 'template' => $templates ) );
-			}
+		if ( ! $output = apply_filters( 'cue_playlist_widget_output', '', $instance, $args ) ) {
+			cue_playlist( $instance['post_id'], array( 'template' => $templates ) );
+		}
 
 		echo $after_widget;
 	}

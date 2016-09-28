@@ -209,14 +209,14 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 
 		$players = get_cue_players();
 		echo '<ul style="margin-bottom: 0">';
-			foreach ( $players as $id => $player ) {
-				printf(
-					'<li><label><input type="checkbox" name="cue_players[]" value="%2$s"%3$s> %1$s</label></li>',
-					esc_html( $player['name'] ),
-					esc_attr( $player['id'] ),
-					checked( $player['playlist_id'], $post->ID, false )
-				);
-			}
+		foreach ( $players as $id => $player ) {
+			printf(
+				'<li><label><input type="checkbox" name="cue_players[]" value="%2$s"%3$s> %1$s</label></li>',
+				esc_html( $player['name'] ),
+				esc_attr( $player['id'] ),
+				checked( $player['playlist_id'], $post->ID, false )
+			);
+		}
 		echo '</ul>';
 	}
 

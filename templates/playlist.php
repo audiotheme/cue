@@ -1,3 +1,15 @@
+<?php
+/**
+ * Template to render the player and playlist.
+ *
+ * @package   Cue
+ * @since     1.0.0
+ * @copyright Copyright (c) 2016 AudioTheme, LLC
+ * @license   GPL-2.0+
+ */
+
+?>
+
 <div class="<?php echo esc_attr( $classes ); ?>" itemscope itemtype="http://schema.org/MusicPlaylist">
 	<?php do_action( 'cue_playlist_top', $post, $tracks, $args ); ?>
 

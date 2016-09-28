@@ -15,7 +15,7 @@
  * @todo Add an arg to specify a template path that doesn't exist in the /cue directory.
  *
  * @param mixed $post A post ID, WP_Post object or post slug.
- * @param array $args
+ * @param array $args Playlist arguments.
  */
 function cue_playlist( $post, $args = array() ) {
 	if ( is_string( $post ) && ! is_numeric( $post ) ) {
@@ -52,7 +52,7 @@ function cue_playlist( $post, $args = array() ) {
 	$template_names = array(
 		"playlist-{$post->ID}.php",
 		"playlist-{$post->post_name}.php",
-		"playlist.php",
+		'playlist.php',
 	);
 
 	// Prepend custom templates.
@@ -94,8 +94,8 @@ function cue_playlist( $post, $args = array() ) {
  *
  * @since 1.0.0
  *
- * @param int|WP_Post $post Playlist ID or post object.
- * @param string $context Optional. Context to retrieve the tracks for. Defaults to display.
+ * @param int|WP_Post $post    Playlist ID or post object.
+ * @param string      $context Optional. Context to retrieve the tracks for. Defaults to display.
  * @return array
  */
 function get_cue_playlist_tracks( $post = 0, $context = 'display' ) {
@@ -105,7 +105,7 @@ function get_cue_playlist_tracks( $post = 0, $context = 'display' ) {
 	// Add the audio file extension as a key pointing to the audio url.
 	// Helpful for use with the jPlayer Playlist plugin.
 	foreach ( $tracks as $key => $track ) {
-		$parts = parse_url( $track['audioUrl'] );
+		$parts = wp_parse_url( $track['audioUrl'] );
 		if ( ! empty( $parts['path'] ) ) {
 			$ext = pathinfo( $parts['path'], PATHINFO_EXTENSION );
 			if ( ! empty( $ext ) ) {
@@ -147,12 +147,12 @@ function get_cue_default_track() {
  *
  * @since 1.0.0
  *
- * @param array $track Track data.
+ * @param array  $track   Track data.
  * @param string $context Optional. Context to sanitize data for. Defaults to display.
  * @return array
  */
 function sanitize_cue_track( $track, $context = 'display' ) {
-	if ( 'save' == $context ) {
+	if ( 'save' === $context ) {
 		$valid_props = get_cue_default_track();
 
 		// Remove properties that aren't in the whitelist.
@@ -179,7 +179,7 @@ function sanitize_cue_track( $track, $context = 'display' ) {
  * @since 1.1.0
  *
  * @param string $player_id Player ID.
- * @param array $args
+ * @param array  $args      Playlist arguments.
  */
 function cue_player( $player_id, $args = array() ) {
 	$playlist_id = get_cue_player_playlist_id( $player_id );
@@ -189,7 +189,7 @@ function cue_player( $player_id, $args = array() ) {
 		'player'   => $player_id,
 		'template' => array(
 			"player-{$player_id}.php",
-			"player.php",
+			'player.php',
 		),
 	);
 
@@ -255,7 +255,7 @@ function get_cue_player_playlist_id( $player_id ) {
  * @since 1.1.0
  *
  * @param string $player_id Player ID.
- * @param array $args {
+ * @param array  $args {
  *     An array of arguments. Optional.
  *
  *     @type string $context Context to retrieve the tracks for. Defaults to display.
@@ -329,7 +329,7 @@ function get_cue_native_theme( $atts ) {
  * @since 2.1.0
  *
  * @param WP_Post $post Post object.
- * @param array $args Array of extra arguments.
+ * @param array   $args Array of extra arguments.
  * @return string
  */
 function get_cue_embed_link( $post, $args = array() ) {

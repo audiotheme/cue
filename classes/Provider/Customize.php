@@ -91,7 +91,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 	 * @since 2.1.0
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customizer instance.
-	 * @param array $players Array of players.
+	 * @param array                $players      Array of players.
 	 */
 	protected function register_player_controls( $wp_customize, $players ) {
 		$description = '';
@@ -111,7 +111,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 				esc_url( admin_url( 'post-new.php?post_type=cue_playlist' ) )
 			);
 		} else {
-			// Create an array: ID => post_title
+			// Create an array: ID => post_title.
 			$playlists = array_combine(
 				wp_list_pluck( $playlists, 'ID' ),
 				wp_list_pluck( $playlists, 'post_title' )
