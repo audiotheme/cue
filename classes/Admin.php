@@ -21,7 +21,8 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 * @since 1.0.0
 	 */
 	public function register_hooks() {
-		add_action( 'admin_enqueue_scripts',        array( $this, 'enqueue_assets' ) );
+		// @todo Most of these should be moved to the Media provider.
+		add_action( 'wp_enqueue_media',             array( $this, 'enqueue_assets' ) );
 		add_action( 'admin_head',                   array( $this, 'admin_head' ) );
 		add_action( 'admin_footer',                 array( $this, 'print_templates' ) );
 		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_audio_attachment_for_js' ), 20, 3 );
@@ -36,10 +37,6 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 * @param string $hook_suffix The current admin page.
 	 */
 	public function enqueue_assets( $hook_suffix ) {
-		if ( 'post.php' !== $hook_suffix && 'post-new.php' !== $hook_suffix ) {
-			return;
-		}
-
 		wp_enqueue_script(
 			'cue-mce-view',
 			$this->plugin->get_url( 'admin/assets/js/mce-view.js' ),
