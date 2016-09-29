@@ -7,7 +7,9 @@
 	margin: 0 0 20px 0;
 	position: relative;
 
-	* {
+	*,
+	*:after,
+	*:before {
 		box-sizing: border-box;
 	}
 
