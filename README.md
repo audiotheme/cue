@@ -21,7 +21,7 @@ It works on desktop, tablets, and other mobile devices.
 * Seamlessly integrates with WordPress’ media manager to select audio and images.
 * Automatically fetches title, artist, and length from the metadata if it's available.
 * Completely responsive to work on any device that supports your audio format.
-* Link to external sources like Amazon S3 or Dropbox.
+* Link to external sources like Amazon S3 or other CDNs.
 * Customize the player background image.
 * Use custom artwork for each track.
 
@@ -35,20 +35,3 @@ _The rendered player on the front end._
 ## Installation
 
 [*Cue* is in the WordPress.org plugin directory](https://wordpress.org/plugins/cue/) and can be installed from your admin panel.
-
-
-## Level up with Cue Pro
-
-[*Cue Pro*](https://audiotheme.com/view/cuepro/?utm_source=github.com&utm_medium=link&utm_term=cue-readme&utm_campaign=plugins) is a premium add-on that gives you insight into how visitors interact with your tracks, including:
-
-* Number of plays
-* Number of listeners
-* Number of tracks listened to
-* Plays per day over the past week
-* Plays per track, including a breakdown of how often the entire track was listened to or whether it was skipped
-* Compare track performance to the previous week
-* Pages where visitors interact with your players
-
-The stats even work with native WordPress audio players and playlists!
-
-In addition to stats, *Cue Pro* allows you to add links to each track. Point your visitors to digital retailers with purchase buttons. Or enter a URL to let them download the audio directly.

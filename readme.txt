@@ -4,7 +4,7 @@ Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player  
 Requires at least: 4.4  
 Tested up to: 4.6  
-Stable tag: 2.1.1  
+Stable tag: 2.2.0  
 License: GPL-2.0+  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,8 @@ There's no need to fiddle with XML, JSON, or FTP. Just upload audio files with t
 
 It works on desktop, tablets, and other mobile devices.
 
+View a working demo at [https://audiotheme.com/view/cue/](https://audiotheme.com/view/cue/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme-demo&utm_campaign=plugins).
+
 
 ### Features
 
@@ -27,26 +29,22 @@ It works on desktop, tablets, and other mobile devices.
 * Seamlessly integrates with WordPress’ media manager to select audio and images.
 * Automatically fetches title, artist, and length from the metadata if it's available.
 * Completely responsive to work on any device that supports your audio format.
-* Link to external sources like Amazon S3 or Dropbox.
+* Link to external sources like Amazon S3 or other CDNs.
 * Customize the player background image.
 * Use custom artwork for each track.
 
 
-### Level up with Cue Pro
+> **Level up with Cue Pro**
+>
+> [*Cue Pro*](https://audiotheme.com/view/cuepro/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins) is a premium add-on with a number of useful features. It includes:
 
-[*Cue Pro*](https://audiotheme.com/view/cuepro/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins) is a premium add-on that gives you insight into how visitors interact with your tracks, including:
+> * Insights into how visitors interact with your audio.
+> * Purchase and download links for each track.
+> * New themes to change the appearance of the player.
+> * Playlist sharing to allow fans to embed your players on their own sites.
+> * Popup functionality so visitors can continue listening while browsing your site.
 
-* Number of plays
-* Number of listeners
-* Number of tracks listened to
-* Plays per day over the past week
-* Plays per track, including a breakdown of how often the entire track was listened to or whether it was skipped
-* Compare track performance to the previous week
-* Pages where visitors interact with your players
-
-The stats even work with native WordPress audio players and playlists!
-
-In addition to stats, *Cue Pro* allows you to add links for each track. Point your visitors to digital retailers with purchase buttons for tracks. Or enter a URL to let them download the audio directly.
+> *Cue Pro* purchases include email-based priority support and help support development of the free version of *Cue*.
 
 
 ### About AudioTheme
@@ -60,7 +58,7 @@ We care about our work and stand by it. We’d love to have your support and the
 
 ### Support Policy
 
-We'll do our best to keep this plugin up to date, fix bugs and implement features when possible, but technical support will only be provided for active AudioTheme customers. If you enjoy this plugin and would like to support its development, you can:
+We'll do our best to keep this plugin up to date, fix bugs and implement features when possible, but technical support can only be provided for active AudioTheme customers. If you enjoy this plugin and would like to support its development, you can:
 
 * [Visit AudioTheme](https://audiotheme.com/?utm_source=wordpress.org&utm_medium=link&utm_content=cue-readme&utm_campaign=plugins) and tell your friends!
 * [Leave a review](https://wordpress.org/support/view/plugin-reviews/cue#postform) and let everyone know how much you love it.
@@ -78,7 +76,11 @@ After installing and activating *Cue*, a new menu item labelled *Playlists* will
 
 #### Shortcode
 
-To display a playlist in a post, page or CPT, insert the `[cue]` shortcode into the editor and specify the playlist id as an attribute. When editing a playlist, the shortcode is available for copying in a meta box just under the **Publish** button.
+To display a playlist in a post, page or CPT, insert the `[cue]` shortcode into the editor and specify the playlist id as an attribute.
+
+When editing a playlist, the shortcode is available for copying in a meta box just under the **Publish** button.
+
+Integration for inserting shortcodes in an editor is also included in the Media Manager modal. Click the **Add Media** button when editing a post or page, then choose the **Insert from Cue** option to select your playlist and insert it into the editor.
 
 #### Widget
 
@@ -148,6 +150,14 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.2.0 - September 29, 2016
+* Added a view to the Media Manager modal for inserting `[cue]` shortcodes into any editor.
+* Update jquery.cue.js to 1.1.9.
+* Prevented a debug notice when adding a new Playlist widget in the Customizer.
+* Renamed the AJAX action for retrieving a playlist's tracks from `wp_ajax_get_cue_playlist` to `wp_ajax_cue_get_playlist_tracks`.
+
+We're in the planning stages for 3.0 which will include major internal changes and potentially a few style updates to take advantage of new features in WordPress and modern browsers. If you have customized Cue in any way or would like to request new features, please [follow along on GitHub](https://github.com/audiotheme/cue).
 
 ### 2.1.1 - August 12, 2016
 * Left align text in track lists.
