@@ -279,7 +279,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 
 		// Connect selected players with the current playlist.
 		if ( ! empty( $_POST['cue_players'] ) ) {
-			$players = array_map( 'absint', $_POST['cue_players'] );
+			$players = array_map( 'sanitize_key', $_POST['cue_players'] );
 
 			foreach ( $players as $player_id ) {
 				$data[ $player_id ] = $post_id;
