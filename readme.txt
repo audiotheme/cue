@@ -4,7 +4,7 @@ Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player  
 Requires at least: 4.4  
 Tested up to: 4.6  
-Stable tag: 2.2.0  
+Stable tag: 2.2.1  
 License: GPL-2.0+  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,9 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.2.1 - October 2, 2016
+* Fixed a bug causing player assignments to be reset when saving a playlist.
 
 ### 2.2.0 - September 29, 2016
 * Added a view to the Media Manager modal for inserting `[cue]` shortcodes into any editor.
