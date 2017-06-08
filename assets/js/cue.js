@@ -75,11 +75,12 @@ window.cue = window.cue || {};
 					}
 
 					$playlist.on( 'backgroundCreate.cue', function( e, player ) {
-						player.container.find( '.mejs-player-background' ).css( 'filter', 'url(\'' + window.location.href + '#cue-filter-blur\')' );
+						$( player.container ).find( '.mejs-player-background' ).css( 'filter', 'url(\'' + window.location.href + '#cue-filter-blur\')' );
 					});
 				}
 
 				$playlist.cuePlaylist({
+					classPrefix: 'mejs-',
 					cueBackgroundUrl: data.thumbnail || '',
 					cueEmbedLink: data.embed_link || '',
 					cuePermalink: data.permalink || '',
@@ -90,7 +91,8 @@ window.cue = window.cue || {};
 					},
 					cueSkin: data.skin || 'cue-skin-default',
 					defaultAudioHeight: 0,
-					features: $.fn.cuePlaylist.features
+					features: $.fn.cuePlaylist.features,
+					stretching: 'responsive'
 				}).cueMediaClasses({
 					breakpoints: [{
 						type: 'max-width',

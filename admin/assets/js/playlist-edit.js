@@ -2,7 +2,6 @@
 
 var $ = require( 'jquery' ),
 	cue = require( 'cue' ),
-	mejs = require( 'mediaelementjs' ),
 	wp = require( 'wp' );
 
 cue.data = _cueSettings; // Back-compat.
@@ -10,9 +9,6 @@ cue.settings( _cueSettings );
 
 wp.media.view.settings.post.id = cue.data.postId;
 wp.media.view.settings.defaultProps = {};
-
-// Add mime-type aliases to MediaElement plugin support.
-mejs.plugins.silverlight[0].types.push( 'audio/x-ms-wma' );
 
 cue.model.Track = require( './models/track' );
 cue.model.Tracks = require( './collections/tracks' );

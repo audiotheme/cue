@@ -7,11 +7,11 @@
 
 	$.extend( MediaElementPlayer.prototype, {
 		buildaudiothememark: function( player, controls, layers, media ) {
-			layers.append( '<a href="https://audiotheme.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-logo&utm_campaign=plugins" target="_blank" class="mejs-audiotheme-mark">' + LOGO_ICON + '</a>' );
+			$( layers ).append( '<a href="https://audiotheme.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-logo&utm_campaign=plugins" target="_blank" class="mejs-audiotheme-mark">' + LOGO_ICON + '</a>' );
 		},
 
 		buildcuebackground: function( player, controls, layers, media ) {
-			var $background = player.container.append( $( '<img />', {
+			var $background = $( player.container ).append( $( '<img />', {
 				'class': 'mejs-player-background',
 				src: player.options.cueBackgroundUrl
 			})).find( '.mejs-player-background' );
@@ -21,7 +21,7 @@
 				player.options.cuePlaylistTracks[ index ].thumb.src = track.thumb.src || player.options.cueBackgroundUrl;
 			});
 
-			player.$node.on( 'setTrack.cue', function( e, track, player ) {
+			$( player.node ).on( 'setTrack.cue', function( e, track, player ) {
 				track.thumb = track.thumb || {};
 
 				if ( '' === player.options.cueBackgroundUrl ) {

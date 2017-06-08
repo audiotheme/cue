@@ -54,14 +54,13 @@ TrackAudio = wp.Backbone.View.extend({
 
 			playerSettings = {
 				//enablePluginDebug: true,
+				classPrefix: 'mejs-',
+				defaultAudioHeight: 30,
 				features: [ 'playpause', 'current', 'progress', 'duration' ],
 				pluginPath: settings.pluginPath,
+				stretching: 'responsive',
 				success: _.bind( function( mediaElement, domObject, t ) {
 					var $fakeBody = $( t.container ).parent();
-
-					// Allow current time bar to be skinned
-					// based on the admin color scheme.
-					t.current.removeClass( 'mejs-time-current' ).addClass( 'cuemejs-time-current wp-ui-highlight' );
 
 					// Remove the fake <body> tag.
 					if ( $.nodeName( $fakeBody.get( 0 ), 'body' ) ) {

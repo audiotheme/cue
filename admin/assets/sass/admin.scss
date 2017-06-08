@@ -124,6 +124,7 @@
 .cue-track-audio {
 	.mejs-container {
 		background: #fff;
+		height: 30px;
 		max-width: 100%;
 		width: 100%;
 	}
@@ -131,6 +132,8 @@
 	.mejs-controls {
 		background: none;
 		background: #fff;
+		height: 30px;
+		margin: 0;
 
 		.mejs-playpause-button {
 			height: 30px;
@@ -160,17 +163,25 @@
 			content: "\f452";
 		}
 
+		.mejs-time {
+			height: 17px;
+			padding: 10px 3px 0;
+		}
+
 		.mejs-time,
 		.mejs-time span {
 			color: #555;
+			font-weight: normal;
 		}
 
 		.mejs-time-rail {
 			background-clip: padding-box;
 			border-radius: 2px;
+			height: 26px;
+			padding-top: 5px;
 
-			.cuemejs-time-current {
-				width: 0;
+			.mejs-time-handle {
+				display: none;
 			}
 
 			.mejs-time-loaded {
