@@ -1,11 +1,11 @@
 # Cue by AudioTheme.com
 
-Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald  
-Tags: playlist, audio, music, mp3, tracks, player  
-Requires at least: 4.4  
-Tested up to: 4.6  
-Stable tag: 2.2.1  
-License: GPL-2.0+  
+Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
+Tags: playlist, audio, music, mp3, tracks, player
+Requires at least: 4.6
+Tested up to: 4.8
+Stable tag: 2.2.1
+License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Delightful and reliable audio playlists.
