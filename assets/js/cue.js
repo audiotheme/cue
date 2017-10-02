@@ -82,6 +82,7 @@ window.cue = window.cue || {};
 				$playlist.cuePlaylist({
 					classPrefix: 'mejs-',
 					cueBackgroundUrl: data.thumbnail || '',
+					cueDisableControlsSizing: true,
 					cueEmbedLink: data.embed_link || '',
 					cuePermalink: data.permalink || '',
 					cuePlaylistLoop: false,

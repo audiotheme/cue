@@ -72,6 +72,7 @@
 		background: none;
 		display: block;
 		margin-top: 10px;
+		padding: 0;
 		position: static;
 
 		div {
@@ -201,6 +202,7 @@
 
 			box-shadow: 0 -1px rgba(255, 255, 255, 0.2);
 			height: $rail-height;
+			margin: 0;
 			padding: 0;
 			position: absolute;
 			right: 0;
@@ -225,6 +227,14 @@
 				position: absolute;
 				top: 0;
 				width: 5px;
+
+				.mejs-time-handle-content {
+					display: none;
+				}
+			}
+
+			.mejs-time-hovered {
+				height: $rail-height;
 			}
 
 			.mejs-time-current,
