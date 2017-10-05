@@ -92,8 +92,9 @@ window.cue = window.cue || {};
 					},
 					cueSkin: data.skin || 'cue-skin-default',
 					defaultAudioHeight: 0,
+					enableAutosize: false,
 					features: $.fn.cuePlaylist.features,
-					stretching: 'responsive'
+					setDimensions: false
 				}).cueMediaClasses({
 					breakpoints: [{
 						type: 'max-width',
