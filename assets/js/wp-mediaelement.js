@@ -6,15 +6,22 @@
 	settings.features.push( 'cuewpmediaelement' );
 
 	MediaElementPlayer.prototype.buildcuewpmediaelement = function( player, controls, layers ) {
-		var $container = $( player.container ),
+		var data,
+			$container = $( player.container ),
 			$controls = $( controls ),
+			$data = $container.next( 'script.cue-wp-mediaelement-metadata' ),
 			$layers = $( layers );
 
-		if ( ! $container.hasClass( 'wp-audio-shortcode' ) ) {
+		if ( ! $container.hasClass( 'wp-audio-shortcode' ) || ! $data ) {
 			return;
 		}
 
-		var data = JSON.parse( $container.next( 'script' ).html() );
+		try {
+			data = JSON.parse( $data.html() );
+		} catch ( e ) {
+			return;
+		}
+
 		$container.addClass( 'cue-skin-' + data.theme );
 
 		$layers.append( '<div class="mejs-track-details"><span class="mejs-track-artist"></span><span class="mejs-track-title"></span></div>' );
