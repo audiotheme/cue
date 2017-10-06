@@ -50,14 +50,9 @@ class Cue_Provider_AdminAssets extends Cue_AbstractProvider {
 	 */
 	public function register_assets() {
 		wp_register_style(
-			'genericons',
-			$this->plugin->get_url( 'assets/css/genericons.css' )
-		);
-
-		wp_register_style(
 			'cue-admin',
 			$this->plugin->get_url( 'admin/assets/css/admin.min.css' ),
-			array( 'genericons', 'mediaelement' )
+			array( 'dashicons', 'mediaelement' )
 		);
 	}
 }

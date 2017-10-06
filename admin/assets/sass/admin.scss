@@ -140,7 +140,7 @@
 			width: 30px;
 
 			button {
-				@extend .cue-genericon;
+				@extend .cue-dashicon;
 
 				background: none;
 				color: #555;
@@ -156,11 +156,11 @@
 		}
 
 		.mejs-pause button:before {
-			content: "\f448";
+			content: "\f523"; // Pause icon.
 		}
 
 		.mejs-play button:before {
-			content: "\f452";
+			content: "\f522"; // Play icon.
 		}
 
 		.mejs-time {
