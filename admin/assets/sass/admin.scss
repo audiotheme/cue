@@ -134,6 +134,7 @@
 		background: #fff;
 		height: 30px;
 		margin: 0;
+		padding: 0;
 
 		.mejs-playpause-button {
 			height: 30px;
@@ -164,8 +165,9 @@
 		}
 
 		.mejs-time {
-			height: 17px;
-			padding: 10px 3px 0;
+			height: 30px;
+			line-height: 29px;
+			padding: 1px 3px 0;
 		}
 
 		.mejs-time,
@@ -177,8 +179,16 @@
 		.mejs-time-rail {
 			background-clip: padding-box;
 			border-radius: 2px;
-			height: 26px;
-			padding-top: 5px;
+			height: 30px;
+			margin: 0 5px;
+			padding-top: 10px 0 0 0;
+
+			.mejs-time-buffering,
+			.mejs-time-current,
+			.mejs-time-loaded,
+			.mejs-time-slider {
+				margin: 0;
+			}
 
 			.mejs-time-handle {
 				display: none;
