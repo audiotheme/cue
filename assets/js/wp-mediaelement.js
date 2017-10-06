@@ -1,6 +1,6 @@
-/*global MediaElementPlayer:false, mejs:false */
+/* global jQuery, MediaElementPlayer, mejs */
 
-(function() {
+(function( $ ) {
 	var settings = window._wpmejsSettings || {};
 	settings.features = settings.features || mejs.MepDefaults.features;
 	settings.features.push( 'cuewpmediaelement' );
@@ -40,4 +40,4 @@
 			return ( 'ontouchstart' in window ) || window.DocumentTouch && document instanceof window.DocumentTouch ? 'touch' : 'no-touch';
 		});
 	};
-})();
+})( jQuery );
