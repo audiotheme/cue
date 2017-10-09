@@ -1,21 +1,14 @@
 {
-	"boss": true,
-	"browser": true,
-	"bitwise": true,
-	"browser": true,
-	"curly": true,
-	"eqeqeq": true,
-	"eqnull": true,
-	"immed": true,
-	"jquery": true,
-	"latedef": true,
-	"newcap": true,
-	"noarg": true,
-	"smarttabs": true,
-	"sub": true,
-	"trailing": true,
-	"undef": true,
-	"globals": {
-		"console": false
-	}
+  "boss": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "latedef": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": "vars",
+
+  "browser": true,
+  "browserify": true
 }

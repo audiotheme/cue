@@ -13,9 +13,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
-    "browserify-shim": "^3.8.12",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
     "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-compress": "^1.2.0",
     "grunt-contrib-cssmin": "^2.2.0",
@@ -26,30 +27,11 @@
     "grunt-rtlcss": "^2.0.1",
     "grunt-sass": "^2.0.0",
     "grunt-text-replace": "^0.4.0",
+    "grunt-webpack": "^3.0.2",
     "grunt-wp-i18n": "^1.0.0",
     "load-grunt-config": "^0.19.1",
-    "lodash": "^4.11.1",
     "node-sass": "^4.5.3",
-    "strictify": "^0.2.0",
-    "time-grunt": "^1.3.0"
-  },
-  "browserify-shim": {
-    "backbone": {
-      "exports": "global:Backbone",
-      "depends": [
-        "jquery",
-        "underscore"
-      ]
-    },
-    "jquery": "global:jQuery",
-    "mediaelementjs": "global:mejs",
-    "underscore": "global:_",
-    "wp": "global:wp"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim",
-      "strictify"
-    ]
+    "time-grunt": "^1.3.0",
+    "webpack": "^3.6.0"
   }
 }

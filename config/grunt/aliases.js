@@ -14,14 +14,14 @@ module.exports = function( grunt, options ) {
 			'rtlcss'
 		],
 		'build:js': [
-			'browserify:build',
+			'webpack:build',
 			'uglify',
 		],
 		'check': [
 			'jshint'
 		],
 		'develop:js': [
-			'browserify:develop'
+			'webpack:develop'
 		],
 		'package': [
 			'check',
