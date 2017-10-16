@@ -62,9 +62,9 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 
 		wp_register_script(
 			'jquery-cue',
-			$this->plugin->get_url( 'assets/js/vendor/jquery.cue.min.js' ),
+			$this->plugin->get_url( "assets/js/vendor/jquery.cue{$this->suffix}.js" ),
 			array( 'jquery', 'mediaelement' ),
-			'1.2.1',
+			'1.2.2',
 			true
 		);
 
