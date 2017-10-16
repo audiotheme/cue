@@ -94,7 +94,8 @@ window.cue = window.cue || {};
 					defaultAudioHeight: 0,
 					enableAutosize: false,
 					features: $.fn.cuePlaylist.features,
-					setDimensions: false
+					setDimensions: false,
+					timeFormat: 'm:ss'
 				}).cueMediaClasses({
 					breakpoints: [{
 						type: 'max-width',
