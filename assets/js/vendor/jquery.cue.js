@@ -1,5 +1,5 @@
 /*!
- * jquery.cue.js - 1.2.2
+ * jquery.cue.js - 1.2.3
  * Playlist and other functionality for MediaElement.js
  * https://audiotheme.com/
  *
@@ -695,8 +695,8 @@ window.cue = window.cue || {};
 
 			duration = player.options.duration > 0 ? player.options.duration : player.media.duration;
 			if ( ! isNaN( duration ) ) {
-				durationTimeCode = utils.secondsToTimeCode( duration, player.options.alwaysShowHours, player.options.showTimecodeFrameCount, player.options.framesPerSecond || 25 );
-				currentTimeCode = utils.secondsToTimeCode( player.media.currentTime, player.options.alwaysShowHours || player.media.duration > 3600, player.options.showTimecodeFrameCount, player.options.framesPerSecond || 25 );
+				durationTimeCode = utils.secondsToTimeCode( duration, player.options.alwaysShowHours, player.options.showTimecodeFrameCount, player.options.framesPerSecond || 25, player.options.secondsDecimalLength || 0, player.options.timeFormat || 'm:ss' );
+				currentTimeCode = utils.secondsToTimeCode( player.media.currentTime, player.options.alwaysShowHours || player.media.duration > 3600, player.options.showTimecodeFrameCount, player.options.framesPerSecond || 25, player.options.secondsDecimalLength || 0, player.options.timeFormat || 'm:ss' );
 
 				this.$duration.text( durationTimeCode );
 				this.$playBar.width( player.media.currentTime / duration * 100 + '%' );
