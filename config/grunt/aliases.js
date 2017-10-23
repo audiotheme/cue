@@ -15,7 +15,7 @@ module.exports = function( grunt, options ) {
 		],
 		'build:js': [
 			'webpack:build',
-			'uglify',
+			'uglify'
 		],
 		'check': [
 			'jshint'
