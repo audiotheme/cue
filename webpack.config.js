@@ -1,4 +1,5 @@
 const webpack = require( 'webpack' );
+const EOLPlugin = require( './config/webpack/eol-plugin' );
 
 const config = {
 	entry: {
@@ -22,15 +23,17 @@ const config = {
 		}
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader'
+				use: 'babel-loader'
 			}
 		]
 	},
-	plugins: []
+	plugins: [
+		new EOLPlugin()
+	]
 };
 
 // switch ( process.env.NODE_ENV ) {
