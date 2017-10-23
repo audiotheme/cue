@@ -21,12 +21,14 @@ module.exports = {
 					'!composer.*',
 					'!gruntfile.js',
 					'!Gruntfile.js',
+					'!package-lock.json',
 					'!package.json',
 					'!phpcs.log',
 					'!phpcs.xml',
 					'!phpunit.xml',
 					'!README.md',
-					'!shipitfile.js'
+					'!shipitfile.js',
+					'!webpack.config.js'
 				],
 				dest: '<%= package.name %>/'
 			}
