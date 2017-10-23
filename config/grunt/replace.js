@@ -19,7 +19,7 @@ module.exports = {
 		replacements: [
 			{
 				from: /(Stable tag:[\s]+).+/,
-				to: '$1<%= package.version %>  '
+				to: '$1<%= package.version %>'
 			}
 		]
 	}

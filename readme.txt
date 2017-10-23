@@ -3,8 +3,8 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 4.6
-Tested up to: 4.8
-Stable tag: 2.2.1
+Tested up to: 4.9
+Stable tag: 2.3.0
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -123,7 +123,7 @@ Your best bet is to upload a lower quality file for online streaming. This also 
 
 Browsers, devices, and platforms have varying levels of support for different audio formats, but at this time, MP3 provides the best compatibility across platforms.
 
-*Cue* uses the MediaElement.js library bundled with WordPress, which attempts to smooth out inconsistencies across browsers using Flash and Silverlight fallbacks, so you may have some success with other formats like AAC or Ogg.
+*Cue* uses the MediaElement.js library bundled with WordPress, which attempts to smooth out inconsistencies across browsers, so you may have some success with other formats like AAC or Ogg.
 
 Mozilla Developer Network maintains a [browser compatibility chart here](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility).
 
@@ -150,6 +150,12 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.3.0 - October 23, 2017
+* Improved support for the new version of MediaElement.js in WordPress 4.9+.
+* Removed the bundled version of Genericons in favor of Dashicons for displaying icons in the admin panel.
+* Updated jquery.cue.js to 1.2.3.
+* Switched from Browserify to webpack to bundle JavaScript modules. Prevents a global `require()` method from being defined, which caused conflicts with some external modules.
 
 ### 2.2.1 - October 2, 2016
 * Fixed a bug causing player assignments to be reset when saving a playlist.
