@@ -1,5 +1,6 @@
 .DS_Store
 *.bundle.js
+*.map
 *.min.*
 !assets/js/vendor/*.min.*
 dist

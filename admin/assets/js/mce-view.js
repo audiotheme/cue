@@ -1,10 +1,10 @@
-/*global _:false, jQuery:false, wp:false */
+/*global _, _cueMceView, jQuery, wp */
 
 (function( $, wp ) {
 	'use strict';
 
 	var extend,
-		postID = $( '#post_ID' ).val() || 0;
+		settings = _cueMceView;
 
 	extend = {
 		action: 'cue_parse_shortcode',
@@ -21,8 +21,7 @@
 			}
 
 			wp.ajax.post( this.action, {
-				post_ID: postID,
-				type: this.shortcode.tag,
+				_ajax_nonce: settings.parseNonce,
 				shortcode: this.shortcode.string()
 			} )
 			.done( function( response ) {

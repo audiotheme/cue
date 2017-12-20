@@ -3,12 +3,20 @@
   "curly": true,
   "eqeqeq": true,
   "eqnull": true,
+  "esversion": 6,
   "latedef": true,
   "noarg": true,
-  "quotmark": "single",
+  "nonbsp": true,
+  "strict": false,
   "undef": true,
   "unused": "vars",
 
   "browser": true,
-  "browserify": true
+
+  "globals": {
+    "export": false,
+    "global": false,
+    "module": false,
+    "require": false
+  }
 }

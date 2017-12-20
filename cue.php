@@ -68,6 +68,7 @@ $GLOBALS['cue'] = cue()
 	->register_hooks( new Cue_Provider_I18n() )
 	->register_hooks( new Cue_Provider_Customize() )
 	->register_hooks( new Cue_PostType_Playlist() )
+	->register_hooks( new Cue_Provider_Editor() )
 	->register_hooks( new Cue_Provider_Assets() )
 	->register_hooks( new Cue_Provider_Shortcode() )
 	->register_hooks( new Cue_Provider_Media() );

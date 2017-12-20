@@ -46,7 +46,7 @@
 		},
 
 		/**
-		 * Debounced callback to update media classes when the viewport is resized.
+		 * Throttled callback to update media classes when the viewport is resized.
 		 */
 		resize: function() {
 			if ( doCallback && $elems.length ) {

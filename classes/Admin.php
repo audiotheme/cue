@@ -45,6 +45,10 @@ class Cue_Admin extends Cue_AbstractProvider {
 			true
 		);
 
+		wp_localize_script( 'cue-mce-view', '_cueMceView', array(
+			'parseNonce' => wp_create_nonce( 'cue_parse_shortcode' ),
+		) );
+
 		wp_enqueue_script(
 			'cue-media',
 			$this->plugin->get_url( 'admin/assets/js/wp-media.bundle.js' ),

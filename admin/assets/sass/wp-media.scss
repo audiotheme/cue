@@ -193,6 +193,25 @@
 	}
 }
 
+// Select frame for the block editor.
+.cue-playlists-frame--select {
+	.cue-playlist-browser-list {
+		right: 0;
+	}
+
+	.cue-playlist-browser-sidebar {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 784px) {
+	.cue-playlists-frame--select {
+		.cue-playlist-browser-list-item {
+			width: ( 100 / 6 ) + %;
+		}
+	}
+}
+
 @media screen and (max-width: 1100px) {
 	.cue-playlist-browser-list-item {
 		width: 33.33%;

@@ -119,11 +119,19 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	public function parse_shortcode() {
 		global $wp_scripts;
 
+		check_ajax_referer( 'cue_parse_shortcode' );
+
 		if ( empty( $_POST['shortcode'] ) ) {
 			wp_send_json_error();
 		}
 
-		$shortcode = do_shortcode( wp_unslash( $_POST['shortcode'] ) );
+		$shortcode = wp_unslash( $_POST['shortcode'] );
+
+		if ( 0 !== strpos( $shortcode, '[cue ' ) ) {
+			wp_send_json_error();
+		}
+
+		$shortcode = do_shortcode( $shortcode );
 
 		if ( empty( $shortcode ) ) {
 			wp_send_json_error( array(

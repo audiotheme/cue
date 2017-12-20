@@ -3,6 +3,7 @@ const EOLPlugin = require( './config/webpack/eol-plugin' );
 
 const config = {
 	entry: {
+		'editor': './admin/assets/js/editor.js',
 		'playlist-edit': './admin/assets/js/playlist-edit.js',
 		'wp-media': './admin/assets/js/wp-media.js'
 	},
@@ -36,13 +37,13 @@ const config = {
 	]
 };
 
-// switch ( process.env.NODE_ENV ) {
-// 	case 'production':
-// 		config.plugins.push( new webpack.optimize.UglifyJsPlugin() );
-// 		break;
-//
-// 	default:
-// 		config.devtool = 'source-map';
-// }
+switch ( process.env.NODE_ENV ) {
+	case 'production':
+		config.plugins.push( new webpack.optimize.UglifyJsPlugin() );
+		break;
+
+	default:
+		config.devtool = 'source-map';
+}
 
 module.exports = config;
