@@ -32,7 +32,7 @@ function cue_autoloader( $class ) {
 		return;
 	}
 
-	$file  = dirname( __FILE__ ) . '/classes/';
+	$file  = dirname( __FILE__ ) . '/php/';
 	$file .= str_replace( array( 'Cue_', '_' ), array( '', '/' ), $class );
 	$file .= '.php';
 
