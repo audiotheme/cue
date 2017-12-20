@@ -1,12 +1,11 @@
-var TrackAudio,
-	$ = require( 'jquery' ),
-	_ = require( 'underscore' ),
-	mejs = require( 'mediaelementjs' ),
-	settings = require( 'cue' ).settings(),
-	workflows = require( '../../modules/workflows' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import mejs from 'mediaelementjs';
+import wp from 'wp';
 
-TrackAudio = wp.Backbone.View.extend({
+import { settings } from 'cue';
+import workflows from '../../../modules/workflows';
+
+export const TrackAudio = wp.Backbone.View.extend({
 	tagName: 'span',
 	className: 'cue-track-audio',
 	template: wp.template( 'cue-playlist-track-audio' ),
@@ -23,9 +22,8 @@ TrackAudio = wp.Backbone.View.extend({
 	},
 
 	render: function() {
-		var $mediaEl, playerSettings,
-			track = this.model.toJSON(),
-			playerId = this.$el.find( '.mejs-audio' ).attr( 'id' );
+		const track = this.model.toJSON();
+		const playerId = this.$el.find( '.mejs-audio' ).attr( 'id' );
 
 		// Remove the MediaElement player object if the
 		// audio file URL is empty.
@@ -37,7 +35,7 @@ TrackAudio = wp.Backbone.View.extend({
 		this.$el.html( this.template( this.model.toJSON() ) );
 
 		// Set up MediaElement.js.
-		$mediaEl = this.$el.find( '.cue-audio' );
+		const $mediaEl = this.$el.find( '.cue-audio' );
 
 		if ( $mediaEl.length ) {
 			// MediaElement traverses the DOM and throws an error if it
@@ -52,25 +50,25 @@ TrackAudio = wp.Backbone.View.extend({
 			// @see mediaelement-and-player.js:~1222
 			$mediaEl.wrap( '<body></body>' );
 
-			playerSettings = {
+			const playerSettings = {
 				//enablePluginDebug: true,
 				classPrefix: 'mejs-',
 				defaultAudioHeight: 30,
 				features: [ 'playpause', 'current', 'progress', 'duration' ],
 				pluginPath: settings.pluginPath,
 				stretching: 'responsive',
-				success: _.bind( function( mediaElement, domObject, t ) {
-					var $fakeBody = $( t.container ).parent();
+				success: ( mediaElement, domObject, t ) => {
+					const $fakeBody = $( t.container ).parent();
 
 					// Remove the fake <body> tag.
 					if ( $.nodeName( $fakeBody.get( 0 ), 'body' ) ) {
 						$fakeBody.replaceWith( $fakeBody.get( 0 ).childNodes );
 					}
-				}, this ),
-				error: function( el ) {
-					var $el = $( el ),
-						$parent = $el.closest( '.cue-track' ),
-						playerId = $el.closest( '.mejs-audio' ).attr( 'id' );
+				},
+				error: el => {
+					const $el = $( el );
+					const $parent = $el.closest( '.cue-track' );
+					const playerId = $el.closest( '.mejs-audio' ).attr( 'id' );
 
 					// Remove the audio element if there is an error.
 					mejs.players[ playerId ].remove();
@@ -91,9 +89,9 @@ TrackAudio = wp.Backbone.View.extend({
 	},
 
 	refresh: function( e ) {
-		var track = this.model.toJSON(),
-			playerId = this.$el.find( '.mejs-audio' ).attr( 'id' ),
-			player = playerId ? mejs.players[ playerId ] : null;
+		const track = this.model.toJSON();
+		const playerId = this.$el.find( '.mejs-audio' ).attr( 'id' );
+		const player = playerId ? mejs.players[ playerId ] : null;
 
 		if ( player && '' !== track.audioUrl ) {
 			player.pause();
@@ -104,8 +102,8 @@ TrackAudio = wp.Backbone.View.extend({
 	},
 
 	cleanup: function() {
-		var playerId = this.$el.find( '.mejs-audio' ).attr( 'id' ),
-			player = playerId ? mejs.players[ playerId ] : null;
+		const playerId = this.$el.find( '.mejs-audio' ).attr( 'id' );
+		const player = playerId ? mejs.players[ playerId ] : null;
 
 		if ( player ) {
 			player.remove();
@@ -116,5 +114,3 @@ TrackAudio = wp.Backbone.View.extend({
 		workflows.setModel( this.model ).get( 'selectAudio' ).open();
 	}
 });
-
-module.exports = TrackAudio;

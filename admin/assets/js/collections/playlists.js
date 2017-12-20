@@ -1,9 +1,7 @@
-var Playlists,
-	Backbone = require( 'backbone' ),
-	Playlist = require( '../models/playlist' );
+import Backbone from 'backbone';
 
-Playlists = Backbone.Collection.extend({
+import { Playlist } from '../models/playlist';
+
+export const Playlists = Backbone.Collection.extend({
 	model: Playlist
 });
-
-module.exports = Playlists;

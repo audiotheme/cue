@@ -1,34 +1,34 @@
-var PlaylistToolbar,
-	_ = require( 'underscore' ),
-	wp = require( 'wp' );
+import _ from 'underscore';
+import wp from 'wp';
 
-PlaylistToolbar = wp.media.view.Toolbar.extend({
+const { l10n, Toolbar } = wp.media.view;
+
+export const InsertPlaylistToolbar = Toolbar.extend({
 	initialize: function( options ) {
 		this.controller = options.controller;
 
-		_.bindAll( this, 'insertCueShortcode' );
+		this.insert = this.insert.bind( this );
 
 		// This is a button.
 		this.options.items = _.defaults( this.options.items || {}, {
 			insert: {
-				text: wp.media.view.l10n.insertIntoPost || 'Insert into post',
+				text: l10n.insertIntoPost || 'Insert into post',
 				style: 'primary',
 				priority: 80,
 				requires: {
 					selection: true
 				},
-				click: this.insertCueShortcode
+				click: this.insert
 			}
 		});
 
-		wp.media.view.Toolbar.prototype.initialize.apply( this, arguments );
+		Toolbar.prototype.initialize.apply( this, arguments );
 	},
 
-	insertCueShortcode: function() {
-		var html,
-			state = this.controller.state(),
-			attributes = state.get( 'attributes' ).toJSON(),
-			selection = state.get( 'selection' ).first();
+	insert: function() {
+		const state = this.controller.state();
+		const attributes = state.get( 'attributes' ).toJSON();
+		const selection = state.get( 'selection' ).first();
 
 		attributes.id = selection.get( 'id' );
 		_.pick( attributes, 'id', 'theme', 'width', 'show_playlist' );
@@ -39,7 +39,7 @@ PlaylistToolbar = wp.media.view.Toolbar.extend({
 			delete attributes.show_playlist;
 		}
 
-		html = wp.shortcode.string({
+		const html = wp.shortcode.string({
 			tag: 'cue',
 			type: 'single',
 			attrs: attributes
@@ -49,5 +49,3 @@ PlaylistToolbar = wp.media.view.Toolbar.extend({
 		this.controller.close();
 	}
 });
-
-module.exports = PlaylistToolbar;

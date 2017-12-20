@@ -1,7 +1,6 @@
-var Playlist,
-	wp = require( 'wp' );
+import wp from 'wp';
 
-Playlist = wp.Backbone.View.extend({
+export const Playlist = wp.Backbone.View.extend({
 	tagName: 'li',
 	className: 'cue-playlist-browser-list-item',
 	template: wp.template( 'cue-playlist-browser-list-item' ),
@@ -23,7 +22,7 @@ Playlist = wp.Backbone.View.extend({
 		return this;
 	},
 
-	resetSelection: function( e ) {
+	resetSelection: function() {
 		if ( this.selection.contains( this.model ) ) {
 			this.selection.remove( this.model );
 		} else {
@@ -39,5 +38,3 @@ Playlist = wp.Backbone.View.extend({
 		}
 	}
 });
-
-module.exports = Playlist;

@@ -1,10 +1,10 @@
-var Track,
-	$ = require( 'jquery' ),
-	TrackArtwork = require( './track/artwork' ),
-	TrackAudio = require( './track/audio' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import wp from 'wp';
 
-Track = wp.Backbone.View.extend({
+import { TrackArtwork } from './artwork';
+import { TrackAudio } from './audio';
+
+export const Track = wp.Backbone.View.extend({
 	tagName: 'li',
 	className: 'cue-track',
 	template: wp.template( 'cue-playlist-track' ),
@@ -63,8 +63,8 @@ Track = wp.Backbone.View.extend({
 	 * @param {Object} e Event object.
 	 */
 	updateAttribute: function( e ) {
-		var attribute = $( e.target ).data( 'setting' ),
-			value = e.target.value;
+		const attribute = $( e.target ).data( 'setting' );
+		const value = e.target.value;
 
 		if ( this.model.get( attribute ) !== value ) {
 			this.model.set( attribute, value );
@@ -75,22 +75,21 @@ Track = wp.Backbone.View.extend({
 	 * Update a setting field when a model's attribute is changed.
 	 */
 	updateFields: function() {
-		var track = this.model.toJSON(),
-			$settings = this.$el.find( '[data-setting]' ),
-			attribute, value;
+		const track = this.model.toJSON();
+		const $settings = this.$el.find( '[data-setting]' );
 
 		// A change event shouldn't be triggered here, so it won't cause
 		// the model attribute to be updated and get stuck in an
 		// infinite loop.
-		for ( attribute in track ) {
+		for ( const attribute in track ) {
 			// Decode HTML entities.
-			value = $( '<div/>' ).html( track[ attribute ] ).text();
+			const value = $( '<div/>' ).html( track[ attribute ] ).text();
 			$settings.filter( '[data-setting="' + attribute + '"]' ).val( value );
 		}
 	},
 
 	updateTitle: function() {
-		var title = this.model.get( 'title' );
+		const title = this.model.get( 'title' );
 		this.$el.find( '.cue-track-title .text' ).text( title ? title : 'Title' );
 	},
 
@@ -108,5 +107,3 @@ Track = wp.Backbone.View.extend({
 		this.$el.remove();
 	}
 });
-
-module.exports = Track;

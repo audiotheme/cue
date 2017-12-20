@@ -1,7 +1,9 @@
 import _ from 'underscore';
 import wp from 'wp';
 
-export default wp.media.view.Toolbar.extend({
+const { l10n, Toolbar } = wp.media.view;
+
+export default Toolbar.extend({
 	initialize: function( options ) {
 		this.controller = options.controller;
 
@@ -10,7 +12,7 @@ export default wp.media.view.Toolbar.extend({
 		// This is a button.
 		this.options.items = _.defaults( this.options.items || {}, {
 			select: {
-				text: wp.media.view.l10n.insertIntoPost || 'Insert into post',
+				text: l10n.insertIntoPost || 'Insert into post',
 				style: 'primary',
 				priority: 80,
 				requires: {
@@ -20,7 +22,7 @@ export default wp.media.view.Toolbar.extend({
 			}
 		});
 
-		wp.media.view.Toolbar.prototype.initialize.apply( this, arguments );
+		Toolbar.prototype.initialize.apply( this, arguments );
 	},
 
 	select: function() {

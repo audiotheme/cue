@@ -1,12 +1,13 @@
 import wp from 'wp';
 
+import { l10n } from 'cue';
+import { PlaylistBrowser } from './content/playlist-browser';
 import SelectPlaylistToolbar from './toolbar/select-playlist';
+import { PlaylistsController } from '../../controllers/playlists';
 
-const l10n = require( 'cue' ).l10n;
-const PlaylistBrowser = require( '../../../../views/content/playlist-browser' );
-const PlaylistsController = require( '../../../../controllers/playlists' );
+const { Select: SelectFrame } = wp.media.view.MediaFrame;
 
-export default wp.media.view.MediaFrame.Select.extend({
+export default SelectFrame.extend({
 	className: 'media-frame cue-playlists-frame cue-playlists-frame--select',
 
 	createStates: function() {
@@ -16,7 +17,7 @@ export default wp.media.view.MediaFrame.Select.extend({
 	},
 
 	bindHandlers: function() {
-		wp.media.view.MediaFrame.Select.prototype.bindHandlers.apply( this, arguments );
+		SelectFrame.prototype.bindHandlers.apply( this, arguments );
 
 		this.on( 'content:create:cue-playlist-browser', this.createCueContent, this );
 		this.on( 'toolbar:create:cue-insert-playlist', this.createCueToolbar, this );

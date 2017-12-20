@@ -41,7 +41,7 @@ class Cue_Admin extends Cue_AbstractProvider {
 			'cue-mce-view',
 			$this->plugin->get_url( 'admin/assets/js/mce-view.js' ),
 			array( 'jquery', 'mce-view', 'underscore' ),
-			'1.0.0',
+			'20171219',
 			true
 		);
 
@@ -53,7 +53,7 @@ class Cue_Admin extends Cue_AbstractProvider {
 			'cue-media',
 			$this->plugin->get_url( 'admin/assets/js/wp-media.bundle.js' ),
 			array( 'media-views', 'wp-backbone', 'wp-util' ),
-			'1.0.0',
+			'20171219',
 			true
 		);
 

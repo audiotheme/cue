@@ -1,8 +1,8 @@
-var PlaylistItems,
-	PlaylistItem = require( '../playlist/item' ),
-	wp = require( 'wp' );
+import wp from 'wp';
 
-PlaylistItems = wp.Backbone.View.extend({
+import { Playlist } from './playlist';
+
+export const Playlists = wp.Backbone.View.extend({
 	className: 'cue-playlist-browser-list',
 	tagName: 'ul',
 
@@ -20,7 +20,7 @@ PlaylistItems = wp.Backbone.View.extend({
 	},
 
 	addItem: function( model ) {
-		var view = new PlaylistItem({
+		const view = new Playlist({
 			controller: this.controller,
 			model: model
 		}).render();
@@ -28,5 +28,3 @@ PlaylistItems = wp.Backbone.View.extend({
 		this.$el.append( view.el );
 	}
 });
-
-module.exports = PlaylistItems;

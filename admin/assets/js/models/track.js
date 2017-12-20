@@ -1,7 +1,6 @@
-var Track,
-	Backbone = require( 'backbone' );
+import Backbone from 'backbone';
 
-Track = Backbone.Model.extend({
+export const Track = Backbone.Model.extend({
 	defaults: {
 		artist: '',
 		artworkId: '',
@@ -14,5 +13,3 @@ Track = Backbone.Model.extend({
 		order: 0
 	}
 });
-
-module.exports = Track;

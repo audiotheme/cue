@@ -1,5 +1,4 @@
-import _ from 'underscore';
-import { blocks, components, element, i18n } from 'wp';
+import { element } from 'wp';
 
 const { Component, renderToString } = element;
 

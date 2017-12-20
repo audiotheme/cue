@@ -1,11 +1,13 @@
-var InsertPlaylistFrame,
-	PlaylistBrowser = require( '../content/playlist-browser' ),
-	PlaylistsController = require( '../../controllers/playlists' ),
-	PlaylistToolbar = require( '../toolbar/playlist' ),
-	wp = require( 'wp' ),
-	PostFrame = wp.media.view.MediaFrame.Post;
+import wp from 'wp';
 
-InsertPlaylistFrame = PostFrame.extend({
+import { InsertPlaylistToolbar } from './toolbar/insert-playlist';
+import { PlaylistBrowser } from './content/playlist-browser';
+import { PlaylistsController } from '../../controllers/playlists';
+
+const { Post: PostFrame } = wp.media.view.MediaFrame;
+
+
+export default PostFrame.extend({
 	createStates: function() {
 		PostFrame.prototype.createStates.apply( this, arguments );
 
@@ -15,18 +17,8 @@ InsertPlaylistFrame = PostFrame.extend({
 	bindHandlers: function() {
 		PostFrame.prototype.bindHandlers.apply( this, arguments );
 
-		//this.on( 'menu:create:default', this.createCueMenu, this );
 		this.on( 'content:create:cue-playlist-browser', this.createCueContent, this );
 		this.on( 'toolbar:create:cue-insert-playlist', this.createCueToolbar, this );
-	},
-
-	createCueMenu: function( menu ) {
-		menu.view.set({
-			'cue-playlist-separator': new wp.media.View({
-				className: 'separator',
-				priority: 200
-			})
-		});
 	},
 
 	createCueContent: function( content ) {
@@ -36,10 +28,8 @@ InsertPlaylistFrame = PostFrame.extend({
 	},
 
 	createCueToolbar: function( toolbar ) {
-		toolbar.view = new PlaylistToolbar({
+		toolbar.view = new InsertPlaylistToolbar({
 			controller: this
 		});
 	},
 });
-
-module.exports = InsertPlaylistFrame;

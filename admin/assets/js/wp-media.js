@@ -1,12 +1,10 @@
-/*global _cueMediaSettings:false, wp:false */
+/* global _cueMediaSettings */
 
-(function( wp ) {
-	'use strict';
+import wp from 'wp';
 
-	var cue = require( 'cue' );
+import cue from 'cue';
+import PostFrame from './views/frame/insert-playlist';
 
-	cue.settings( _cueMediaSettings );
+cue.config( _cueMediaSettings );
 
-	wp.media.view.MediaFrame.Post = require( './views/frame/insert-playlist' );
-
-})( wp );
+wp.media.view.MediaFrame.Post = PostFrame;

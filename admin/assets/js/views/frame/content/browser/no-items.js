@@ -1,7 +1,6 @@
-var PlaylistNoItems,
-	wp = require( 'wp' );
+import wp from 'wp';
 
-PlaylistNoItems = wp.Backbone.View.extend({
+export const NoItems = wp.Backbone.View.extend({
 	className: 'cue-playlist-browser-empty',
 	tagName: 'div',
 	template: wp.template( 'cue-playlist-browser-empty' ),
@@ -21,5 +20,3 @@ PlaylistNoItems = wp.Backbone.View.extend({
 		this.$el.toggleClass( 'is-visible', this.collection.length < 1 );
 	}
 });
-
-module.exports = PlaylistNoItems;

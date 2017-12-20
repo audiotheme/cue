@@ -1,8 +1,8 @@
-import app from 'cue';
 import { blocks, components, element, i18n } from 'wp';
 
+import cue from 'cue';
 import SandBox from './sandbox';
-import SelectPlaylistFrame from './frame/views/select-playlist';
+import SelectPlaylistFrame from '../../views/frame/select-playlist';
 
 const { Component } = element;
 const { __ } = i18n;
@@ -11,16 +11,16 @@ const { BlockControls, BlockDescription, InspectorControls } = blocks;
 const { SelectControl, ToggleControl } = InspectorControls;
 const { Placeholder, Toolbar } = components;
 
+cue.config( _cueEditorSettings );
+const { l10n, settings } = cue;
+const { parseNonce, themes } = settings;
+const themeOptions = Object.keys( themes ).map( key => ({ label: themes[ key ], value: key }) );
+
 const ICON = (
 	<svg x="0px" y="0px" viewBox="0 0 20 20">
 		<path d="M11,8h7v2h-7V8z M7,3v7.3C6.5,10.1,6,10,5.5,10C3.6,10,2,11.6,2,13.5S3.6,17,5.5,17S9,15.4,9,13.5V6h9V3H7z M11,13h7v-2h-7 V13z M11,16h7v-2h-7V16z"/>
 	</svg>
 );
-
-const settings = app.settings( _cueEditorSettings );
-const { l10n } = app;
-const { parseNonce, themes } = settings;
-const themeOptions = Object.keys( themes ).map( key => ({ label: themes[ key ], value: key }) );
 
 function getPreview( attributes ) {
 	return wp.ajax.post( 'cue_parse_shortcode', {

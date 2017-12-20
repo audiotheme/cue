@@ -1,23 +1,19 @@
-var PostForm,
-	$ = require( 'jquery' ),
-	AddTracksButton = require( './button/add-tracks' ),
-	TrackList = require( './track-list' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import wp from 'wp';
 
-PostForm = wp.Backbone.View.extend({
-	el: '#post',
+import { AddTracksButton } from './button/add-tracks';
+import { TrackList } from '../edit-playlist/track-list';
+
+export const EditPlaylistScreen = wp.Backbone.View.extend({
 	saved: false,
 
 	events: {
 		'click #publish': 'buttonClick',
 		'click #save-post': 'buttonClick'
-		//'submit': 'submit'
 	},
 
 	initialize: function( options ) {
 		this.l10n = options.l10n;
-
-		this.render();
 	},
 
 	render: function() {
@@ -26,7 +22,6 @@ PostForm = wp.Backbone.View.extend({
 				collection: this.collection,
 				l10n: this.l10n
 			}),
-
 			new TrackList({
 				collection: this.collection
 			})
@@ -36,18 +31,15 @@ PostForm = wp.Backbone.View.extend({
 	},
 
 	buttonClick: function( e ) {
-		var self = this,
-			$button = $( e.target );
+		const $button = $( e.target );
 
-		if ( ! self.saved ) {
-			this.collection.save().done(function( data ) {
-				self.saved = true;
+		if ( ! this.saved ) {
+			this.collection.save().done( data => {
+				this.saved = true;
 				$button.click();
 			});
 		}
 
-		return self.saved;
+		return this.saved;
 	}
 });
-
-module.exports = PostForm;

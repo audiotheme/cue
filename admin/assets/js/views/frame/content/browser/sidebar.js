@@ -1,8 +1,7 @@
-var PlaylistSidebar,
-	$ = require( 'jquery' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import wp from 'wp';
 
-PlaylistSidebar = wp.Backbone.View.extend({
+export const Sidebar = wp.Backbone.View.extend({
 	className: 'cue-playlist-browser-sidebar media-sidebar',
 	template: wp.template( 'cue-playlist-browser-sidebar' ),
 
@@ -19,9 +18,9 @@ PlaylistSidebar = wp.Backbone.View.extend({
 	},
 
 	updateAttribute: function( e ) {
-		var $target = $( e.target ),
-			attribute = $target.data( 'setting' ),
-			value = e.target.value;
+		const $target = $( e.target );
+		const attribute = $target.data( 'setting' );
+		let value = e.target.value;
 
 		if ( 'checkbox' === e.target.type ) {
 			value = !! $target.prop( 'checked' );
@@ -30,5 +29,3 @@ PlaylistSidebar = wp.Backbone.View.extend({
 		this.attributes.set( attribute, value );
 	}
 });
-
-module.exports = PlaylistSidebar;

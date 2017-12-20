@@ -1,9 +1,9 @@
-var TrackArtwork,
-	_ = require( 'underscore' ),
-	workflows = require( '../../modules/workflows' ),
-	wp = require( 'wp' );
+import _ from 'underscore';
+import wp from 'wp';
 
-TrackArtwork = wp.Backbone.View.extend({
+import workflows from '../../../modules/workflows';
+
+export const TrackArtwork = wp.Backbone.View.extend({
 	tagName: 'span',
 	className: 'cue-track-artwork',
 	template: wp.template( 'cue-playlist-track-artwork' ),
@@ -27,5 +27,3 @@ TrackArtwork = wp.Backbone.View.extend({
 		workflows.setModel( this.model ).get( 'selectArtwork' ).open();
 	}
 });
-
-module.exports = TrackArtwork;

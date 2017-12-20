@@ -1,9 +1,9 @@
-var AddTracksButton,
-	$ = require( 'jquery' ),
-	workflows = require( '../../modules/workflows' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import wp from 'wp';
 
-AddTracksButton = wp.Backbone.View.extend({
+import workflows from '../../../modules/workflows';
+
+export const AddTracksButton = wp.Backbone.View.extend({
 	id: 'add-tracks',
 	tagName: 'p',
 
@@ -16,7 +16,7 @@ AddTracksButton = wp.Backbone.View.extend({
 	},
 
 	render: function() {
-		var $button = $( '<a />', {
+		const $button = $( '<a />', {
 			text: this.l10n.addTracks
 		}).addClass( 'button button-secondary' );
 
@@ -30,5 +30,3 @@ AddTracksButton = wp.Backbone.View.extend({
 		workflows.get( 'addTracks' ).open();
 	}
 });
-
-module.exports = AddTracksButton;

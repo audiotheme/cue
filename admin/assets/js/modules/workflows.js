@@ -1,12 +1,13 @@
-var Workflows,
-	_ = require( 'underscore' ),
-	cue = require( 'cue' ),
-	l10n = require( 'cue' ).l10n,
-	MediaFrame = require( '../views/media-frame' ),
-	wp = require( 'wp' ),
-	Attachment = wp.media.model.Attachment;
+import _ from 'underscore';
+import wp from 'wp';
 
-Workflows = {
+import cue from 'cue';
+import { TrackMediaFrame } from '../views/frame/track-media';
+
+const { Attachment } = wp.media.model;
+const { l10n } = cue;
+
+export default {
 	frames: [],
 	model: {},
 
@@ -26,8 +27,8 @@ Workflows = {
 	 * @param {string} id Frame identifer.
 	 */
 	get: function( id )  {
-		var method = '_' + id,
-			frame = this.frames[ method ] || null;
+		const method = '_' + id;
+		let frame = this.frames[ method ] || null;
 
 		// Always call the frame method to perform any routine set up. The
 		// frame method should short-circuit before being initialized again.
@@ -51,7 +52,7 @@ Workflows = {
 		}
 
 		// Initialize the audio frame.
-		frame = new MediaFrame({
+		frame = new TrackMediaFrame({
 			title: l10n.workflows.addTracks.frameTitle,
 			library: {
 				type: 'audio'
@@ -84,12 +85,12 @@ Workflows = {
 
 		// Insert the embed data as a new model.
 		frame.state( 'embed' ).on( 'select', function() {
+			const embed = this.props.toJSON();
 
-			var embed = this.props.toJSON(),
-				track = {
-					audioId: '',
-					audioUrl: embed.url
-				};
+			const track = {
+				audioId: '',
+				audioUrl: embed.url
+			};
 
 			if ( ( 'title' in embed ) && '' !== embed.title ) {
 				track.title = embed.title;
@@ -107,7 +108,7 @@ Workflows = {
 	 * @param {Object} frame
 	 */
 	_selectArtwork: function( frame ) {
-		var workflow = this;
+		const workflow = this;
 
 		// Return existing frame for this workflow.
 		if ( frame ) {
@@ -138,9 +139,9 @@ Workflows = {
 
 		// Automatically select the existing artwork if possible.
 		frame.on( 'open', function() {
-			var selection = this.get( 'library' ).get( 'selection' ),
-				artworkId = workflow.model.get( 'artworkId' ),
-				attachments = [];
+			const selection = this.get( 'library' ).get( 'selection' );
+			const artworkId = workflow.model.get( 'artworkId' );
+			const attachments = [];
 
 			if ( artworkId ) {
 				attachments.push( Attachment.get( artworkId ) );
@@ -152,7 +153,7 @@ Workflows = {
 
 		// Set the model's artwork ID and url properties.
 		frame.state( 'library' ).on( 'select', function() {
-			var attachment = this.get( 'selection' ).first().toJSON();
+			const attachment = this.get( 'selection' ).first().toJSON();
 
 			workflow.model.set({
 				artworkId: attachment.id,
@@ -169,7 +170,7 @@ Workflows = {
 	 * @param {Object} frame
 	 */
 	_selectAudio: function( frame ) {
-		var workflow = this;
+		const workflow = this;
 
 		// Return the existing frame for this workflow.
 		if ( frame ) {
@@ -177,7 +178,7 @@ Workflows = {
 		}
 
 		// Initialize the audio frame.
-		frame = new MediaFrame({
+		frame = new TrackMediaFrame({
 			title: l10n.workflows.selectAudio.frameTitle,
 			library: {
 				type: 'audio'
@@ -203,11 +204,11 @@ Workflows = {
 
 		// Set the frame state when opening it.
 		frame.on( 'open', function() {
-			var selection = this.get( 'insert' ).get( 'selection' ),
-				audioId = workflow.model.get( 'audioId' ),
-				audioUrl = workflow.model.get( 'audioUrl' ),
-				isEmbed = audioUrl && ! audioId,
-				attachments = [];
+			const selection = this.get( 'insert' ).get( 'selection' );
+			const audioId = workflow.model.get( 'audioId' );
+			const audioUrl = workflow.model.get( 'audioUrl' );
+			const isEmbed = audioUrl && ! audioId;
+			const attachments = [];
 
 			// Automatically select the existing audio file if possible.
 			if ( audioId ) {
@@ -237,9 +238,9 @@ Workflows = {
 
 		// Copy data from the selected attachment to the current model.
 		frame.state( 'insert' ).on( 'insert', function( selection ) {
-			var attachment = selection.first().toJSON().cue,
-				data = {},
-				keys = _.keys( workflow.model.attributes );
+			const attachment = selection.first().toJSON().cue;
+			const data = {};
+			const keys = _.keys( workflow.model.attributes );
 
 			// Attributes that shouldn't be updated when inserting an
 			// audio attachment.
@@ -248,7 +249,7 @@ Workflows = {
 			// Update these attributes if they're empty.
 			// They shouldn't overwrite any data entered by the user.
 			_.each( keys, function( key ) {
-				var value = workflow.model.get( key );
+				const value = workflow.model.get( key );
 
 				if ( ! value && ( key in attachment ) && value !== attachment[ key ] ) {
 					data[ key ] = attachment[ key ];
@@ -264,8 +265,8 @@ Workflows = {
 
 		// Copy the embed data to the current model.
 		frame.state( 'embed' ).on( 'select', function() {
-			var embed = this.props.toJSON(),
-				data = {};
+			const embed = this.props.toJSON();
+			const data = {};
 
 			data.audioId  = '';
 			data.audioUrl = embed.url;
@@ -279,7 +280,7 @@ Workflows = {
 
 		// Remove an empty model if the frame is escaped.
 		frame.on( 'escape', function() {
-			var model = workflow.model.toJSON();
+			const model = workflow.model.toJSON();
 
 			if ( ! model.artworkUrl && ! model.audioUrl ) {
 				workflow.model.destroy();
@@ -289,5 +290,3 @@ Workflows = {
 		return frame;
 	}
 };
-
-module.exports = Workflows;

@@ -1,9 +1,9 @@
-var Playlists,
-	Backbone = require( 'backbone' ),
-	l10n = require( 'cue' ).l10n,
-	wp = require( 'wp' );
+import Backbone from 'backbone';
+import wp from 'wp';
 
-Playlists = wp.media.controller.State.extend({
+import { l10n } from 'cue';
+
+export const PlaylistsController = wp.media.controller.State.extend({
 	defaults: {
 		id: 'cue-playlists',
 		title: l10n.insertPlaylist || 'Insert Playlist',
@@ -19,8 +19,8 @@ Playlists = wp.media.controller.State.extend({
 	},
 
 	initialize: function( options ) {
-		var collection = options.collection || new Backbone.Collection(),
-			selection = options.selection || new Backbone.Collection();
+		const collection = options.collection || new Backbone.Collection();
+		const selection = options.selection || new Backbone.Collection();
 
 		this.set( 'attributes', new Backbone.Model({
 			id: null,
@@ -33,5 +33,3 @@ Playlists = wp.media.controller.State.extend({
 		this.listenTo( selection, 'remove', this.updateSelection );
 	}
 });
-
-module.exports = Playlists;

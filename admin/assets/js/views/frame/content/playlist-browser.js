@@ -1,11 +1,10 @@
-var PlaylistBrowser,
-	_ = require( 'underscore' ),
-	PlaylistItems = require( '../playlist/items' ),
-	PlaylistNoItems = require( '../playlist/no-items' ),
-	PlaylistSidebar = require( '../playlist/sidebar' ),
-	wp = require( 'wp' );
+import wp from 'wp';
 
-PlaylistBrowser = wp.Backbone.View.extend({
+import { NoItems } from './browser/no-items';
+import { Playlists } from './browser/playlists';
+import { Sidebar } from './browser/sidebar';
+
+export const PlaylistBrowser = wp.Backbone.View.extend({
 	className: 'cue-playlist-browser',
 
 	initialize: function( options ) {
@@ -15,7 +14,7 @@ PlaylistBrowser = wp.Backbone.View.extend({
 		this._paged = 1;
 		this._pending = false;
 
-		_.bindAll( this, 'scroll' );
+		this.scroll = this.scroll.bind( this );
 		this.listenTo( this.collection, 'reset', this.render );
 
 		if ( ! this.collection.length ) {
@@ -27,14 +26,14 @@ PlaylistBrowser = wp.Backbone.View.extend({
 		this.$el.off( 'scroll' ).on( 'scroll', this.scroll );
 
 		this.views.add([
-			new PlaylistItems({
+			new Playlists({
 				collection: this.collection,
 				controller: this.controller
 			}),
-			new PlaylistSidebar({
+			new Sidebar({
 				controller: this.controller
 			}),
-			new PlaylistNoItems({
+			new NoItems({
 				collection: this.collection
 			})
 		]);
@@ -50,21 +49,17 @@ PlaylistBrowser = wp.Backbone.View.extend({
 	},
 
 	getPlaylists: function() {
-		var view = this;
-
 		wp.ajax.post( 'cue_get_playlists', {
-			paged: view._paged
-		}).done(function( response ) {
-			view.collection.add( response.playlists );
+			paged: this._paged
+		}).done( response => {
+			this.collection.add( response.playlists );
 
-			view._paged++;
+			this._paged++;
 
-			if ( view._paged <= response.maxNumPages ) {
-				view._pending = false;
-				view.scroll();
+			if ( this._paged <= response.maxNumPages ) {
+				this._pending = false;
+				this.scroll();
 			}
 		});
 	}
 });
-
-module.exports = PlaylistBrowser;

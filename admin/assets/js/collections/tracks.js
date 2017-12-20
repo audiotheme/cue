@@ -1,11 +1,10 @@
-var Tracks,
-	_ = require( 'underscore' ),
-	Backbone = require( 'backbone' ),
-	settings = require( 'cue' ).settings(),
-	Track = require( '../models/track' ),
-	wp = require( 'wp' );
+import Backbone from 'backbone';
+import wp from 'wp';
 
-Tracks = Backbone.Collection.extend({
+import { settings } from 'cue';
+import { Track } from '../models/track';
+
+export const Tracks = Backbone.Collection.extend({
 	model: Track,
 
 	comparator: function( track ) {
@@ -13,19 +12,15 @@ Tracks = Backbone.Collection.extend({
 	},
 
 	fetch: function() {
-		var collection = this;
-
 		return wp.ajax.post( 'cue_get_playlist_tracks', {
 			post_id: settings.postId
-		}).done(function( tracks ) {
-			collection.reset( tracks );
-		});
+		}).done( tracks => this.reset( tracks ) );
 	},
 
 	save: function( data ) {
 		this.sort();
 
-		data = _.extend({}, data, {
+		data = Object.assign({}, data, {
 			post_id: settings.postId,
 			tracks: this.toJSON(),
 			nonce: settings.saveNonce
@@ -34,5 +29,3 @@ Tracks = Backbone.Collection.extend({
 		return wp.ajax.post( 'cue_save_playlist_tracks', data );
 	}
 });
-
-module.exports = Tracks;

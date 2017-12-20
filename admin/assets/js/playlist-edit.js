@@ -1,27 +1,24 @@
-/*global _cueSettings:false */
+/* global _cueSettings */
 
-var $ = require( 'jquery' ),
-	cue = require( 'cue' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import wp from 'wp';
+
+import cue from 'cue';
+import { EditPlaylistScreen } from './views/screen/edit-playlist';
+import { Track } from './models/track';
+import { Tracks } from './collections/tracks';
+import workflows from './modules/workflows';
 
 cue.data = _cueSettings; // Back-compat.
-cue.settings( _cueSettings );
+cue.config( _cueSettings );
 
 wp.media.view.settings.post.id = cue.data.postId;
 wp.media.view.settings.defaultProps = {};
 
-cue.model.Track = require( './models/track' );
-cue.model.Tracks = require( './collections/tracks' );
-
-cue.view.MediaFrame = require( './views/media-frame' );
-cue.view.PostForm = require( './views/post-form' );
-cue.view.AddTracksButton = require( './views/button/add-tracks' );
-cue.view.TrackList = require( './views/track-list' );
-cue.view.Track = require( './views/track' );
-cue.view.TrackArtwork = require( './views/track/artwork' );
-cue.view.TrackAudio = require( './views/track/audio' );
-
-cue.workflows = require( './modules/workflows' );
+Object.assign( cue, { collection: {}, controller: {}, model: {}, view: {} });
+cue.model.Track = Track;
+cue.model.Tracks = Tracks;
+cue.workflows = workflows;
 
 /**
  * ========================================================================
@@ -30,13 +27,15 @@ cue.workflows = require( './modules/workflows' );
  */
 
 $(function( $ ) {
-	var tracks;
-
-	tracks = cue.tracks = new cue.model.Tracks( cue.data.tracks );
+	const tracks = new cue.model.Tracks( cue.data.tracks );
+	cue.tracks = tracks;
 	delete cue.data.tracks;
 
-	new cue.view.PostForm({
+	const screen = new EditPlaylistScreen({
+		el: '#post',
 		collection: tracks,
 		l10n: cue.l10n
 	});
+
+	screen.render();
 });

@@ -1,10 +1,10 @@
-var TrackList,
-	$ = require( 'jquery' ),
-	_ = require( 'underscore' ),
-	Track = require( './track' ),
-	wp = require( 'wp' );
+import $ from 'jquery';
+import _ from 'underscore';
+import wp from 'wp';
 
-TrackList = wp.Backbone.View.extend({
+import { Track } from './track';
+
+export const TrackList = wp.Backbone.View.extend({
 	className: 'cue-tracklist',
 	tagName: 'ol',
 
@@ -20,34 +20,32 @@ TrackList = wp.Backbone.View.extend({
 		this.collection.each( this.addTrack, this );
 		this.updateOrder();
 
-		this.$el.sortable( {
+		this.$el.sortable({
 			axis: 'y',
 			delay: 150,
 			forceHelperSize: true,
 			forcePlaceholderSize: true,
 			opacity: 0.6,
-			start: function( e, ui ) {
+			start: ( e, ui ) => {
 				ui.placeholder.css( 'visibility', 'visible' );
 			},
-			update: _.bind(function( e, ui ) {
+			update: ( e, ui ) => {
 				this.updateOrder();
-			}, this )
-		} );
+			}
+		});
 
 		return this;
 	},
 
 	addTrack: function( track ) {
-		var trackView = new Track({ model: track });
+		const trackView = new Track({ model: track });
 		this.$el.append( trackView.render().el );
 	},
 
 	updateOrder: function() {
-		_.each( this.$el.find( '.cue-track' ), function( item, i ) {
-			var cid = $( item ).data( 'cid' );
+		_.each( this.$el.find( '.cue-track' ), ( item, i ) => {
+			const cid = $( item ).data( 'cid' );
 			this.collection.get( cid ).set( 'order', i );
-		}, this );
+		});
 	}
 });
-
-module.exports = TrackList;

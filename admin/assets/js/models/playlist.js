@@ -1,11 +1,8 @@
-var Playlist,
-	Backbone = require( 'backbone' );
+import Backbone from 'backbone';
 
-Playlist = Backbone.Model.extend({
+export const Playlist = Backbone.Model.extend({
 	defaults: {
 		thumbnail: '',
 		title: ''
 	}
 });
-
-module.exports = Playlist;
