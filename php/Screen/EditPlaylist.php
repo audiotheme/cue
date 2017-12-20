@@ -146,6 +146,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 				<p>
 					<?php
 					$notice = sprintf(
+						/* translators: %s: URL with instructions for enabling JavaScript. */
 						__( 'Cue requires JavaScript in order to function correctly. Please <a href="%s">enable it in your browser</a> to continue.', 'cue' ),
 						'http://enable-javascript.com/'
 					);

@@ -114,6 +114,7 @@ class Cue_PostType_Playlist extends Cue_PostType_AbstractPostType {
 			7  => esc_html__( 'Playlist saved.', 'cue' ),
 			8  => esc_html__( 'Playlist submitted.', 'cue' ),
 			9  => sprintf(
+				/* translators: Scheduled publish date. */
 				esc_html__( 'Playlist scheduled for: %s.', 'cue' ),
 				/* translators: Publish box date format, see http://php.net/date */
 				'<strong>' . date_i18n( esc_html__( 'M j, Y @ H:i', 'cue' ), strtotime( $post->post_date ) ) . '</strong>'

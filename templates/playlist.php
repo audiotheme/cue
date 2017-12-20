@@ -23,7 +23,7 @@
 				<?php do_action( 'cue_playlist_track_top', $track, $post, $args ); ?>
 
 				<span class="cue-track-details cue-track-cell">
-					<span class="cue-track-title" itemprop="name"><?php echo $track['title']; ?></span>
+					<span class="cue-track-title" itemprop="name"><?php echo wp_kses_post( $track['title'] ); ?></span>
 					<span class="cue-track-artist" itemprop="byArtist"><?php echo esc_html( $track['artist'] ); ?></span>
 				</span>
 

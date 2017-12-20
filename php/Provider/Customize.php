@@ -98,7 +98,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 
 		$playlists = get_posts( array(
 			'post_type'      => 'cue_playlist',
-			'posts_per_page' => -1,
+			'posts_per_page' => 100,
 			'orderby'        => 'title',
 			'order'          => 'asc',
 		) );
@@ -107,6 +107,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 			$playlists = array();
 
 			$description = sprintf(
+				/* translators: %s: Add playlist URL. */
 				__( '<a href="%s">Create a playlist</a> for this player.', 'cue' ),
 				esc_url( admin_url( 'post-new.php?post_type=cue_playlist' ) )
 			);

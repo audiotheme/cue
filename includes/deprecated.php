@@ -30,4 +30,7 @@ if ( ! defined( 'CUE_URL' ) ) {
 	define( 'CUE_URL', plugin_dir_url( dirname( __FILE__ ) ) );
 }
 
+/**
+ * Deprecated plugin class.
+ */
 class Cue extends Cue_Plugin {}

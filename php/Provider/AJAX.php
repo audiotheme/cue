@@ -143,19 +143,22 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 		$head  = '';
 		$styles = wpview_media_sandbox_styles();
 
+		// @codingStandardsIgnoreStart
 		foreach ( $styles as $style ) {
-			$head .= '<link type="text/css" rel="stylesheet" href="' . $style . '">';
+			$head .= '<link type="text/css" rel="stylesheet" href="' . $style . '">'; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+
 		}
 
-		$head .= '<link rel="stylesheet" href="' . $this->plugin->get_url( 'assets/css/cue.min.css' ) . '">';
+		$head .= '<link rel="stylesheet" href="' . $this->plugin->get_url( 'assets/css/cue.min.css' ) . '">'; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
 		$head .= '<style type="text/css">.cue-tracks { max-height: none;}</style>';
+		// @codingStandardsIgnoreEnd
 
 		if ( ! empty( $wp_scripts ) ) {
 			$wp_scripts->done = array();
 		}
 
 		ob_start();
-		echo $shortcode;
+		echo $shortcode; // WPCS: XSS ok.
 		wp_print_scripts( 'cue' );
 
 		wp_send_json_success( array(

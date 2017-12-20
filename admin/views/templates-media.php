@@ -12,7 +12,7 @@
 
 <script type="text/html" id="tmpl-cue-playlist-browser-list-item">
 	<div class="cue-media-thumbnail">
-		<?php include( $this->plugin->get_path( 'admin/assets/images/playlist.svg' ) ); ?>
+		<?php require( $this->plugin->get_path( 'admin/assets/images/playlist.svg' ) ); ?>
 		<div class="cue-media-thumbnail-image">
 			<# if ( data.thumbnail ) { #>
 				<img src="{{ data.thumbnail }}">
@@ -53,7 +53,8 @@
 				<p class="description">
 					<?php
 					wp_kses( printf(
-						__( '<a href="%s" target="_blank">Upgrade to Cue Pro</a> to access more themes.', 'cue' ),
+						/* translators: %s: Cue Pro plugin URL. */
+						__( '<a href="%s" target="_blank">Upgrade to Cue Pro</a> to access more themes.', 'cue' ), // WPCS: XSS ok.
 						'https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-theme-description&utm_campaign=plugins'
 					), array( 'a' => array( 'href' => true, 'target' => true ) ) );
 					?>
