@@ -74,8 +74,6 @@ export default class Sandbox extends Component {
 	setContent() {
 		const observeAndResizeJS = `
 			(function() {
-				let observer;
-
 				if ( ! window.MutationObserver || ! document.body || ! window.parent ) {
 					return;
 				}
@@ -89,7 +87,7 @@ export default class Sandbox extends Component {
 					}, '*' );
 				}
 
-				observer = new MutationObserver( sendResize );
+				const observer = new MutationObserver( sendResize );
 				observer.observe( document.body, {
 					attributes: true,
 					attributeOldValue: false,
