@@ -3,10 +3,9 @@
 (function( $, wp ) {
 	'use strict';
 
-	let extend,
-		settings = _cueMceView;
+	const settings = _cueMceView;
 
-	extend = {
+	let extend = {
 		action: 'cue_parse_shortcode',
 		state: [ 'cue-playlists' ],
 
@@ -43,8 +42,8 @@
 		},
 
 		edit: function( text, update ) {
-			// let state = wp.media.editor.open().setState( 'cue-playlists' ),
-			// shortcode = wp.shortcode.next( 'cue', text ).shortcode;
+			// const state = wp.media.editor.open().setState( 'cue-playlists' );
+			// const shortcode = wp.shortcode.next( 'cue', text ).shortcode;
 		},
 
 		pausePlayers: function() {

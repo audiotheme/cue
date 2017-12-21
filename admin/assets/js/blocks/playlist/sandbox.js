@@ -81,7 +81,7 @@ export default class Sandbox extends Component {
 				}
 
 				function sendResize() {
-					let clientBoundingRect = document.body.getBoundingClientRect();
+					const clientBoundingRect = document.body.getBoundingClientRect();
 					window.parent.postMessage({
 						action: 'resize',
 						width: clientBoundingRect.width,
