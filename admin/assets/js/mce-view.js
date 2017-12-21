@@ -3,7 +3,7 @@
 (function( $, wp ) {
 	'use strict';
 
-	var extend,
+	let extend,
 		settings = _cueMceView;
 
 	extend = {
@@ -11,7 +11,7 @@
 		state: [ 'cue-playlists' ],
 
 		initialize: function() {
-			var self = this;
+			let self = this;
 
 			if ( this.url ) {
 				this.loader = false;
@@ -43,13 +43,13 @@
 		},
 
 		edit: function( text, update ) {
-			// var state = wp.media.editor.open().setState( 'cue-playlists' ),
+			// let state = wp.media.editor.open().setState( 'cue-playlists' ),
 			// shortcode = wp.shortcode.next( 'cue', text ).shortcode;
 		},
 
 		pausePlayers: function() {
 			this.getNodes( function( editor, node, content ) {
-				var win = $( 'iframe.wpview-sandbox', content ).get( 0 );
+				let win = $( 'iframe.wpview-sandbox', content ).get( 0 );
 
 				if ( win && ( win = win.contentWindow ) && win.mejs ) {
 					_.each( win.mejs.players, function( player ) {

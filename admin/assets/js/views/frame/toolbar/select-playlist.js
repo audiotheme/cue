@@ -26,7 +26,7 @@ export default Toolbar.extend({
 	},
 
 	select: function() {
-		var state = this.controller.state(),
+		let state = this.controller.state(),
 			selection = state.get( 'selection' );
 
 		this.controller.close();

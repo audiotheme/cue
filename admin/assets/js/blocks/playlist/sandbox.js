@@ -74,14 +74,14 @@ export default class Sandbox extends Component {
 	setContent() {
 		const observeAndResizeJS = `
 			(function() {
-				var observer;
+				let observer;
 
 				if ( ! window.MutationObserver || ! document.body || ! window.parent ) {
 					return;
 				}
 
 				function sendResize() {
-					var clientBoundingRect = document.body.getBoundingClientRect();
+					let clientBoundingRect = document.body.getBoundingClientRect();
 					window.parent.postMessage({
 						action: 'resize',
 						width: clientBoundingRect.width,
