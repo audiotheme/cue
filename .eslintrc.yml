@@ -1,0 +1,23 @@
+---
+env:
+  browser: true
+  es6: true
+extends:
+- wordpress
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+    jsx: true
+  sourceType: module
+rules:
+  camelcase:
+  - error
+  - properties: never
+  space-in-parens: off
+  wrap-iife:
+  - error
+  - inside
+  yoda:
+  - error
+  - always
+  - onlyEquality: true
