@@ -12,7 +12,7 @@ export default SelectFrame.extend({
 
 	createStates: function() {
 		this.states.add( new PlaylistsController({
-			title: l10n.selectPlaylist || 'Select Playlist',
+			title: l10n.selectPlaylist || 'Select Playlist'
 		}) );
 	},
 

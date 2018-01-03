@@ -7,7 +7,7 @@ export default class Sandbox extends Component {
 		return {
 			body: '',
 			head: '',
-			title: '',
+			title: ''
 		};
 	}
 
@@ -16,7 +16,7 @@ export default class Sandbox extends Component {
 
 		this.state = {
 			height: 0,
-			width: 0,
+			width: 0
 		};
 
 		this.isFrameAccessible = this.isFrameAccessible.bind( this );

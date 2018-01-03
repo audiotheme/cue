@@ -82,8 +82,7 @@ export const Track = wp.Backbone.View.extend({
 		// the model attribute to be updated and get stuck in an
 		// infinite loop.
 		for ( const attribute in track ) {
-			// Decode HTML entities.
-			const value = $( '<div/>' ).html( track[ attribute ] ).text();
+			const value = $( '<div/>' ).html( track[ attribute ] ).text(); // Decodes HTML entities.
 			$settings.filter( '[data-setting="' + attribute + '"]' ).val( value );
 		}
 	},

@@ -3,9 +3,9 @@
 (function( window, $, undefined ) {
 	'use strict';
 
-	var $elems = $([]),
-		doCallback = true,
-		mediaClasses;
+	var mediaClasses,
+		$elems = $( [] ),
+		doCallback = true;
 
 	mediaClasses = {
 		init: function() {
@@ -19,16 +19,16 @@
 		 * @param {Object} el A DOM element.
 		 */
 		initEl: function( el ) {
-			var $el = $( el ),
+			var bp, i, type, width,
+				$el = $( el ),
 				settings = $el.data( 'cueMediaClasses' ),
-				breakpoints = [],
-				bp, i, type, width;
+				breakpoints = [];
 
 			if ( ! settings.breakpoints.length ) {
 				return;
 			}
 
-			for ( i = 0; i < settings.breakpoints.length; i ++ ) {
+			for ( i = 0; i < settings.breakpoints.length; i++ ) {
 				bp = settings.breakpoints[ i ];
 				type = bp.type || 'min-width';
 				width = bp.size || bp;
@@ -52,7 +52,7 @@
 			if ( doCallback && $elems.length ) {
 				doCallback = false;
 
-				setTimeout(function() {
+				setTimeout( function() {
 					mediaClasses.update( $elems );
 					doCallback = true;
 				}, $.fn.cueMediaClasses.defaults.resizeDelay );
@@ -65,11 +65,11 @@
 		 * @param {Object} $items A collection of jQuery objects.
 		 */
 		update: function( $items ) {
-			$items.each(function() {
-				var $el = $( this ),
+			$items.each( function() {
+				var bp, i,
+					$el = $( this ),
 					w = $el.outerWidth(),
-					settings = $el.data( 'cueMediaClasses' ),
-					bp, i;
+					settings = $el.data( 'cueMediaClasses' );
 
 				if ( ! settings.breakpoints.length ) {
 					return;
@@ -79,11 +79,11 @@
 					w = $el.width();
 				}
 
-				for ( i = 0; i < settings.breakpoints.length; i ++ ) {
+				for ( i = 0; i < settings.breakpoints.length; i++ ) {
 					bp = settings.breakpoints[ i ];
 					$el.toggleClass( bp.className, 'min-width' === bp.type ? w >= bp.size : w <= bp.size );
 				}
-			});
+			} );
 		}
 	};
 
@@ -101,18 +101,18 @@
 	 * @return {jQuery} Chainable jQuery collection.
 	 */
 	$.fn.cueMediaClasses = function( options ) {
-		var settings = $.extend({
+		var settings = $.extend( {
 			breakpoints: []
 		}, options );
 
-		return this.each(function() {
+		return this.each( function() {
 			var $this = $( this );
 
 			$this.data( 'cueMediaClasses', settings );
 
 			$elems = $elems.add( $this );
 			mediaClasses.initEl( $this );
-		});
+		} );
 	};
 
 	$.fn.cueMediaClasses.defaults = {

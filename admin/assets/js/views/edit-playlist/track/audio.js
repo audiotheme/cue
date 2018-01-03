@@ -38,6 +38,7 @@ export const TrackAudio = wp.Backbone.View.extend({
 		const $mediaEl = this.$el.find( '.cue-audio' );
 
 		if ( $mediaEl.length ) {
+
 			// MediaElement traverses the DOM and throws an error if it
 			// can't find a parent node before reaching <body>. It makes
 			// sure the flash fallback won't exist within a <p> tag.
@@ -51,7 +52,6 @@ export const TrackAudio = wp.Backbone.View.extend({
 			$mediaEl.wrap( '<body></body>' );
 
 			const playerSettings = {
-				//enablePluginDebug: true,
 				classPrefix: 'mejs-',
 				defaultAudioHeight: 30,
 				features: [ 'playpause', 'current', 'progress', 'duration' ],

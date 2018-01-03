@@ -31,5 +31,5 @@ export default PostFrame.extend({
 		toolbar.view = new InsertPlaylistToolbar({
 			controller: this
 		});
-	},
+	}
 });

@@ -41,11 +41,6 @@
 			} );
 		},
 
-		edit: function( text, update ) {
-			// const state = wp.media.editor.open().setState( 'cue-playlists' );
-			// const shortcode = wp.shortcode.next( 'cue', text ).shortcode;
-		},
-
 		pausePlayers: function() {
 			this.getNodes( function( editor, node, content ) {
 				let win = $( 'iframe.wpview-sandbox', content ).get( 0 );

@@ -46,9 +46,8 @@ export default {
 	 * @param {Object} frame
 	 */
 	_addTracks: function( frame ) {
-		// Return the existing frame for this workflow.
 		if ( frame ) {
-			return frame;
+			return frame; // Return the existing frame for this workflow.
 		}
 
 		// Initialize the audio frame.
@@ -66,10 +65,10 @@ export default {
 		// Set the extensions that can be uploaded.
 		frame.uploader.options.uploader.plupload = {
 			filters: {
-				mime_types: [{
+				mime_types: [ {
 					title: l10n.workflows.addTracks.fileTypes,
 					extensions: 'm4a,mp3,ogg,wma'
-				}]
+				} ]
 			}
 		};
 
@@ -130,10 +129,10 @@ export default {
 		// Set the extensions that can be uploaded.
 		frame.uploader.options.uploader.plupload = {
 			filters: {
-				mime_types: [{
+				mime_types: [ {
 					files: l10n.workflows.selectArtwork.fileTypes,
 					extensions: 'jpg,jpeg,gif,png'
-				}]
+				} ]
 			}
 		};
 
@@ -192,10 +191,10 @@ export default {
 		// Set the extensions that can be uploaded.
 		frame.uploader.options.uploader.plupload = {
 			filters: {
-				mime_types: [{
+				mime_types: [ {
 					title: l10n.workflows.selectAudio.fileTypes,
 					extensions: 'm4a,mp3,ogg,wma'
-				}]
+				} ]
 			}
 		};
 

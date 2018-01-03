@@ -2,13 +2,13 @@
 
 window.cue = window.cue || {};
 
-(function( window, $, undefined )  {
+(function( window, $, undefined ) {
 	'use strict';
 
-	var browserPrefixes = ' -webkit- -moz- -o- -ms- '.split( ' ' ),
+	var cssPrefix,
+		browserPrefixes = ' -webkit- -moz- -o- -ms- '.split( ' ' ),
 		cssPrefixString = {},
-		$html = $( 'html' ),
-		cssPrefix;
+		$html = $( 'html' );
 
 	cue.l10n = $.extend( cue.l10n, _cueSettings.l10n );
 
@@ -36,29 +36,29 @@ window.cue = window.cue || {};
 	cue.settings.hasCssFilters = (function() {
 		var el = document.createElement( 'div' );
 		el.style.cssText = browserPrefixes.join( 'filter:blur(2px); ' );
-		return !! el.style.length && ( ( undefined === document.documentMode || document.documentMode > 9 ) );
-	}());
+		return !! el.style.length && ( undefined === document.documentMode || document.documentMode > 9 );
+	})();
 
 	// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/svg/filters.js
 	cue.settings.hasSvgFilters = (function() {
 		var result = false;
 		try {
 			result = 'SVGFEColorMatrixElement' in window && 2 === SVGFEColorMatrixElement.SVG_FECOLORMATRIX_TYPE_SATURATE;
-		} catch( e ) {}
+		} catch ( e ) {}
+
 		// IE doesn't support SVG filters on HTML elements.
 		return result && ! /(MSIE|Trident)/.test( window.navigator.userAgent );
-	}());
+	})();
 
 	cue.settings.isTouch = (function() {
 		return ( 'ontouchstart' in window ) || window.DocumentTouch && document instanceof window.DocumentTouch;
-	}());
+	})();
 
 	$html.toggleClass( 'no-css-filters', ! cue.settings.hasCssFilters ).toggleClass( 'no-svg-filters', ! cue.settings.hasSvgFilters );
 
 	$.extend( cue, {
 		initialize: function() {
-			// Initialize the playlists.
-			$( '.cue-playlist' ).each(function() {
+			$( '.cue-playlist' ).each( function() {
 				var data = {},
 					$playlist = $( this ),
 					$data = $playlist.closest( '.cue-playlist-container' ).find( '.cue-playlist-data' );
@@ -76,10 +76,10 @@ window.cue = window.cue || {};
 
 					$playlist.on( 'backgroundCreate.cue', function( e, player ) {
 						$( player.container ).find( '.mejs-player-background' ).css( 'filter', 'url(\'' + window.location.href + '#cue-filter-blur\')' );
-					});
+					} );
 				}
 
-				$playlist.cuePlaylist({
+				$playlist.cuePlaylist( {
 					classPrefix: 'mejs-',
 					cueBackgroundUrl: data.thumbnail || '',
 					cueDisableControlsSizing: true,
@@ -96,26 +96,28 @@ window.cue = window.cue || {};
 					features: $.fn.cuePlaylist.features,
 					setDimensions: false,
 					timeFormat: 'm:ss'
-				}).cueMediaClasses({
-					breakpoints: [{
-						type: 'max-width',
-						size: 480
-					}, {
-						type: 'max-width',
-						size: 380
-					},
-					{
-						type: 'max-width',
-						size: 300
-					},
-					{
-						type: 'max-width',
-						size: 200
-					}]
-				});
-			});
+				} ).cueMediaClasses( {
+					breakpoints: [
+						{
+							type: 'max-width',
+							size: 480
+						}, {
+							type: 'max-width',
+							size: 380
+						},
+						{
+							type: 'max-width',
+							size: 300
+						},
+						{
+							type: 'max-width',
+							size: 200
+						}
+					]
+				} );
+			} );
 		}
-	});
+	} );
 
 	$.fn.cuePlaylist.features = [
 		'cuebackground',
