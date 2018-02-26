@@ -305,17 +305,17 @@
 				margin-top: -3px;
 				position: absolute;
 				top: 50%;
+				width: 100%;
 			}
 
 			.mejs-horizontal-volume-total {
-				background: #fff;
-				opacity: 0.6;
-				width: 100%;
+				background: #a3a2a3;
+				background: rgba( 255, 255, 255, 0.6 );
+				opacity: 1;
 			}
 
 			.mejs-horizontal-volume-current {
 				background: #fff;
-				opacity: 1;
 			}
 		}
 	}
