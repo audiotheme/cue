@@ -141,7 +141,8 @@
 				margin: 15px 17px;
 			}
 
-			&.mejs-play button {
+			&.mejs-play button,
+			&.mejs-replay button {
 				border-color: transparent #fff;
 				border-style: inset solid;
 				border-width: 10px 0 10px 16px;
