@@ -25,6 +25,8 @@
 	<div class="cue-track-inside">
 		<div class="cue-track-audio-group"></div>
 
+		<?php do_action( 'cue_display_track_fields_before' ); ?>
+
 		<div class="cue-track-column-group">
 			<div class="cue-track-column cue-track-column-artwork"></div>
 
@@ -56,6 +58,8 @@
 				<?php do_action( 'cue_display_track_fields_right' ); ?>
 			</div>
 		</div>
+
+		<?php do_action( 'cue_display_track_fields_after' ); ?>
 
 		<div class="cue-track-actions">
 			<a class="cue-track-remove js-remove"><?php esc_html_e( 'Remove', 'cue' ); ?></a> |
