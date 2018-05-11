@@ -338,30 +338,6 @@
 		z-index: 0;
 		//-webkit-backface-visibility: hidden;
 	}
-
-	.mejs-audiotheme-mark {
-		color: #fff;
-	}
-}
-
-.mejs-audiotheme-mark {
-	color: #fff;
-	display: block;
-	height: 16px;
-	opacity: 0.6;
-	position: absolute;
-	top: 15px;
-	right: 15px;
-	transition: opacity .2s;
-	width: 30px;
-
-	svg {
-		fill: currentColor;
-	}
-
-	&:hover {
-		opacity: 1;
-	}
 }
 
 // Only one track is in the playlist.
@@ -541,8 +517,7 @@
 			}
 		}
 
-		.mejs-player-background,
-		.mejs-audiotheme-mark {
+		.mejs-player-background {
 			display: none;
 		}
 	}
