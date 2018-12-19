@@ -1,7 +1,9 @@
 const webpack = require( 'webpack' );
 const EOLPlugin = require( './config/webpack/eol-plugin' );
+const mode = process.env.NODE_ENV || 'development';
 
 const config = {
+	mode: mode,
 	entry: {
 		'editor': './admin/assets/js/editor.js',
 		'playlist-edit': './admin/assets/js/playlist-edit.js',
