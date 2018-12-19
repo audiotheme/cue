@@ -130,8 +130,7 @@ window.cue = window.cue || {};
 		'progress',
 		'current',
 		'duration',
-		'cueplaylist',
-		'audiothememark'
+		'cueplaylist'
 	];
 
 	$( document )

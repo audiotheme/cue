@@ -2,9 +2,9 @@
 
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
-Requires at least: 4.6
+Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 2.3.0
+Stable tag: 2.3.3
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,19 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.3.3 - May 11, 2018
+* Updated the Gamajo Template Loader dependency to version 1.3.0.
+* Removed some unused CSS rules.
+
+### 2.3.2 - May 7, 2018
+* Removed AudioTheme branding from the player.
+
+### 2.3.1 - March 23, 2018
+* Fixed an issue preventing the volume slider from reflecting the current volume.
+* Fixed an issue causing the play/pause button to disappear after a playlist had ended.
+* Improved compatibility with styles in some themes.
+* Introduced `cue_display_track_fields_before` and `cue_display_track_fields_after` actions.
 
 ### 2.3.0 - October 23, 2017
 * Improved support for the new version of MediaElement.js in WordPress 4.9+.

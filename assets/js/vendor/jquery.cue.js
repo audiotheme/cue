@@ -1,5 +1,5 @@
 /*!
- * jquery.cue.js - 1.2.3
+ * jquery.cue.js - 1.2.4
  * Playlist and other functionality for MediaElement.js
  * https://audiotheme.com/
  *
@@ -78,7 +78,7 @@ window.cue = window.cue || {};
 		return this.each(function() {
 			var $playlist = $( this ),
 				$media = $playlist.find( '.cue-audio, audio' ).first(),
-				$data = $playlist.find( '.cue-playlist-data, script' ),
+				$data = $playlist.find( '.cue-playlist-data' ),
 				data, i, trackCount;
 
 			if ( ! $data.length ) {
@@ -242,11 +242,22 @@ window.cue = window.cue || {};
 	 * Proxy the MediaElementPlayer init method to proxy the success callback.
 	 */
 	MediaElementPlayer.prototype.init = function() {
+		var history;
+
 		// Set up if the cuehistory feature is declared.
 		if ( -1 !== this.options.features.indexOf( 'cuehistory' ) ) {
 			originalSuccess = this.options.success;
 			this.options.success = historySuccess;
+
+			// MediaElement.js 4.0+ sets the volume asynchronously on
+			// loadedmetadata, so the  startVolume needs to be adjusted to
+			// prevent it from overriding the user's volume preference.
+			history = new History( this.options.cueId || '', this.options.cueSignature || '' );
+			if ( history && undefined !== history.get( 'volume' ) ) {
+				this.options.startVolume = history.get( 'volume' );
+			}
 		}
+
 		mePlayerInit.call( this );
 	};
 
