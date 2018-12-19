@@ -36,10 +36,11 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 		}
 
 		register_block_type( 'cue/playlist', array(
-			'title'      => esc_html__( 'Cue', 'cue' ),
-			'icon'       => '',
-			'category'   => 'common',
-			'attributes' => array(
+			'title'       => esc_html__( 'Cue', 'cue' ),
+			'description' => esc_html__( 'The Cue block allows you to display an audio playlist in your content.', 'cue' ),
+			'icon'        => '',
+			'category'    => 'common',
+			'attributes'  => array(
 				'playlistId' => array(
 					'type' => 'integer',
 				),
@@ -51,7 +52,7 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 					'type' => 'string',
 				),
 			),
-			'supports'   => array(
+			'supports'    => array(
 				'html' => false,
 			),
 			'render_callback' => array( $this, 'render_playlist_block' ),
@@ -67,7 +68,7 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 		wp_enqueue_script(
 			'cue-block-editor',
 			$this->plugin->get_url( 'admin/assets/js/editor.bundle.js' ),
-			array( 'underscore', 'wp-blocks', 'wp-element', 'wp-util' ),
+			array( 'media-views', 'underscore', 'wp-blocks', 'wp-editor', 'wp-element', 'wp-util' ),
 			'20171219'
 		);
 
@@ -75,13 +76,12 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 			'parseNonce' => wp_create_nonce( 'cue_parse_shortcode' ),
 			'themes'     => get_cue_themes(),
 			'l10n'       => array(
-				'blockDescription' => esc_html__( 'The Cue block allows you to display an audio playlist in your content.', 'cue' ),
-				'choosePlaylist'   => esc_html__( 'Choose Playlist', 'cue' ),
-				'clickToChoose'    => esc_html__( 'Click to choose a playlist.', 'cue' ),
-				'cuePlaylist'      => esc_html__( 'Cue Playlist', 'cue' ),
-				'selectPlaylist'   => esc_html__( 'Select Playlist', 'cue' ),
-				'showPlaylist'     => esc_html__( 'Show the playlist', 'cue' ),
-				'theme'            => esc_html__( 'Theme', 'cue' ),
+				'choosePlaylist' => esc_html__( 'Choose Playlist', 'cue' ),
+				'clickToChoose'  => esc_html__( 'Click to choose a playlist.', 'cue' ),
+				'cuePlaylist'    => esc_html__( 'Cue Playlist', 'cue' ),
+				'selectPlaylist' => esc_html__( 'Select Playlist', 'cue' ),
+				'showPlaylist'   => esc_html__( 'Show the playlist', 'cue' ),
+				'theme'          => esc_html__( 'Theme', 'cue' ),
 			),
 		) );
 	}

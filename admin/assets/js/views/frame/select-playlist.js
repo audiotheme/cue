@@ -1,6 +1,5 @@
-import wp from 'wp';
-
 import { l10n } from 'cue';
+import wp from 'wp';
 import { PlaylistBrowser } from './content/playlist-browser';
 import SelectPlaylistToolbar from './toolbar/select-playlist';
 import { PlaylistsController } from '../../controllers/playlists';
