@@ -31,7 +31,7 @@ export const Playlist = wp.Backbone.View.extend({
 	},
 
 	updateSelectedClass: function() {
-		if ( this.selection.contains( this.model ) ) {
+		if ( this.selection.findWhere({ id: this.model.get( 'id' ) }) ) {
 			this.$el.addClass( 'is-selected' );
 		} else {
 			this.$el.removeClass( 'is-selected' );

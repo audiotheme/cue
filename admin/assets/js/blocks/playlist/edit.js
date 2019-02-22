@@ -81,7 +81,9 @@ export default class PlaylistBlockEdit extends Component {
 		const { playlistId } = this.props.attributes;
 		const selection = this.frame.state().get( 'selection' );
 
-		// @todo Update the selection.
+		if ( playlistId ) {
+			selection.reset([ { id: playlistId } ]);
+		}
 	}
 
 	onSelect( selection ) {
