@@ -72,6 +72,15 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 			'20171219'
 		);
 
+		$upgrade_message = '';
+		if ( ! function_exists( 'cuepro' ) ) {
+			$upgrade_message = wp_kses( sprintf(
+				/* translators: %s: Cue Pro plugin URL. */
+				__( '<a href="%s" target="_blank" rel="noopener noreferrer">Upgrade to Cue Pro</a> to access more themes.', 'cue' ), // WPCS: XSS ok.
+				'https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-theme-description&utm_campaign=plugins'
+			), array( 'a' => array( 'href' => true, 'target' => true ) ) );
+		}
+
 		wp_localize_script( 'cue-block-editor', '_cueEditorSettings', array(
 			'parseNonce' => wp_create_nonce( 'cue_parse_shortcode' ),
 			'themes'     => get_cue_themes(),
@@ -82,6 +91,7 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 				'selectPlaylist' => esc_html__( 'Select Playlist', 'cue' ),
 				'showPlaylist'   => esc_html__( 'Show the playlist', 'cue' ),
 				'theme'          => esc_html__( 'Theme', 'cue' ),
+				'upgrade'        => $upgrade_message,
 			),
 		) );
 	}

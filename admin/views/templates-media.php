@@ -54,7 +54,7 @@
 					<?php
 					wp_kses( printf(
 						/* translators: %s: Cue Pro plugin URL. */
-						__( '<a href="%s" target="_blank">Upgrade to Cue Pro</a> to access more themes.', 'cue' ), // WPCS: XSS ok.
+						__( '<a href="%s" target="_blank" rel="noopener noreferrer">Upgrade to Cue Pro</a> to access more themes.', 'cue' ), // WPCS: XSS ok.
 						'https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-theme-description&utm_campaign=plugins'
 					), array( 'a' => array( 'href' => true, 'target' => true ) ) );
 					?>

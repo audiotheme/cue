@@ -187,7 +187,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 				<div class="cue-panel-body">
 					<p>
 						<?php esc_html_e( 'Want to sell, share, and gain insight into how visitors interact with your audio?', 'cue' ); ?>
-						<a href="https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-meta-box&utm_campaign=plugins" target="_blank"><?php esc_html_e( 'Level up with Cue Pro.', 'cue' ); ?></a>
+						<a href="https://audiotheme.com/view/cuepro/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-meta-box&utm_campaign=plugins" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Level up with Cue Pro.', 'cue' ); ?></a>
 					</p>
 				</div>
 			</div>

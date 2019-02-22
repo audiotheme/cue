@@ -5,7 +5,7 @@ import SelectPlaylistFrame from '../../views/frame/select-playlist';
 
 const { PanelBody, Placeholder, SelectControl, ToggleControl, Toolbar } = components;
 const { BlockControls, InspectorControls } = editor;
-const { Component, Fragment } = element;
+const { Component, Fragment, RawHTML } = element;
 const { __ } = i18n;
 
 cue.config( _cueEditorSettings );
@@ -151,6 +151,9 @@ export default class PlaylistBlockEdit extends Component {
 							options={ themeOptions }
 							onChange={ value => setAttributes({ theme: value }) }
 						/>
+						<RawHTML style={ { fontStyle: 'italic' } }>
+							{ l10n.upgrade }
+						</RawHTML>
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
