@@ -35,23 +35,13 @@ export default class PlaylistBlockEdit extends Component {
 		this.onOpen = this.onOpen.bind( this );
 		this.onSelect = this.onSelect.bind( this );
 		this.openModal = this.openModal.bind( this );
+		this.refreshPreview = this.refreshPreview.bind( this );
 		this.togglePlaylist = this.togglePlaylist.bind( this );
 
 		this.state = {
 			head: '',
 			body: ''
 		};
-
-		if ( this.props.attributes.playlistId ) {
-			this.request = getPreview( this.props.attributes );
-
-			this.request.done( response => {
-				this.setState({
-					head: response.head,
-					body: response.body
-				});
-			});
-		}
 
 		// Initialize the playlist frame.
 		const frame = new SelectPlaylistFrame();
@@ -61,36 +51,12 @@ export default class PlaylistBlockEdit extends Component {
 		this.frame = frame;
 	}
 
-	// static getDerivedStateFromProps( props, state ) {
-	// 	const shouldRefresh = [ 'playlistId', 'showPlaylist', 'theme' ].reduce( ( shouldRefresh, attribute ) => {
-	// 		return shouldRefresh || props.attributes[ attribute ] !== state[ attribute ];
-	// 	}, false );
-	//
-	// 	return null;
-	// }
-	//
-	// componentWillReceiveProps( nextProps ) {
-	// 	if ( ! nextProps.attributes.playlistId ) {
-	// 		return;
-	// 	}
-	//
-	// 	const shouldRefresh = [ 'playlistId', 'showPlaylist', 'theme' ].reduce( ( shouldRefresh, attribute ) => {
-	// 		return shouldRefresh || this.props.attributes[ attribute ] !== nextProps.attributes[ attribute ];
-	// 	}, false );
-	//
-	// 	if ( ! shouldRefresh ) {
-	// 		return;
-	// 	}
-	//
-	// 	this.request = getPreview( nextProps.attributes );
-	//
-	// 	this.request.done( response => {
-	// 		this.setState({
-	// 			head: response.head,
-	// 			body: response.body
-	// 		});
-	// 	});
-	// }
+	componentDidMount() {
+		if ( this.props.attributes.playlistId ) {
+			this.request = getPreview( this.props.attributes );
+			this.request.done( this.refreshPreview );
+		}
+	}
 
 	componentDidUpdate( prevProps ) {
 		const shouldRefresh = [ 'playlistId', 'showPlaylist', 'theme' ].reduce( ( shouldRefresh, attribute ) => {
@@ -102,13 +68,7 @@ export default class PlaylistBlockEdit extends Component {
 		}
 
 		this.request = getPreview( this.props.attributes );
-
-		this.request.done( response => {
-			this.setState({
-				head: response.head,
-				body: response.body
-			});
-		});
+		this.request.done( this.refreshPreview );
 	}
 
 	componentWillUnmount() {
@@ -132,6 +92,13 @@ export default class PlaylistBlockEdit extends Component {
 
 	openModal() {
 		this.frame.open();
+	}
+
+	refreshPreview( response ) {
+		this.setState({
+			head: response.head,
+			body: response.body
+		});
 	}
 
 	togglePlaylist() {
