@@ -62,8 +62,12 @@ class Cue_Widget_Playlist extends WP_Widget {
 		$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		$instance['title'] = apply_filters( 'cue_widget_title', $instance['title'], $instance, $args, $this->id_base );
 
+		$templates = array( 'widget-playlist.php' );
+
 		// Allow templates specific to widget areas.
-		$templates = array( "widget-{$args['id']}-playlist.php", 'widget-playlist.php' );
+		if ( ! empty( $args['id'] ) ) {
+			$templates[] = "widget-{$args['id']}-playlist.php";
+		}
 
 		echo $args['before_widget']; // WPCS: XSS ok.
 
