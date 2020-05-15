@@ -1,10 +1,10 @@
 import cue from 'cue';
-import { blocks, components, editor, element, i18n } from 'wp';
+import { blockEditor, blocks, components, element, i18n } from 'wp';
 import SandBox from './sandbox';
 import SelectPlaylistFrame from '../../views/frame/select-playlist';
 
+const { BlockControls, InspectorControls } = blockEditor;
 const { PanelBody, Placeholder, SelectControl, ToggleControl, Toolbar } = components;
-const { BlockControls, InspectorControls } = editor;
 const { Component, Fragment, RawHTML } = element;
 const { __ } = i18n;
 

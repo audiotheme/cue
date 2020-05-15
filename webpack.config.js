@@ -14,8 +14,10 @@ const config = {
 		path: __dirname + '/admin/assets/js'
 	},
 	externals: {
+		_: '_',
 		backbone: 'Backbone',
 		jquery: 'jQuery',
+		lodash: 'lodash',
 		mediaelementjs: 'mejs',
 		underscore: '_',
 		wp: 'wp'
