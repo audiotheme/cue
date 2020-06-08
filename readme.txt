@@ -4,7 +4,7 @@ Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 2.3.3
+Stable tag: 2.4.0
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,10 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.4.0 - June 8, 2020
+* Added support to insert playlists in the block editor.
+* Prevented a PHP notice when using the playlist widget outside of a sidebar.
 
 ### 2.3.3 - May 11, 2018
 * Updated the Gamajo Template Loader dependency to version 1.3.0.
