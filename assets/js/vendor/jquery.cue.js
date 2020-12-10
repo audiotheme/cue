@@ -1,5 +1,5 @@
 /*!
- * jquery.cue.js - 1.2.4
+ * jquery.cue.js - 1.2.5
  * Playlist and other functionality for MediaElement.js
  * https://audiotheme.com/
  *
@@ -86,7 +86,7 @@ window.cue = window.cue || {};
 			}
 
 			if ( $data.length ) {
-				data = $.parseJSON( $data.first().html() );
+				data = JSON.parse( $data.first().html() );
 
 				// Add the signature.
 				if ( 'signature' in data ) {
@@ -751,7 +751,7 @@ window.cue = window.cue || {};
 				$button.toggleClass( 'is-open', ! isTracklistVisible ).toggleClass( 'is-closed', isTracklistVisible );
 				$playlist.toggleClass( 'is-tracklist-open', ! isTracklistVisible ).toggleClass( 'is-tracklist-closed', isTracklistVisible );
 
-				if ( $.isFunction( player.options.cuePlaylistToggle ) ) {
+				if ( 'function' === typeof player.options.cuePlaylistToggle ) {
 					player.options.cuePlaylistToggle( $tracklist, player );
 				}
 			})
