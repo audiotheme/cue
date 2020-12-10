@@ -66,7 +66,7 @@ window.cue = window.cue || {};
 				$playlist.addClass( cue.settings.isTouch ? 'touch' : 'no-touch' );
 
 				if ( $data.length ) {
-					data = $.parseJSON( $data.first().html() );
+					data = JSON.parse( $data.first().html() );
 				}
 
 				if ( ! cue.settings.hasCssFilters && cue.settings.hasSvgFilters ) {
