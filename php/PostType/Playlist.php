@@ -43,19 +43,20 @@ class Cue_PostType_Playlist extends Cue_PostType_AbstractPostType {
 	 */
 	protected function get_args() {
 		return apply_filters( 'cue_playlist_args', array(
-			'can_export'         => true,
-			'has_archive'        => false,
-			'hierarchical'       => false,
-			'labels'             => $this->get_labels(),
-			'menu_icon'          => 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8cGF0aCBkPSJNMTEsOGg3djJoLTdWOHogTTcsM3Y3LjNDNi41LDEwLjEsNiwxMCw1LjUsMTBDMy42LDEwLDIsMTEuNiwyLDEzLjVTMy42LDE3LDUuNSwxN1M5LDE1LjQsOSwxMy41VjZoOVYzSDd6IE0xMSwxM2g3di0yaC03IFYxM3ogTTExLDE2aDd2LTJoLTdWMTZ6Ii8+DQo8L3N2Zz4NCg==',
-			'public'             => true,
-			'publicly_queryable' => false,
-			'rewrite'            => false,
-			'show_ui'            => true,
-			'show_in_admin_bar'  => false,
-			'show_in_menu'       => true,
-			'show_in_nav_menus'  => false,
-			'supports'           => array( 'title', 'thumbnail' ),
+			'can_export'          => true,
+			'exclude_from_search' => true,
+			'has_archive'         => false,
+			'hierarchical'        => false,
+			'labels'              => $this->get_labels(),
+			'menu_icon'           => 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8cGF0aCBkPSJNMTEsOGg3djJoLTdWOHogTTcsM3Y3LjNDNi41LDEwLjEsNiwxMCw1LjUsMTBDMy42LDEwLDIsMTEuNiwyLDEzLjVTMy42LDE3LDUuNSwxN1M5LDE1LjQsOSwxMy41VjZoOVYzSDd6IE0xMSwxM2g3di0yaC03IFYxM3ogTTExLDE2aDd2LTJoLTdWMTZ6Ii8+DQo8L3N2Zz4NCg==',
+			'public'              => true,
+			'publicly_queryable'  => false,
+			'rewrite'             => false,
+			'show_ui'             => true,
+			'show_in_admin_bar'   => false,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => false,
+			'supports'            => array( 'title', 'thumbnail' ),
 		) );
 	}
 
