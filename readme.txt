@@ -2,9 +2,9 @@
 
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
-Requires at least: 4.9
-Tested up to: 5.4
-Stable tag: 2.4.0
+Requires at least: 5.4
+Tested up to: 5.6
+Stable tag: 2.4.1
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,11 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.4.1 - December 14, 2020
+* Fixed deprecated jQuery warnings in WordPress 5.6.
+* Updated jquery.cue.js to version 1.2.5.
+* Excluded the playlist CPT from search results.
 
 ### 2.4.0 - June 8, 2020
 * Added support to insert playlists in the block editor.
