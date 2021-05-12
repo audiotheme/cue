@@ -38,7 +38,7 @@
     "grunt-wp-i18n": "^1.0.3",
     "load-grunt-config": "^3.0.1",
     "node-sass": "^5.0.0",
-    "postcss": "^8.2.8",
+    "postcss": "^8.2.10",
     "time-grunt": "^2.0.0",
     "webpack": "^4.44.2"
   },
