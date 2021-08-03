@@ -22,11 +22,25 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 */
 	public function register_hooks() {
 		// @todo Most of these should be moved to the Media provider.
-		add_action( 'wp_enqueue_media',             array( $this, 'enqueue_assets' ) );
-		add_action( 'admin_head',                   array( $this, 'admin_head' ) );
-		add_action( 'admin_footer',                 array( $this, 'print_templates' ) );
-		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_audio_attachment_for_js' ), 20, 3 );
-		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'prepare_image_attachment_for_js' ), 20, 3 );
+		add_filter( 'widget_types_to_hide_from_legacy_widget_block', array( $this, 'hide_legacy_widget' ) );
+		add_action( 'wp_enqueue_media',                              array( $this, 'enqueue_assets' ) );
+		add_action( 'admin_head',                                    array( $this, 'admin_head' ) );
+		add_action( 'admin_footer',                                  array( $this, 'print_templates' ) );
+		add_filter( 'wp_prepare_attachment_for_js',                  array( $this, 'prepare_audio_attachment_for_js' ), 20, 3 );
+		add_filter( 'wp_prepare_attachment_for_js',                  array( $this, 'prepare_image_attachment_for_js' ), 20, 3 );
+	}
+
+	/**
+	 * Hide the legacy widget in WordPress 5.8+.
+	 *
+	 * @since 2.4.2
+	 *
+	 * @param array $widget_types Array of widget types to hide.
+	 * @return array
+	 */
+	public function hide_legacy_widget( $widget_types ) {
+		$widget_types[] = 'cue-playlist';
+		return $widget_types;
 	}
 
 	/**
