@@ -4,7 +4,7 @@ import SandBox from './sandbox';
 import SelectPlaylistFrame from '../../views/frame/select-playlist';
 
 const { BlockControls, InspectorControls } = blockEditor;
-const { PanelBody, Placeholder, SelectControl, ToggleControl, Toolbar } = components;
+const { PanelBody, Placeholder, SelectControl, ToggleControl, ToolbarGroup } = components;
 const { Component, Fragment, RawHTML } = element;
 const { __ } = i18n;
 
@@ -157,7 +157,7 @@ export default class PlaylistBlockEdit extends Component {
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
-					<Toolbar controls={ toolbarControls }></Toolbar>
+					<ToolbarGroup controls={ toolbarControls }></ToolbarGroup>
 				</BlockControls>
 
 				<SandBox
