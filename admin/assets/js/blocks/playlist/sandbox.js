@@ -139,7 +139,7 @@ export default class Sandbox extends Component {
 				title={ this.props.title }
 				scrolling="no"
 				sandbox="allow-scripts allow-same-origin allow-presentation"
-				width={ Math.ceil( this.state.width ) }
+				width={ Math.ceil( this.state.width ) || '100%' }
 				height={ Math.ceil( this.state.height ) }
 			/>
 		);
