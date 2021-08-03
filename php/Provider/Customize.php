@@ -22,6 +22,7 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 	 */
 	public function register_hooks() {
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
+		add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_templates' ) );
 	}
 
 	/**
@@ -138,5 +139,14 @@ class Cue_Provider_Customize extends Cue_AbstractProvider {
 				'type'        => 'select',
 			) );
 		}
+	}
+
+	/**
+	 * Include the HTML templates.
+	 *
+	 * @since 2.4.2
+	 */
+	public function print_templates() {
+		include( $this->plugin->get_path( 'admin/views/templates-media.php' ) );
 	}
 }

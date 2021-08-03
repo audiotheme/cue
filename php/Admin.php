@@ -89,7 +89,8 @@ class Cue_Admin extends Cue_AbstractProvider {
 	 * @since 2.2.0
 	 */
 	public function print_templates() {
-		if ( 'post' !== get_current_screen()->base ) {
+		$screen_ids = array( 'post', 'widgets' );
+		if ( ! in_array( get_current_screen()->base, $screen_ids, true ) ) {
 			return;
 		}
 
