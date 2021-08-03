@@ -12,7 +12,7 @@ export default Toolbar.extend({
 		// This is a button.
 		this.options.items = _.defaults( this.options.items || {}, {
 			select: {
-				text: l10n.insertIntoPost || 'Insert into post',
+				text: l10n.insertPlaylist || 'Insert Playlist',
 				style: 'primary',
 				priority: 80,
 				requires: {
