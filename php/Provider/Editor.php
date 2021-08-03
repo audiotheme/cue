@@ -105,9 +105,11 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 	public function render_playlist_block( $attributes ) {
 		ob_start();
 
-		cue_playlist( $attributes['playlistId'], array(
+		$id = $attributes['playlistId'] ?? 0;
+
+		cue_playlist( $id, array(
 			'show_playlist' => $attributes['showPlaylist'],
-			'theme'         => $attributes['theme'],
+			'theme'         => $attributes['theme'] ?? '',
 		) );
 
 		return ob_get_clean();
