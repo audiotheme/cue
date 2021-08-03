@@ -3,7 +3,7 @@
 Delightful and reliable audio playlists.
 
 __Contributors:__ [Brady Vercher](https://twitter.com/bradyvercher), [Brody Vercher](https://twitter.com/brover), [Luke McDonald](https://twitter.com/thelukemcdonald)  
-__Requires:__ WordPress 4.7+  
+__Requires:__ WordPress 5.6+  
 __License:__ [GPL-2.0+](https://www.gnu.org/licenses/gpl-2.0.html)
 
 *Cue* makes it easy to create and manage beautiful, fully responsive audio playlists. Primarily built with music in mind, *Cue* can also be used for podcasts, sermons or to showcase voice over samples.

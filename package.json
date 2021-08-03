@@ -1,7 +1,7 @@
 {
   "name": "cue",
   "description": "Create beautiful, fully responsive audio playlists in WordPress.",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "homepage": "https://audiotheme.com/",
   "license": "GPL-2.0+",
   "repository": "audiotheme/cue",
