@@ -51,7 +51,7 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 				$data[ $playlist->ID ] = array(
 					'id'        => $playlist->ID,
 					'title'     => $playlist->post_title,
-					'thumbnail' => $image[0],
+					'thumbnail' => $image[0] ?? '',
 				);
 			}
 		}

@@ -100,6 +100,11 @@ function cue_playlist( $post, $args = array() ) {
  */
 function get_cue_playlist_tracks( $post = 0, $context = 'display' ) {
 	$playlist = get_post( $post );
+
+	if ( empty( $playlist->tracks ) ) {
+		return array();
+	}
+
 	$tracks = array_filter( (array) $playlist->tracks );
 
 	// Add the audio file extension as a key pointing to the audio url.
