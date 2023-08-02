@@ -3,8 +3,8 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 5.6
-Tested up to: 5.8
-Stable tag: 2.4.2
+Tested up to: 6.2
+Stable tag: 2.4.3
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,9 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.4.3 - August 2, 2023
+* Prevented warnings and errors in PHP 8+.
 
 ### 2.4.2 - August 3, 2021
 * Updated block editor integration for compatibility with WordPress 5.8.
