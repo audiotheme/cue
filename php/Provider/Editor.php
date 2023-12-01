@@ -68,7 +68,7 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 		wp_enqueue_script(
 			'cue-block-editor',
 			$this->plugin->get_url( 'admin/assets/js/editor.bundle.js' ),
-			array( 'media-views', 'underscore', 'wp-block-editor', 'wp-blocks', 'wp-element', 'wp-util' ),
+			array( 'lodash', 'media-views', 'underscore', 'wp-block-editor', 'wp-blocks', 'wp-element', 'wp-util' ),
 			'20171219'
 		);
 
