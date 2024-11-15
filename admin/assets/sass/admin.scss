@@ -1,4 +1,4 @@
-@import "_utility";
+@use "utility";
 
 .post-type-cue_playlist #titlediv {
 	margin-bottom: 10px;
@@ -89,7 +89,7 @@
 }
 
 .cue-track-audio-group {
-	@include clearfix();
+	@include utility.clearfix;
 
 	border-bottom: 1px solid #e5e5e5;
 	margin: 0 -10px 20px;
@@ -206,7 +206,7 @@
 }
 
 .cue-track-column-group {
-	@include clearfix();
+	@include utility.clearfix;
 	padding-left: 140px;
 
 	.cue-track-column {
@@ -338,7 +338,7 @@
 }
 
 .cue-panel-header {
-	@include clearfix();
+	@include utility.clearfix;
 
 	border-bottom: 1px solid #dedede;
 	padding: 14px;
