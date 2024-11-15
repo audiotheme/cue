@@ -1,5 +1,5 @@
 /*!
- * jquery.cue.js - 1.2.5
+ * jquery.cue.js - 1.2.6
  * Playlist and other functionality for MediaElement.js
  * https://audiotheme.com/
  *
@@ -66,7 +66,6 @@ window.cue = window.cue || {};
 
 		// Add selector settings.
 		settings.cueSelectors = $.extend({}, mejs.MepDefaults.cueSelectors, {
-			playlist: this.selector,
 			track: '.cue-track'
 		});
 
@@ -528,7 +527,6 @@ window.cue = window.cue || {};
 					width = $bar.outerWidth(),
 					percentage = pos / width;
 
-				percentage = percentage < 0.2 ? 0 : percentage;
 				media.setCurrentTime( percentage * duration );
 			});
 
