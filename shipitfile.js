@@ -6,8 +6,8 @@ var fs = require('fs'),
 module.exports = function ( shipit ) {
 	shipit.initConfig({
 		demo: {
-			servers: 'deploy@demo.audiotheme.com',
-			deployRoot: '/usr/share/nginx/html/demo.audiotheme.com/public/wp-content/plugins/'
+			servers: 'audiotheme-demo@demo.audiotheme.com',
+			deployRoot: '/sites/demo.audiotheme.com/files/wp-content/plugins/'
 		},
 		staging: {
 			servers: 'deploy@staging.cedaro.com',
