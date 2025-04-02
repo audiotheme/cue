@@ -69,6 +69,11 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 */
 	public function get_playlist_tracks() {
 		$post_id = absint( $_POST['post_id'] );
+
+		if ( empty( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
+			wp_send_json_error();
+		}
+
 		wp_send_json_success( get_cue_playlist_tracks( $post_id, 'edit' ) );
 	}
 
