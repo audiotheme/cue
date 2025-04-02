@@ -3,7 +3,7 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 5.6
-Tested up to: 6.4
+Tested up to: 6.7
 Stable tag: 2.4.5
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
