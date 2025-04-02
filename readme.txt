@@ -4,7 +4,7 @@ Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, tracks, player
 Requires at least: 5.6
 Tested up to: 6.4
-Stable tag: 2.4.4
+Stable tag: 2.4.5
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,10 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.4.5 - April 1, 2025
+* Updated jquery.cue.js to 1.2.6.
+* Added a capability check before returning playlist data in an AJAX call.
 
 ### 2.4.4 - December 1, 2023
 * Added lodash as a dependency for the playlist block to fix compatibility with the latest release of WordPress.
