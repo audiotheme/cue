@@ -1,7 +1,7 @@
 # Cue by AudioTheme.com
 
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
-Tags: playlist, audio, music, mp3, tracks, player
+Tags: playlist, audio, music, mp3, player
 Requires at least: 5.6
 Tested up to: 6.8
 Stable tag: 2.4.5
