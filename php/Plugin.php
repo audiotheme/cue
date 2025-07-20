@@ -65,7 +65,7 @@ class Cue_Plugin extends Cue_AbstractPlugin {
 			$size = apply_filters( 'cue_artwork_size', array( 300, 300 ) );
 			$size = apply_filters( 'cue_playlist_thumbnail_size', $size, $playlist, $args );
 			$image = image_downsize( $thumbnail_id, $size );
-			$thumbnail = $image[0];
+			$thumbnail = $image[0] ?? '';
 		}
 
 		$settings = apply_filters(
