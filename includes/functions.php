@@ -25,7 +25,7 @@ function cue_playlist( $post, $args = array() ) {
 		$post = get_post( $post );
 	}
 
-	if ( ! $post || 'cue_playlist' !== get_post_type( $post ) ) {
+	if ( ! $post || 'cue_playlist' !== get_post_type( $post ) || ! cue_can_view_playlist( $post ) ) {
 		return;
 	}
 
@@ -91,6 +91,37 @@ function cue_playlist( $post, $args = array() ) {
 	if ( $args['container'] ) {
 		echo '</div>';
 	}
+}
+
+/**
+ * Whether the current user can view a playlist on the front end.
+ *
+ * Published playlists are viewable by everyone. Drafts, private, and other
+ * unpublished playlists are only viewable by users who can read them.
+ *
+ * @since 2.4.6
+ *
+ * @param int|WP_Post $post Playlist ID or post object.
+ * @return bool
+ */
+function cue_can_view_playlist( $post ) {
+	$post = get_post( $post );
+
+	if ( ! $post || 'cue_playlist' !== get_post_type( $post ) ) {
+		return false;
+	}
+
+	$can_view = 'publish' === get_post_status( $post ) || current_user_can( 'read_post', $post->ID );
+
+	/**
+	 * Filter whether the current user can view a playlist.
+	 *
+	 * @since 2.4.6
+	 *
+	 * @param bool    $can_view Whether the playlist can be viewed.
+	 * @param WP_Post $post     Playlist post object.
+	 */
+	return (bool) apply_filters( 'cue_can_view_playlist', $can_view, $post );
 }
 
 /**
@@ -277,6 +308,11 @@ function get_cue_player_tracks( $player_id, $args = array() ) {
 	) );
 
 	$playlist_id = get_cue_player_playlist_id( $player_id );
+
+	if ( ! cue_can_view_playlist( $playlist_id ) ) {
+		return array();
+	}
+
 	return get_cue_playlist_tracks( $playlist_id, $args['context'] );
 }
 
