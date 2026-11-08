@@ -52,7 +52,8 @@ class Cue_Provider_AdminAssets extends Cue_AbstractProvider {
 		wp_register_style(
 			'cue-admin',
 			$this->plugin->get_url( 'admin/assets/css/admin.min.css' ),
-			array( 'dashicons', 'mediaelement' )
+			array( 'dashicons', 'mediaelement' ),
+			CUE_VERSION
 		);
 	}
 }

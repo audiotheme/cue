@@ -20,6 +20,13 @@
  */
 
 /**
+ * Plugin version.
+ *
+ * @var string
+ */
+define( 'CUE_VERSION', '2.4.5' );
+
+/**
  * Autoloader callback.
  *
  * Converts a class name to a file path and requires it if it exists.

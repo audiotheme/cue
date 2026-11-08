@@ -53,17 +53,16 @@ pnpm run build
 
 Pushing a tag deploys the plugin to WordPress.org with the [deploy workflow](.github/workflows/push-deploy.yml). It checks the version, builds the package, commits it to SVN trunk and a new tag, updates the directory assets in `.wordpress-org`, and creates a GitHub release with the zip.
 
-1. Update `version` in `package.json`, `Version` in `cue.php`, and `Stable tag` in `readme.txt`.
-2. Add a `### x.y.z - Month D, YYYY` changelog entry to `readme.txt`.
-3. Run `bin/check-version.sh` to confirm everything matches.
-4. Commit, then tag and push:
+1. Update `version` in `package.json` and add a `### x.y.z - Month D, YYYY` changelog entry to `readme.txt`.
+2. Run `pnpm run package`. It copies the version to `cue.php` (the `Version` header and the `CUE_VERSION` constant used to version scripts and styles) and the `Stable tag` in `readme.txt`, and builds a zip in `dist/` you can test.
+3. Commit, then tag and push:
 
    ```bash
    git tag x.y.z
    git push origin develop x.y.z
    ```
 
-5. Merge the release into the `trunk` branch.
+4. After the deploy workflow finishes, merge the release into the `trunk` branch.
 
 To try a release without deploying, run the workflow from the Actions tab. Manual runs build everything but don't commit to SVN.
 

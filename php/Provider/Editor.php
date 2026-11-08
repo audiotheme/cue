@@ -70,7 +70,7 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 			'cue-block-editor',
 			$this->plugin->get_url( 'admin/assets/js/editor.bundle.js' ),
 			array( 'lodash', 'media-views', 'underscore', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n', 'wp-shortcode', 'wp-util' ),
-			'20261028'
+			CUE_VERSION
 		);
 
 		$upgrade_message = '';

@@ -8,6 +8,10 @@ module.exports = {
 			{
 				from: /(Version:[\s]+).+/,
 				to: '$1<%= package.version %>'
+			},
+			{
+				from: /(define\( 'CUE_VERSION', ')[^']+(' \);)/,
+				to: '$1<%= package.version %>$2'
 			}
 		]
 	},

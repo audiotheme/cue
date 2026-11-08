@@ -54,7 +54,7 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 			'cue',
 			$this->plugin->get_url( 'assets/css/cue.min.css' ),
 			array( 'mediaelement' ),
-			'2.3.0'
+			CUE_VERSION
 		);
 
 		wp_style_add_data( 'cue', 'rtl', 'replace' );
@@ -72,7 +72,7 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 			'cue',
 			$this->plugin->get_url( 'assets/js/cue.min.js' ),
 			array( 'jquery-cue' ),
-			'2.3.0',
+			CUE_VERSION,
 			true
 		);
 
@@ -89,7 +89,7 @@ class Cue_Provider_Assets extends Cue_AbstractProvider {
 			'cue-wp-mediaelement',
 			$this->plugin->get_url( 'assets/js/wp-mediaelement.js' ),
 			array( 'wp-mediaelement' ),
-			'2.3.0',
+			CUE_VERSION,
 			true
 		);
 	}

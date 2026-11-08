@@ -55,7 +55,7 @@ class Cue_Admin extends Cue_AbstractProvider {
 			'cue-mce-view',
 			$this->plugin->get_url( 'admin/assets/js/mce-view.js' ),
 			array( 'jquery', 'mce-view', 'underscore' ),
-			'20171219',
+			CUE_VERSION,
 			true
 		);
 
@@ -67,7 +67,7 @@ class Cue_Admin extends Cue_AbstractProvider {
 			'cue-media',
 			$this->plugin->get_url( 'admin/assets/js/wp-media.bundle.js' ),
 			array( 'media-views', 'wp-backbone', 'wp-util' ),
-			'20171219',
+			CUE_VERSION,
 			true
 		);
 
@@ -80,7 +80,9 @@ class Cue_Admin extends Cue_AbstractProvider {
 
 		wp_enqueue_style(
 			'cue-media',
-			$this->plugin->get_url( 'admin/assets/css/wp-media.min.css' )
+			$this->plugin->get_url( 'admin/assets/css/wp-media.min.css' ),
+		array(),
+		CUE_VERSION
 		);
 	}
 

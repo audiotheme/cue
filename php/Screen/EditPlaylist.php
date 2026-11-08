@@ -99,7 +99,7 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 				'wp-html-entities',
 				'wp-util',
 			),
-			'20261108',
+			CUE_VERSION,
 			true
 		);
 

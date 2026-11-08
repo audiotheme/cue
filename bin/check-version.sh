@@ -15,6 +15,7 @@ VERSION="${1:-$PACKAGE_VERSION}"
 VERSION="${VERSION#v}"
 
 HEADER_VERSION=$(sed -nE 's/^[[:space:]]*\*[[:space:]]*Version:[[:space:]]*([^[:space:]]+).*/\1/p' cue.php | head -n 1)
+CONSTANT_VERSION=$(sed -nE "s/^define\( 'CUE_VERSION', '([^']+)' \);.*/\1/p" cue.php | head -n 1)
 STABLE_TAG=$(sed -nE 's/^Stable tag:[[:space:]]*([^[:space:]]+).*/\1/p' readme.txt | head -n 1)
 
 errors=0
@@ -32,6 +33,7 @@ check() {
 echo "Checking version $VERSION"
 check "package.json version" "$PACKAGE_VERSION"
 check "cue.php Version header" "$HEADER_VERSION"
+check "cue.php CUE_VERSION" "$CONSTANT_VERSION"
 check "readme.txt Stable tag" "$STABLE_TAG"
 
 if grep -qE "^### ${VERSION//./\\.}( |$)" readme.txt; then
