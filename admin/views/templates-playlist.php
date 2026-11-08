@@ -14,7 +14,7 @@
 	<h4 class="cue-track-title">
 		<span class="text">
 			<# if ( data.title ) { #>
-				{{{ data.title }}}
+				{{ data.title }}
 			<# } else { #>
 				<?php esc_html_e( '(no title)', 'cue' ); ?>
 			<# } #>
@@ -34,13 +34,13 @@
 				<p>
 					<label>
 						<?php esc_html_e( 'Title:', 'cue' ); ?><br>
-						<input type="text" name="tracks[][title]" placeholder="<?php esc_attr_e( 'Title', 'cue' ); ?>" value="{{{ data.title }}}" data-setting="title" class="regular-text">
+						<input type="text" name="tracks[][title]" placeholder="<?php esc_attr_e( 'Title', 'cue' ); ?>" value="{{ data.title }}" data-setting="title" class="regular-text">
 					</label>
 				</p>
 				<p>
 					<label>
 						<?php esc_html_e( 'Artist:', 'cue' ); ?><br>
-						<input type="text" name="tracks[][artist]" placeholder="<?php esc_attr_e( 'Artist', 'cue' ); ?>" value="{{{ data.artist }}}" data-setting="artist" class="regular-text">
+						<input type="text" name="tracks[][artist]" placeholder="<?php esc_attr_e( 'Artist', 'cue' ); ?>" value="{{ data.artist }}" data-setting="artist" class="regular-text">
 					</label>
 				</p>
 

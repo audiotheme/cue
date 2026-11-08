@@ -95,9 +95,10 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 				'media-upload',
 				'media-views',
 				'mediaelement',
+				'wp-html-entities',
 				'wp-util',
 			),
-			'20171219',
+			'20261108',
 			true
 		);
 

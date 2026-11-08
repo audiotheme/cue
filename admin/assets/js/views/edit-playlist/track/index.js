@@ -4,6 +4,8 @@ import wp from 'wp';
 import { TrackArtwork } from './artwork';
 import { TrackAudio } from './audio';
 
+const { decodeEntities } = wp.htmlEntities;
+
 export const Track = wp.Backbone.View.extend({
 	tagName: 'li',
 	className: 'cue-track',
@@ -25,6 +27,12 @@ export const Track = wp.Backbone.View.extend({
 
 	render: function() {
 		this.$el.html( this.template( this.model.toJSON() ) ).data( 'cid', this.model.cid );
+
+		// The template escapes values, so set the decoded text here.
+		this.updateFields();
+		if ( this.model.get( 'title' ) ) {
+			this.updateTitle();
+		}
 
 		this.views.add( '.cue-track-column-artwork', new TrackArtwork({
 			model: this.model,
@@ -82,14 +90,13 @@ export const Track = wp.Backbone.View.extend({
 		// the model attribute to be updated and get stuck in an
 		// infinite loop.
 		for ( const attribute in track ) {
-			const value = $( '<div/>' ).html( track[ attribute ] ).text(); // Decodes HTML entities.
-			$settings.filter( '[data-setting="' + attribute + '"]' ).val( value );
+			$settings.filter( '[data-setting="' + attribute + '"]' ).val( decodeEntities( track[ attribute ] ) );
 		}
 	},
 
 	updateTitle: function() {
 		const title = this.model.get( 'title' );
-		this.$el.find( '.cue-track-title .text' ).text( title ? title : 'Title' );
+		this.$el.find( '.cue-track-title .text' ).text( title ? decodeEntities( title ) : 'Title' );
 	},
 
 	/**
