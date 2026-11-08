@@ -140,11 +140,16 @@ function get_cue_playlist_tracks( $post = 0, $context = 'display' ) {
 		return array();
 	}
 
-	$tracks = array_filter( (array) $playlist->tracks );
+	// Reindex so templates can rely on $tracks[0].
+	$tracks = array_values( array_filter( (array) $playlist->tracks, 'is_array' ) );
 
 	// Add the audio file extension as a key pointing to the audio url.
 	// Helpful for use with the jPlayer Playlist plugin.
 	foreach ( $tracks as $key => $track ) {
+		if ( empty( $track['audioUrl'] ) ) {
+			continue;
+		}
+
 		$parts = wp_parse_url( $track['audioUrl'] );
 		if ( ! empty( $parts['path'] ) ) {
 			$ext = pathinfo( $parts['path'], PATHINFO_EXTENSION );

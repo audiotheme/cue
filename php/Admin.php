@@ -144,8 +144,10 @@ class Cue_Admin extends Cue_AbstractProvider {
 			$size         = apply_filters( 'cue_artwork_size', array( 300, 300 ) );
 			$image        = image_downsize( $thumbnail_id, $size );
 
-			$data['artworkId']  = $thumbnail_id;
-			$data['artworkUrl'] = $image[0];
+			if ( $image ) {
+				$data['artworkId']  = $thumbnail_id;
+				$data['artworkUrl'] = $image[0];
+			}
 		}
 
 		$response['cue'] = $data;
@@ -172,6 +174,10 @@ class Cue_Admin extends Cue_AbstractProvider {
 
 		$size = apply_filters( 'cue_artwork_size', array( 300, 300 ) );
 		$image = image_downsize( $attachment->ID, $size );
+
+		if ( ! $image ) {
+			return $response;
+		}
 
 		$response['sizes']['cue'] = array(
 			'height'      => $image[2],
