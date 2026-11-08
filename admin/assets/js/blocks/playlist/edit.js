@@ -67,7 +67,7 @@ function usePlaylistFrame( playlistId, setAttributes ) {
 			frame.off( 'select', onSelect );
 			frameRef.current = null;
 		};
-	}, [] );
+	}, []);
 
 	return () => frameRef.current && frameRef.current.open();
 }
@@ -99,7 +99,7 @@ function usePlaylistPreview({ playlistId, showPlaylist, theme }) {
 				request.abort();
 			}
 		};
-	}, [ playlistId, showPlaylist, theme ] );
+	}, [ playlistId, showPlaylist, theme ]);
 
 	return preview;
 }

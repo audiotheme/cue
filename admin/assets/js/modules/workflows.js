@@ -243,14 +243,14 @@ export default {
 
 			// Attributes that shouldn't be updated when inserting an
 			// audio attachment.
-			_.without( keys, [ 'id', 'order' ] );
+			_.without( keys, [ 'id', 'order' ]);
 
 			// Update these attributes if they're empty.
 			// They shouldn't overwrite any data entered by the user.
 			_.each( keys, function( key ) {
 				const value = workflow.model.get( key );
 
-				if ( ! value && ( key in attachment ) && value !== attachment[ key ] ) {
+				if ( ! value && ( key in attachment ) && value !== attachment[ key ]) {
 					data[ key ] = attachment[ key ];
 				}
 			});

@@ -2,7 +2,7 @@
 
 window.cue = window.cue || {};
 
-(function( window, $, undefined ) {
+( function( window, $, undefined ) {
 	'use strict';
 
 	var cssPrefix,
@@ -16,14 +16,14 @@ window.cue = window.cue || {};
 	cssPrefix = function( property ) {
 		var e, i, prefixes;
 
-		if ( cssPrefixString[ property ] || '' === cssPrefixString[ property ] ) {
+		if ( cssPrefixString[ property ] || '' === cssPrefixString[ property ]) {
 			return cssPrefixString[ property ] + property;
 		}
 
 		e = document.createElement( 'div' );
 		prefixes = [ '', 'Moz', 'Webkit', 'O', 'ms', 'Khtml' ];
 		for ( i in prefixes ) {
-			if ( 'undefined' !== typeof e.style[ prefixes[ i ] + property ] ) {
+			if ( 'undefined' !== typeof e.style[ prefixes[ i ] + property ]) {
 				cssPrefixString[ property ] = prefixes[ i ];
 				return prefixes[ i ] + property;
 			}
@@ -33,14 +33,14 @@ window.cue = window.cue || {};
 	};
 
 	// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css/filters.js
-	cue.settings.hasCssFilters = (function() {
+	cue.settings.hasCssFilters = ( function() {
 		var el = document.createElement( 'div' );
 		el.style.cssText = browserPrefixes.join( 'filter:blur(2px); ' );
 		return !! el.style.length && ( undefined === document.documentMode || document.documentMode > 9 );
-	})();
+	}() );
 
 	// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/svg/filters.js
-	cue.settings.hasSvgFilters = (function() {
+	cue.settings.hasSvgFilters = ( function() {
 		var result = false;
 		try {
 			result = 'SVGFEColorMatrixElement' in window && 2 === SVGFEColorMatrixElement.SVG_FECOLORMATRIX_TYPE_SATURATE;
@@ -48,11 +48,11 @@ window.cue = window.cue || {};
 
 		// IE doesn't support SVG filters on HTML elements.
 		return result && ! /(MSIE|Trident)/.test( window.navigator.userAgent );
-	})();
+	}() );
 
-	cue.settings.isTouch = (function() {
+	cue.settings.isTouch = ( function() {
 		return ( 'ontouchstart' in window ) || window.DocumentTouch && document instanceof window.DocumentTouch;
-	})();
+	}() );
 
 	$html.toggleClass( 'no-css-filters', ! cue.settings.hasCssFilters ).toggleClass( 'no-svg-filters', ! cue.settings.hasSvgFilters );
 
@@ -76,10 +76,10 @@ window.cue = window.cue || {};
 
 					$playlist.on( 'backgroundCreate.cue', function( e, player ) {
 						$( player.container ).find( '.mejs-player-background' ).css( 'filter', 'url(\'' + window.location.href + '#cue-filter-blur\')' );
-					} );
+					});
 				}
 
-				$playlist.cuePlaylist( {
+				$playlist.cuePlaylist({
 					classPrefix: 'mejs-',
 					cueBackgroundUrl: data.thumbnail || '',
 					cueDisableControlsSizing: true,
@@ -96,7 +96,7 @@ window.cue = window.cue || {};
 					features: $.fn.cuePlaylist.features,
 					setDimensions: false,
 					timeFormat: 'm:ss'
-				} ).cueMediaClasses( {
+				}).cueMediaClasses({
 					breakpoints: [
 						{
 							type: 'max-width',
@@ -114,10 +114,10 @@ window.cue = window.cue || {};
 							size: 200
 						}
 					]
-				} );
-			} );
+				});
+			});
 		}
-	} );
+	});
 
 	$.fn.cuePlaylist.features = [
 		'cuebackground',
@@ -137,4 +137,4 @@ window.cue = window.cue || {};
 		.ready( cue.initialize )
 		.on( 'pjax:end', cue.initialize );
 
-})( this, jQuery );
+}( this, jQuery ) );

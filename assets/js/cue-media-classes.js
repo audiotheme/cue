@@ -1,10 +1,10 @@
 /* global jQuery */
 
-(function( window, $, undefined ) {
+( function( window, $, undefined ) {
 	'use strict';
 
 	var mediaClasses,
-		$elems = $( [] ),
+		$elems = $([]),
 		doCallback = true;
 
 	mediaClasses = {
@@ -83,7 +83,7 @@
 					bp = settings.breakpoints[ i ];
 					$el.toggleClass( bp.className, 'min-width' === bp.type ? w >= bp.size : w <= bp.size );
 				}
-			} );
+			});
 		}
 	};
 
@@ -101,7 +101,7 @@
 	 * @return {jQuery} Chainable jQuery collection.
 	 */
 	$.fn.cueMediaClasses = function( options ) {
-		var settings = $.extend( {
+		var settings = $.extend({
 			breakpoints: []
 		}, options );
 
@@ -112,10 +112,10 @@
 
 			$elems = $elems.add( $this );
 			mediaClasses.initEl( $this );
-		} );
+		});
 	};
 
 	$.fn.cueMediaClasses.defaults = {
 		resizeDelay: 800
 	};
-})( this, jQuery );
+}( this, jQuery ) );

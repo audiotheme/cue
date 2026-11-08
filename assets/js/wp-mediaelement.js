@@ -36,8 +36,8 @@
 			$controls.find( '.mejs-time-rail, .mejs-time-slider' ).css( 'width', '' );
 		});
 
-		$container.addClass(function() {
+		$container.addClass( function() {
 			return ( 'ontouchstart' in window ) || window.DocumentTouch && document instanceof window.DocumentTouch ? 'touch' : 'no-touch';
 		});
 	};
-})( jQuery );
+}( jQuery ) );

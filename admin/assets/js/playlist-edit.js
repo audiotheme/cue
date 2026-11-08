@@ -26,7 +26,7 @@ cue.workflows = workflows;
  * ========================================================================
  */
 
-$(function( $ ) {
+$( function( $ ) {
 	const tracks = new cue.model.Tracks( cue.data.tracks );
 	cue.tracks = tracks;
 	delete cue.data.tracks;

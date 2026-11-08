@@ -37,12 +37,12 @@ export const Track = wp.Backbone.View.extend({
 		this.views.add( '.cue-track-column-artwork', new TrackArtwork({
 			model: this.model,
 			parent: this
-		}));
+		}) );
 
 		this.views.add( '.cue-track-audio-group', new TrackAudio({
 			model: this.model,
 			parent: this
-		}));
+		}) );
 
 		return this;
 	},
@@ -90,7 +90,7 @@ export const Track = wp.Backbone.View.extend({
 		// the model attribute to be updated and get stuck in an
 		// infinite loop.
 		for ( const attribute in track ) {
-			$settings.filter( '[data-setting="' + attribute + '"]' ).val( decodeEntities( track[ attribute ] ) );
+			$settings.filter( '[data-setting="' + attribute + '"]' ).val( decodeEntities( track[ attribute ]) );
 		}
 	},
 
