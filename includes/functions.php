@@ -195,8 +195,9 @@ function sanitize_cue_track( $track, $context = 'display' ) {
 	if ( 'save' === $context ) {
 		$valid_props = get_cue_default_track();
 
-		// Remove properties that aren't in the whitelist.
-		$track = array_intersect_key( $track, $valid_props );
+		// Remove properties that aren't in the whitelist and fill in missing ones.
+		$track = array_intersect_key( (array) $track, $valid_props );
+		$track = wp_parse_args( $track, $valid_props );
 
 		// Sanitize valid properties.
 		$track['artist']     = sanitize_text_field( $track['artist'] );

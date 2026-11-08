@@ -33,9 +33,14 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 * @since 2.2.0
 	 */
 	public function get_playlists() {
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error();
+		}
+
 		$data = array();
-		$page = isset( $_POST['paged'] ) ? absint( $_POST['paged'] ) : 1;
+		$page = isset( $_POST['paged'] ) ? max( 1, absint( $_POST['paged'] ) ) : 1;
 		$posts_per_page = isset( $_POST['posts_per_page'] ) ? absint( $_POST['posts_per_page'] ) : 40;
+		$posts_per_page = min( max( 1, $posts_per_page ), 100 );
 
 		$playlists = new WP_Query( array(
 			'post_type'      => 'cue_playlist',
@@ -68,9 +73,9 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function get_playlist_tracks() {
-		$post_id = absint( $_POST['post_id'] );
+		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
 
-		if ( empty( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
+		if ( empty( $post_id ) || 'cue_playlist' !== get_post_type( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
 			wp_send_json_error();
 		}
 
@@ -85,24 +90,26 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 	 * @since 2.0.0
 	 */
 	public function save_playlist_tracks() {
-		$post_id = absint( $_POST['post_id'] );
+		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
 
 		check_ajax_referer( 'save-tracks_' . $post_id, 'nonce' );
 
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		if ( 'cue_playlist' !== get_post_type( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
 			wp_send_json_error();
 		}
 
 		// Sanitize the list of tracks.
-		$tracks = empty( $_POST['tracks'] ) ? array() : stripslashes_deep( $_POST['tracks'] );
-		foreach ( (array) $tracks as $key => $track ) {
-			if ( empty( $track ) ) {
+		$tracks = empty( $_POST['tracks'] ) ? array() : (array) wp_unslash( $_POST['tracks'] );
+		foreach ( $tracks as $key => $track ) {
+			if ( empty( $track ) || ! is_array( $track ) ) {
 				unset( $tracks[ $key ] );
 				continue;
 			}
 
 			$tracks[ $key ] = sanitize_cue_track( $track, 'save' );
 		}
+
+		$tracks = array_values( $tracks );
 
 		// Save the list of tracks to post meta.
 		update_post_meta( $post_id, 'tracks', $tracks );
@@ -126,13 +133,14 @@ class Cue_Provider_AJAX extends Cue_AbstractProvider {
 
 		check_ajax_referer( 'cue_parse_shortcode' );
 
-		if ( empty( $_POST['shortcode'] ) ) {
+		if ( ! current_user_can( 'edit_posts' ) || empty( $_POST['shortcode'] ) || ! is_string( $_POST['shortcode'] ) ) {
 			wp_send_json_error();
 		}
 
-		$shortcode = wp_unslash( $_POST['shortcode'] );
+		$shortcode = trim( wp_unslash( $_POST['shortcode'] ) );
 
-		if ( 0 !== strpos( $shortcode, '[cue ' ) ) {
+		// Only render a single [cue] shortcode, not other shortcodes appended to it.
+		if ( ! preg_match( '/^\[cue\s[^\[\]]*\]$/', $shortcode ) ) {
 			wp_send_json_error();
 		}
 
