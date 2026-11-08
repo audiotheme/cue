@@ -1,0 +1,34 @@
+# Update readme.txt and the plugin directory assets (banners, icons) on
+# WordPress.org without a new release, for changes like bumping "Tested up to".
+#
+# Runs when the trunk branch is pushed. Requires the SVN_USERNAME and
+# SVN_PASSWORD repository secrets.
+name: Plugin asset/readme update
+
+on:
+  push:
+    branches:
+      - trunk
+  workflow_dispatch:
+
+concurrency:
+  group: wporg-deploy
+  cancel-in-progress: false
+
+jobs:
+  trunk:
+    name: Push readme and assets to WordPress.org
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: WordPress.org plugin asset/readme update
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: cue
+          ASSETS_DIR: .wordpress-org
+          # Built files aren't committed, so the repo never matches SVN trunk.
+          # Only sync readme.txt and assets.
+          IGNORE_OTHER_FILES: true

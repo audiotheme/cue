@@ -1,0 +1,85 @@
+# Build and deploy the plugin to WordPress.org when a version tag is pushed.
+#
+# Requires the SVN_USERNAME and SVN_PASSWORD repository secrets.
+# Run it manually from the Actions tab to do a dry run without committing to SVN.
+name: Deploy to WordPress.org
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+concurrency:
+  group: wporg-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set the release version
+        run: |
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION=$(node -p "require('./package.json').version")
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Check the version matches package.json, cue.php, and readme.txt
+        run: bin/check-version.sh "$VERSION"
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build the plugin package
+        run: pnpm run package
+
+      # The package task rewrites version headers and text domains. If that
+      # changes any committed file, the tag doesn't match what would ship.
+      - name: Make sure packaging didn't change committed files
+        run: git diff --exit-code
+
+      - name: Unzip the package for deployment
+        run: unzip -q "dist/cue-$VERSION.zip" -d build
+
+      - name: Deploy to WordPress.org
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          dry-run: ${{ github.event_name != 'push' }}
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: cue
+          BUILD_DIR: build/cue
+          ASSETS_DIR: .wordpress-org
+
+      - name: Create a GitHub release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Use this version's readme.txt changelog entry as the release notes.
+          awk -v version="$VERSION" '
+            $0 ~ "^### " version "( |$)" { found = 1; next }
+            found && /^###? / { exit }
+            found { print }
+          ' readme.txt > release-notes.md
+          gh release create "$GITHUB_REF_NAME" "dist/cue-$VERSION.zip" \
+            --title "$VERSION" \
+            --notes-file release-notes.md \
+            --verify-tag

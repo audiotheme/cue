@@ -35,3 +35,38 @@ _The rendered player on the front end._
 ## Installation
 
 [*Cue* is in the WordPress.org plugin directory](https://wordpress.org/plugins/cue/) and can be installed from your admin panel.
+
+
+## Development
+
+Requires Node.js 22+ and [pnpm](https://pnpm.io/) (run `corepack enable` to use the pinned version).
+
+```bash
+pnpm install
+pnpm run build
+```
+
+`pnpm run package` builds a release zip in `dist/`.
+
+
+## Releasing
+
+Pushing a tag deploys the plugin to WordPress.org with the [deploy workflow](.github/workflows/push-deploy.yml). It checks the version, builds the package, commits it to SVN trunk and a new tag, updates the directory assets in `.wordpress-org`, and creates a GitHub release with the zip.
+
+1. Update `version` in `package.json`, `Version` in `cue.php`, and `Stable tag` in `readme.txt`.
+2. Add a `### x.y.z - Month D, YYYY` changelog entry to `readme.txt`.
+3. Run `bin/check-version.sh` to confirm everything matches.
+4. Commit, then tag and push:
+
+   ```bash
+   git tag x.y.z
+   git push origin develop x.y.z
+   ```
+
+5. Merge the release into the `trunk` branch.
+
+To try a release without deploying, run the workflow from the Actions tab. Manual runs build everything but don't commit to SVN.
+
+Pushing the `trunk` branch updates `readme.txt` and the directory assets on WordPress.org without a release, for changes like bumping "Tested up to".
+
+Both workflows need the `SVN_USERNAME` and `SVN_PASSWORD` repository secrets.

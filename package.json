@@ -12,8 +12,8 @@
   },
   "scripts": {
     "build": "grunt",
-    "package": "grunt package",
-    "release": "./bin/release.sh"
+    "deploy": "shipit demo deploy",
+    "package": "grunt package"
   },
   "devDependencies": {
     "@babel/core": "^7.29.13",
