@@ -64,6 +64,10 @@ function cue_playlist( $post, $args = array() ) {
 	$template_loader = new Cue_Template_Loader();
 	$template = $template_loader->locate_template( $template_names );
 
+	if ( ! $template ) {
+		return;
+	}
+
 	$themes = get_cue_themes();
 	if ( ! isset( $themes[ $args['theme'] ] ) ) {
 		$args['theme'] = 'default';
