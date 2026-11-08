@@ -36,6 +36,7 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 		}
 
 		register_block_type( 'cue/playlist', array(
+			'api_version' => 3,
 			'title'       => esc_html__( 'Cue', 'cue' ),
 			'description' => esc_html__( 'The Cue block allows you to display an audio playlist in your content.', 'cue' ),
 			'icon'        => '',
@@ -68,8 +69,8 @@ class Cue_Provider_Editor extends Cue_AbstractProvider {
 		wp_enqueue_script(
 			'cue-block-editor',
 			$this->plugin->get_url( 'admin/assets/js/editor.bundle.js' ),
-			array( 'lodash', 'media-views', 'underscore', 'wp-block-editor', 'wp-blocks', 'wp-element', 'wp-util' ),
-			'20171219'
+			array( 'lodash', 'media-views', 'underscore', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n', 'wp-shortcode', 'wp-util' ),
+			'20261028'
 		);
 
 		$upgrade_message = '';

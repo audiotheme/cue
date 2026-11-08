@@ -26,7 +26,11 @@ export default class Sandbox extends Component {
 	}
 
 	componentDidMount() {
-		window.addEventListener( 'message', this.receiveMessage, false );
+
+		// The block editor canvas may be an iframe, so listen on the window
+		// that owns the preview iframe instead of the top-level window.
+		this.ownerWindow = this.iframe.ownerDocument.defaultView;
+		this.ownerWindow.addEventListener( 'message', this.receiveMessage, false );
 		this.setContent();
 	}
 
@@ -37,7 +41,9 @@ export default class Sandbox extends Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener( 'message', this.receiveMessage );
+		if ( this.ownerWindow ) {
+			this.ownerWindow.removeEventListener( 'message', this.receiveMessage );
+		}
 	}
 
 	isFrameAccessible() {
