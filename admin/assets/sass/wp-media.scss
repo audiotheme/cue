@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .cue-playlist-browser,
 .cue-playlist-browser * {
 	box-sizing: border-box;
@@ -207,7 +209,7 @@
 @media screen and (min-width: 784px) {
 	.cue-playlists-frame--select {
 		.cue-playlist-browser-list-item {
-			width: 100 / 6 + '%';
+			width: math.percentage(math.div(1, 6));
 		}
 	}
 }
