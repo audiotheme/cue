@@ -3,8 +3,8 @@
 Contributors: audiotheme, bradyvercher, brodyvercher, thelukemcdonald
 Tags: playlist, audio, music, mp3, player
 Requires at least: 5.6
-Tested up to: 6.8
-Stable tag: 2.4.5
+Tested up to: 7.1
+Stable tag: 2.4.6
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,17 @@ Not at this time. SoundCloud URLs don't point directly at audio files, so suppor
 
 
 ## Changelog
+
+### 2.4.6 - November 8, 2026
+* Security: Fixed a path traversal vulnerability in the playlist template loader. Props [kta1kri](https://github.com/kta1kri) for responsibly disclosing the issue.
+* Security: Fixed a stored cross-site scripting vulnerability on the Edit Playlist screen.
+* Security: Restricted assigning playlists to players to users who can edit theme options.
+* Security: Prevented unpublished playlists from displaying to users who can't read them.
+* Added capability and input checks to AJAX handlers.
+* Prevented PHP warnings when a playlist template or artwork image can't be located.
+* Updated the playlist block to use block API version 3 for compatibility with the iframed editor.
+* Fixed invalid CSS that prevented the playlist browser in the block editor from displaying six columns on wide screens.
+* Updated Gamajo Template Loader to 1.3.1.
 
 ### 2.4.5 - April 1, 2025
 * Updated jquery.cue.js to 1.2.6.
