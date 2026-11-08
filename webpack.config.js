@@ -1,4 +1,3 @@
-const webpack = require( 'webpack' );
 const EOLPlugin = require( './config/webpack/eol-plugin' );
 const mode = process.env.NODE_ENV || 'development';
 
@@ -41,13 +40,9 @@ const config = {
 	]
 };
 
-switch ( process.env.NODE_ENV ) {
-	case 'production':
-		config.plugins.push( new webpack.optimize.UglifyJsPlugin() );
-		break;
-
-	default:
-		config.devtool = 'source-map';
+// Production mode minifies with Terser by default.
+if ( 'production' !== mode ) {
+	config.devtool = 'source-map';
 }
 
 module.exports = config;

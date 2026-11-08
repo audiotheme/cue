@@ -1,4 +1,12 @@
 module.exports = {
+	options: {
+		// uglify-js 3.18+ treats input as an ES module by default, which adds
+		// strict mode semantics. grunt-contrib-uglify doesn't pass the top-level
+		// `module` option, so turn it off for each step instead.
+		compress: { module: false },
+		output: { module: false },
+		parse: { module: false }
+	},
 	build: {
 		files: [
 			{

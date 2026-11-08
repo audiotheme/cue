@@ -3,6 +3,6 @@ module.exports = {
 		files: [
 			'{,admin/}assets/sass/{,**/}*.scss'
 		],
-		tasks: [ 'sass', 'postcss' ]
+		tasks: [ 'build:css' ]
 	}
 };

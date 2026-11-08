@@ -19,6 +19,7 @@ module.exports = {
 					'!.esformatter',
 					'!.gitignore',
 					'!composer.*',
+					'!eslint.config.js',
 					'!gruntfile.js',
 					'!Gruntfile.js',
 					'!package-lock.json',

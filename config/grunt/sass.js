@@ -2,7 +2,7 @@ module.exports = {
 	build: {
 		options: {
 			implementation: require( 'sass' ),
-			outputStyle: 'expanded'
+			style: 'expanded'
 		},
 		files: [
 			{
