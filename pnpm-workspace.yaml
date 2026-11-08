@@ -1,0 +1,5 @@
+# Install scripts that aren't needed: @parcel/watcher has prebuilt binaries and
+# is only used by the Sass CLI's watch mode; core-js only prints a message.
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - core-js

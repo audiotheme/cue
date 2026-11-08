@@ -13,6 +13,8 @@ const config = {
 		path: __dirname + '/admin/assets/js'
 	},
 	externals: {
+		// The Babel preset imports createElement from here for JSX.
+		'@wordpress/element': 'wp.element',
 		_: '_',
 		backbone: 'Backbone',
 		jquery: 'jQuery',
