@@ -53,7 +53,8 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 	public function register_meta_boxes( $post ) {
 		$players = get_cue_players();
 
-		if ( ! empty( $players ) ) {
+		// Player assignments are site-wide, so match the Customizer capability.
+		if ( ! empty( $players ) && current_user_can( 'edit_theme_options' ) ) {
 			add_meta_box(
 				'cue-players',
 				esc_html__( 'Players', 'cue' ),
@@ -264,13 +265,13 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		$is_valid_nonce = isset( $_POST['cue_playlist_players_nonce'] ) && wp_verify_nonce( $_POST['cue_playlist_players_nonce'], 'save-playlist-players_' . $post_id );
 
 		// Bail if the data shouldn't be saved or intention can't be verified.
-		if ( $is_active || $is_autosave || $is_revision || ! $is_valid_nonce ) {
+		if ( $is_active || $is_autosave || $is_revision || ! $is_valid_nonce || ! current_user_can( 'edit_theme_options' ) ) {
 			return;
 		}
 
 		$is_active = true;
 
-		$data = get_theme_mod( 'cue_players', array() );
+		$data = (array) get_theme_mod( 'cue_players', array() );
 
 		// Reset players connected to the current playlist.
 		foreach ( $data as $player_id => $playlist_id ) {
@@ -280,8 +281,11 @@ class Cue_Screen_EditPlaylist extends Cue_AbstractProvider {
 		}
 
 		// Connect selected players with the current playlist.
-		if ( ! empty( $_POST['cue_players'] ) ) {
-			$players = array_map( 'sanitize_key', $_POST['cue_players'] );
+		if ( ! empty( $_POST['cue_players'] ) && is_array( $_POST['cue_players'] ) ) {
+			$players = array_map( 'sanitize_key', wp_unslash( $_POST['cue_players'] ) );
+
+			// Only allow players registered by the theme or plugins.
+			$players = array_intersect( $players, array_keys( get_cue_players() ) );
 
 			foreach ( $players as $player_id ) {
 				$data[ $player_id ] = $post_id;
